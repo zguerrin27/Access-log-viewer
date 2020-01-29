@@ -16,6 +16,7 @@ gem 'webpacker', '~> 4.0'
 
 # Gems for app 
 gem 'httparty'
+gem 'useragent'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

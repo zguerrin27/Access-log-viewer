@@ -17,14 +17,18 @@ ActiveRecord::Schema.define(version: 2020_01_27_194726) do
 
   create_table "requests", force: :cascade do |t|
     t.inet "ip"
-    t.text "pword"
-    t.text "userId"
+    t.string "pword"
+    t.string "userId"
     t.datetime "timestamp"
-    t.text "request"
+    t.string "requestMethod"
+    t.string "requestPath"
+    t.string "requestProtocol"
     t.integer "responseCode"
     t.integer "responseSize"
-    t.text "referrer"
-    t.text "browserInfo"
+    t.string "referrer"
+    t.string "browser"
+    t.text "fullRequest"
+    t.text "fullBrowserInfo"
   end
 
 end

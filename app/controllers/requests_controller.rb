@@ -9,8 +9,6 @@ class RequestsController < ApplicationController
         render json: {requests: @requests}
     end
 
-    def create
-
-    end
+   
 
 end
