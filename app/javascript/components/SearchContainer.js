@@ -25,12 +25,15 @@ class SearchContainer extends Component {
       search: term
     })
     .then((data)=> {
-      console.log(data)
+    // console.log(data)
+    this.setState({
+      search_results: [...data.data.requests]
+    })
+      console.log(this.state.search_results)
     })
     .catch((data)=>{
       debugger
     })
-    // console.log(this.state.searchTerm)
   }
 
   render(){
@@ -38,7 +41,7 @@ class SearchContainer extends Component {
       <div>
         <NavBar/>
         <Search handleChange={this.handleChange}/>
-        <Results/>
+        <Results searchResults={this.state.search_results} />
       </div>
     )
   }

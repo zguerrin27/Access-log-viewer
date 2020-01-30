@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_194726) do
   enable_extension "plpgsql"
 
   create_table "requests", force: :cascade do |t|
-    t.inet "ip"
+    t.string "ip"
     t.string "pword"
     t.string "userId"
     t.datetime "timestamp"

@@ -10,7 +10,9 @@ class NavBar extends Component {
   render(){
     return(
       <div>
-        Nav Bar Goes Here
+        <h2>
+          Nav Bar Goes Here
+        </h2>
       </div>
     )
   }

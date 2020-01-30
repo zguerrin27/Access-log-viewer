@@ -51,7 +51,7 @@ File.open("../apache_logs2", "r") do |file|
         #     'fullBrowserInfo' => fullBrowserInfo
         # })
 
-        puts ip + " | " + pword + " | " + userId + " | " + timestamp + " | " + requestMethod + " | " + stripedRequestPath + " | " + requestProtocol + " | " + stripedResponseCode + " | " + responseSize + " | " + referrer + " | " + browser + " | " + fullRequest + " | " + fullBrowserInfo
+        # puts ip + " | " + pword + " | " + userId + " | " + timestamp + " | " + requestMethod + " | " + stripedRequestPath + " | " + requestProtocol + " | " + stripedResponseCode + " | " + responseSize + " | " + referrer + " | " + browser + " | " + fullRequest + " | " + fullBrowserInfo
 
     end
 

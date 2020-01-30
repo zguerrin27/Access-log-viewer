@@ -1,7 +1,7 @@
 class CreateRequests < ActiveRecord::Migration[6.0]
   def change
     create_table :requests do |t|
-      t.inet :ip
+      t.string :ip
       t.string :pword
       t.string :userId
       t.datetime :timestamp

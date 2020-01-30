@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
     end
 
     def search
-        @requests = Request.where(id: "#{params[:search]}")
+        @requests = Request.where(ip: "#{params[:search]}")
         render json: {requests: @requests}
     end
 
