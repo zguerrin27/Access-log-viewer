@@ -10,6 +10,10 @@ class RequestTest < ActiveSupport::TestCase
         assert @request.valid?
     end
 
+    # test "search" do
+    
+    # end
+
     test "request should not save without valid feilds" do
         @request = Request.new(ip: "", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)

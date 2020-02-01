@@ -35,21 +35,21 @@ File.open("../apache_logs2", "r") do |file|
         user_agent = UserAgent.parse(fullBrowserInfo)
         browser = user_agent.browser
         
-        # access_logs.push({
-        #     'ip'              => ip,
-        #     'pword'           => pword,
-        #     'userId'          => userId,
-        #     'timestamp'       => newTimestamp,
-        #     'requestMethod'   => requestMethod,
-        #     'requestPath'     => stripedRequestPath,
-        #     'requestProtocol' => requestProtocol,
-        #     'responseCode'    => stripedResponseCode,
-        #     'responseSize'    => responseSize,
-        #     'referrer'        => referrer,
-        #     'browser'         => browser,
-        #     'fullRequest'     => fullRequest,
-        #     'fullBrowserInfo' => fullBrowserInfo
-        # })
+        access_logs.push({
+            'ip'              => ip,
+            'pword'           => pword,
+            'userId'          => userId,
+            'timestamp'       => newTimestamp,
+            'requestMethod'   => requestMethod,
+            'requestPath'     => stripedRequestPath,
+            'requestProtocol' => requestProtocol,
+            'responseCode'    => stripedResponseCode,
+            'responseSize'    => responseSize,
+            'referrer'        => referrer,
+            'browser'         => browser,
+            'fullRequest'     => fullRequest,
+            'fullBrowserInfo' => fullBrowserInfo
+        })
 
         # puts ip + " | " + pword + " | " + userId + " | " + timestamp + " | " + requestMethod + " | " + stripedRequestPath + " | " + requestProtocol + " | " + stripedResponseCode + " | " + responseSize + " | " + referrer + " | " + browser + " | " + fullRequest + " | " + fullBrowserInfo
 
