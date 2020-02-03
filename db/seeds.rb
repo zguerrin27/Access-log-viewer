@@ -56,7 +56,7 @@ File.open("../apache_logs2", "r") do |file|
     end
 
     # puts access_logs
-    # Request.create(access_logs)
+    Request.create(access_logs)
 
 end
 

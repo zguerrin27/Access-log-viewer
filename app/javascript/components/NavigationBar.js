@@ -15,7 +15,7 @@ class NavigationBar extends Component {
   render(){
     return(
       <div>
-      <Navbar color="dark">
+      <Navbar color="dark" >
         <NavbarBrand id="nav-logo">AccessLogViewer</NavbarBrand>
       </Navbar>
     </div>

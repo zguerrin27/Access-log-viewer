@@ -13,10 +13,10 @@ class Request < ApplicationRecord
     validates :fullRequest, presence: true
     validates :fullBrowserInfo, presence: true
 
-    self.per_page = 10
+    self.per_page = 20
 
-    def self.search(params) 
-        where(ip: "#{params[:search]}")
-    end
-    
+    # def self.search(params) 
+    #     where(ip: "#{params[:search]}")
+    # end
+
 end 

@@ -1,114 +1,157 @@
-import React, { Component } from 'react'
-import Search from './Search'
-import Results from './Results'
-import axios from 'axios'
-import { Pagination, Container } from 'semantic-ui-react'
+import React, { Component } from "react";
+import Search from "./Search";
+import Results from "./Results";
+import axios from "axios";
+import { Pagination, Container, Icon } from "semantic-ui-react";
 
 class SearchContainer extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchTerm: "",
       searchIp: "",
       searchBrowser: "",
       search_results: [],
-      loading: true,
+      showEllipsis: true,
       logs: []
-    }
+    };
 
-    this.handleChange = this.handleChange.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount(){
-    this.loadInitialData()
-  }
+  // componentDidMount(){
+  //   this.loadInitialData()
+  // }
 
-  loadInitialData() {
-    axios.get("http://localhost:3000/load")
-    .then((data)=> {
-      console.log('FROM THE loadInitialData() **********', data)
-      this.setState({
-        loading: false,
-        logs: data.data
-      })
-      console.log('FROM THE STATE AFTER THE LOAD', this.state.logs)
-    })
-    .catch((error)=>{
-      error
-    })
-  }
-
-  handleChange(e){
-    const term = e.target.value;
-    this.setState({
-      [e.target.name]: term
-    })
-    axios.post("http://localhost:3000/search", {
-      search: term
-    })
-    .then((data)=> {
-      this.setState({
-        search_results: [...data.data.requests]
-      })
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-  }
-
-  handlePage = (e, props) => {
-    axios.get("http://localhost:3000/load/?page=" + props.activePage)
-    .then((data) => {
-      this.setState({
-        logs: data.data
-      })
-    })
-  }
+  // loadInitialData() {
+  //   axios.get("http://localhost:3000/load")
+  //   .then((data)=> {
+  //     this.setState({
+  //       logs: data.data
+  //     })
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  // }
 
   // handlePage = (e, props) => {
-  //   this.setState({
-  //     loading: true
+  //   axios.get("http://localhost:3000/load/?page=" + props.activePage)
+  //   .then((data) => {
+  //     this.setState({
+  //       logs: data.data
+  //     })
   //   })
-  //   const url = "http://localhost:3000/load/?page=" + props.activePage
-  //   fetch(url).
-  //   then(res => res.json())
-  //   .then(this.initialState)
   // }
 
-  // async handlePage = (e, props) => {
-  //   this.setState({
-  //     loading: true
-  //   })
-  //   const url = "http://localhost:3000/load/?page=" + props.activePage
-  //   let newData = await fetch(url);
-  //   newData= await newData.json();
-  //   this.loadInitialData(newData)
+  // ===================================================================================
+
+  // componentDidMount(){
+  //   this.loadInit()
   // }
 
+  // loadInit(){
+  //   axios.get("http://localhost:3000/load")
+  //   .then((res)=>{
+  //     this.loadLogs(res)
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  // }
 
+  // newPage = (e, props) => {
+  //     axios.get("http://localhost:3000/load/?page=" + props.activePage)
+  //     .then((res) => {
+  //       this.loadLogs(res)
+  //     })
+  //     .catch((error)=>{
+  //       console.log(error)
+  //     })
+  //   }
 
-  render(){
+  // loadLogs(data){
+  //   this.setState({
+  //     logs: data.data
+  //   })
+  // }
 
-    const logs = this.state.logs.requests ? this.state.logs.requests.map(log => <li key={log.id}>{log.ip}       {log.pword}       {log.userId}       {log.requestMethod}       {log.requestPath}       {log.requestProtocol}       {log.responseCode}       {log.responseSize}       {log.referrer}       {log.browser} </li>) : null 
+  // ===================================================================================
 
-    return(
-      <Container>
-        {logs}
-        <Pagination 
-          onPageChange={this.handlePage} 
-          // size="mini" 
-          siblingRange="6" 
-          defaultActivePage={this.state.logs.page || 1}
-          totalPages={this.state.logs.pages || 0} 
-        />
+  componentDidMount() {
+    const logs = this.makeAJAXCall();
+    this.updateState(logs);
+  }
 
+  async makeAJAXCall(page = 0) {
+    const addedInfo = page === 0 ? "" : "?page=" + page;
+    const res = await axios.get("http://localhost:3000/load/" + addedInfo);
+    return res;
+  }
 
-         {/* <Search handleChange={this.handleChange}/> 
-         <Results searchResults={this.state.search_results} /> */}
+  // no page aka 0
+  // with page num
+
+  updateState(data) {
+    this.setState({
+      logs: data.data
+    });
+  }
+
+  //test that state is being changed correctly
+
+  // SEARCH FEATURE
+
+  // handleChange(e){
+  //   axios.post("http://localhost:3000/search", {
+  //     // search_for: ''
+  //     search: e.target.value
+  //   })
+  //   .then((data)=> {
+  //     this.setState({
+  //       search_results: [...data.data.requests]
+  //     })
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  // }
+
+  render() {
+    const showEllipsis = this.state;
+
+    const logs = this.state.logs.requests
+      ? this.state.logs.requests.map(log => (
+          <li key={log.id}>
+            {log.ip} {log.pword} {log.userId} {log.requestMethod}{" "}
+            {log.requestPath} {log.requestProtocol} {log.responseCode}{" "}
+            {log.responseSize} {log.referrer} {log.browser}{" "}
+          </li>
+        ))
+      : null;
+
+    return (
+      <Container className="main-content">
+        {/* <Search handleChange={this.handleChange}/> 
+        <Results searchResults={this.state.search_results} /> */}
+        <Container className="pagination-container">
+          <Pagination
+            // onPageChange={this.handlePage}
+            // onPageChange={this.newPage}
+            onPageChange={(e, props) => this.loadData(props.activePage)}
+            size="large"
+            siblingRange="1"
+            defaultActivePage={this.state.logs.page || 1}
+            ellipsisItem={showEllipsis ? undefined : null}
+            totalPages={this.state.logs.pages || 0}
+          />
+        </Container>
+
+        <div className="logs-container">{logs}</div>
       </Container>
-    )
+    );
   }
 }
 
-export default SearchContainer
+export default SearchContainer;

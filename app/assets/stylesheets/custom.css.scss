@@ -1,8 +1,43 @@
+// body {
+//   background-color:#DCDCDC !important;
+// }
 
 #nav-logo {
   color: white;
 }
 
-.main-app-container {
+li {
+  list-style: none;
+  font-size: medium;
   padding: 10px;
+}
+li:nth-child(odd) {
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  height: 55px;
+}
+
+.navbar-brand {
+  font-size: large !important;
+}
+
+.logs-container {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d3d3d3;
+  border-radius: 5px;
+  padding: 2px;
+  min-height: 50vh;
+  max-width: 85vw;
+  overflow-wrap: break-word;
+  margin-top: 5px;
+  background-color: #e8e8e8;
+}
+
+.pagination-container {
+  text-align: center;
+  margin-top: 5px;
 }

@@ -12,7 +12,7 @@ axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 class App extends Component {
   render(){
     return(
-      <div>
+      <div className="body">
         <NavigationBar/>
         <SearchContainer />
       </div>
