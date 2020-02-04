@@ -35,7 +35,5 @@ class RequestsController < ApplicationController
     # end
 
     
-   
-   
 
 end
