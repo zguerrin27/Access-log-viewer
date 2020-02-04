@@ -20,80 +20,47 @@ class SearchContainer extends Component {
     // this.handleChange = this.handleChange.bind(this)
   }
 
-  // componentDidMount(){
-  //   this.loadInitialData()
+  // componentDidMount() {
+  //   this.loadInitialData();
   // }
 
   // loadInitialData() {
-  //   axios.get("http://localhost:3000/load")
-  //   .then((data)=> {
-  //     this.setState({
-  //       logs: data.data
+  //   axios
+  //     .get("http://localhost:3000/load")
+  //     .then(data => {
+  //       this.setState({
+  //         logs: data.data
+  //       });
   //     })
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
   // }
 
   // handlePage = (e, props) => {
-  //   axios.get("http://localhost:3000/load/?page=" + props.activePage)
-  //   .then((data) => {
-  //     this.setState({
-  //       logs: data.data
-  //     })
-  //   })
-  // }
-
-  // ===================================================================================
-
-  // componentDidMount(){
-  //   this.loadInit()
-  // }
-
-  // loadInit(){
-  //   axios.get("http://localhost:3000/load")
-  //   .then((res)=>{
-  //     this.loadLogs(res)
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
-  // }
-
-  // newPage = (e, props) => {
-  //     axios.get("http://localhost:3000/load/?page=" + props.activePage)
-  //     .then((res) => {
-  //       this.loadLogs(res)
-  //     })
-  //     .catch((error)=>{
-  //       console.log(error)
-  //     })
-  //   }
-
-  // loadLogs(data){
-  //   this.setState({
-  //     logs: data.data
-  //   })
-  // }
+  //   axios
+  //     .get("http://localhost:3000/load/?page=" + props.activePage)
+  //     .then(data => {
+  //       this.setState({
+  //         logs: data.data
+  //       });
+  //     });
+  // };
 
   // ===================================================================================
 
   componentDidMount() {
-    const logs = this.makeAJAXCall();
-    this.updateState(logs);
+    this.makeAJAXCall();
   }
 
   async makeAJAXCall(page = 0) {
     const addedInfo = page === 0 ? "" : "?page=" + page;
     const res = await axios.get("http://localhost:3000/load/" + addedInfo);
-    return res;
+    this.updateState(res);
   }
 
-  // no page aka 0
-  // with page num
-
   updateState(data) {
+    console.log(data);
     this.setState({
       logs: data.data
     });
@@ -139,7 +106,7 @@ class SearchContainer extends Component {
           <Pagination
             // onPageChange={this.handlePage}
             // onPageChange={this.newPage}
-            onPageChange={(e, props) => this.loadData(props.activePage)}
+            onPageChange={(e, props) => this.makeAJAXCall(props.activePage)}
             size="large"
             siblingRange="1"
             defaultActivePage={this.state.logs.page || 1}
