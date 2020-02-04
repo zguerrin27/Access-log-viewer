@@ -1,0 +1,19 @@
+# request:
+#   ip: 83.149.9.216
+#   pword: -
+#   userId: -
+#   timestamp: 12/12/12
+#   requestMethod: GET
+#   requestPath: /path/to/endpoint
+#   requestProtocol: HTTP/1.1
+#   responseCode: 200
+#   responseSize: 23456
+#   referrer: http://apple.com/secretHelicopter
+#   browser: Safari
+#   fullRequest: GET /path/to/endpoint HTTP/1.1
+#   fullBrowserInfo: Mozilla (Macintosh; Intel Mac OS X 10_9_1)
+
+# # for (1...40) do |i|
+# #{i}
+
+# # end

@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
 
     def index
-
+        
     end
 
     def load

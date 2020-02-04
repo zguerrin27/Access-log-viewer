@@ -51,6 +51,7 @@ class SearchContainer extends Component {
 
   componentDidMount() {
     this.makeAJAXCall();
+    console.log(React.version);
   }
 
   async makeAJAXCall(page = 0) {
@@ -60,7 +61,6 @@ class SearchContainer extends Component {
   }
 
   updateState(data) {
-    console.log(data);
     this.setState({
       logs: data.data
     });
