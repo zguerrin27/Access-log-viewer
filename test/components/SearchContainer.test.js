@@ -9,6 +9,7 @@ configure({ adapter: new Adapter() });
 axios.defaults.adapter = require("axios/lib/adapters/http");
 
 const nock = require("nock");
+
 const REQUEST1 = {
   ip: "83.149.9.216",
   pword: "-",
@@ -26,12 +27,9 @@ const REQUEST1 = {
 };
 
 
-
 describe("SearchContainer Component", () => {
 
-
-  it("sets state when component mounts", async (done) => {
-
+  it("checks if app makes AJAX request and sets state ", async (done) => {  //adding done keyword is very important with jest. tells                                                                                 jest that I want to have control over when the test                                                                                    finishes in the execution flow
     nock("http://localhost:3000")
       .get("/load/")
       .reply(200, {
@@ -44,19 +42,44 @@ describe("SearchContainer Component", () => {
         }
       });
 
-    const wrapper = shallow(<SearchContainer />);
-    const logsState = wrapper.state().logs;
-    expect(logsState).toEqual([]);
+    const wrapper = shallow(<SearchContainer />);       // mounts component
+    const logsState = wrapper.state().logs;             // initally the logs are empty 
+    expect(logsState).toEqual([]);                      // passes 
     setTimeout(() => {
-      const logsState = wrapper.state().logs;
-      expect(logsState.data.requests[0]).toEqual(REQUEST1)
-      expect(logsState.data.page).toEqual(1)
-      expect(logsState.data.pages).toEqual(1)
-      done();
+      const logsState = wrapper.state().logs;                  // after 1sec it checks state again 
+      expect(logsState.data.requests[0]).toEqual(REQUEST1)     // confirms that component mounted and makeAJAXCall was called 
+      expect(logsState.data.page).toEqual(1)                   // pagination test
+      expect(logsState.data.pages).toEqual(1)                  // pagination test 
+      expect(wrapper.find('.main-content'))
+      expect(wrapper.find('.pagination-container'))
+      expect(wrapper.find('.logs-container'))
+      done();                                                  // finally call done to tell test to finish
     }, 1000)
-
 
   });
 
+
+  it("checks if each component renders", async (done) => {   // adding done keyword is very important with jest. tells                                                                                          jest that I want to have control over when the test                                                                                             finishes in the execution flow 
+    nock("http://localhost:3000")
+      .get("/load/")
+      .reply(200, {
+        data: {
+          requests: [
+            REQUEST1
+          ],
+          page: 1,
+          pages: 1
+        }
+      });
+
+    setTimeout(() => {
+      const wrapper = shallow(<SearchContainer />);           // simulates component, allows us to writes assertions on component
+      expect(wrapper.find('.main-content'))
+      expect(wrapper.find('.pagination-container'))
+      expect(wrapper.find('.logs-container'))
+      done();                                                  // finally call done to tell test to finish
+    }, 1000)
+
+  });
 
 });

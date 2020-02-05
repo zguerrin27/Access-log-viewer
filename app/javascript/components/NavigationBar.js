@@ -6,19 +6,18 @@ import {
 
 
 class NavigationBar extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-
 
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-      <Navbar color="dark" >
-        <NavbarBrand id="nav-logo">AccessLogViewer</NavbarBrand>
-      </Navbar>
-    </div>
+        <Navbar color="dark" >
+          <NavbarBrand id="nav-logo">AccessLogViewer</NavbarBrand>
+        </Navbar>
+      </div>
     )
   }
 }

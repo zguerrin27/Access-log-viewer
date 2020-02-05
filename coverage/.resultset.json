@@ -1,18 +1,55 @@
 {
   "Minitest": {
     "coverage": {
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/mailers/application_mailer.rb": {
+      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/test/controllers/pages_controller_test.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/models/request.rb": {
+      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/test/controllers/requests_controller_test.rb": {
         "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
           0,
           0,
           null,
@@ -20,144 +57,73 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
+          null
+        ]
       },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/models/application_record.rb": {
+      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/test/models/request_test.rb": {
         "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/jobs/application_job.rb": {
-        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
           0,
           null,
           null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/controllers/requests_controller.rb": {
-        "lines": [
+          1,
           0,
           null,
-          0,
           null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
           0,
           0,
           null,
           0,
           0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
           0,
           0,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/controllers/application_controller.rb": {
-        "lines": [
+          1,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/helpers/pages_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/helpers/requests_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/helpers/application_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/zacharyguerrin/Documents/First Project/Access-Log-Viewer/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1580773509
+    "timestamp": 1580942014
   }
 }

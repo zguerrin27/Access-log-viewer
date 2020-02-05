@@ -10,8 +10,6 @@ class SearchContainer extends Component {
 
     this.state = {
       searchTerm: "",
-      searchIp: "",
-      searchBrowser: "",
       search_results: [],
       showEllipsis: true,
       logs: []
@@ -23,7 +21,6 @@ class SearchContainer extends Component {
   // componentDidMount() {
   //   this.loadInitialData();
   // }
-
   // loadInitialData() {
   //   axios
   //     .get("http://localhost:3000/load")
@@ -36,7 +33,6 @@ class SearchContainer extends Component {
   //       console.log(error);
   //     });
   // }
-
   // handlePage = (e, props) => {
   //   axios
   //     .get("http://localhost:3000/load/?page=" + props.activePage)
@@ -50,32 +46,22 @@ class SearchContainer extends Component {
   // ===================================================================================
 
   componentDidMount() {
-    // console.debug("0");
     this.makeAJAXCall();
-    // console.debug("2");
   }
 
   async makeAJAXCall(page = 0) {
-    console.debug("1");
     const addedInfo = page === 0 ? "" : "?page=" + page;
     const url = "http://localhost:3000/load/" + addedInfo;
-    // console.debug(url);
     const res = await axios.get(url);
-    // console.debug("3");
     this.updateState(res);
   }
 
   updateState(data) {
-    // console.log("DATA:", data.data);
     this.setState({
       logs: data.data
     });
   }
 
-
-
-
-  //test that state is being changed correctly
 
   // SEARCH FEATURE
 
@@ -94,6 +80,15 @@ class SearchContainer extends Component {
   //   })
   // }
 
+
+  // on submit 
+
+  // onSubmit = () = {
+
+  // }
+
+  // 
+
   render() {
     const showEllipsis = this.state;
 
@@ -109,7 +104,7 @@ class SearchContainer extends Component {
 
     return (
       <Container className="main-content">
-        {/* <Search handleChange={this.handleChange}/> 
+        {/* <Search handleChange={this.handleChange} state = /> 
         <Results searchResults={this.state.search_results} /> */}
 
         <Container className="pagination-container">

@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
 
     # def search 
     #     # byebug
-    #     @requests = Request.where(params[:search_by]: "#{params[:search]}")
+    #     @requests = Request.where(params[:search_by].to_sym => #{params[:search]})
     #     byebug
     #     render json: {requests: @requests}, status: :ok
     # end
