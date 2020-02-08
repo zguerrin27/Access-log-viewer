@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import Search from "./Search";
-import Results from "./Results";
 import axios from "axios";
-import { Pagination, Container, Icon } from "semantic-ui-react";
+import SearchModal from './SearchModal';
+import {
+  Pagination,
+  Container,
+  Icon,
+} from "semantic-ui-react";
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -12,10 +15,11 @@ class SearchContainer extends Component {
       searchTerm: "",
       search_results: [],
       showEllipsis: true,
-      logs: []
+      logs: [],
+      modal: false
     };
 
-    // this.handleChange = this.handleChange.bind(this)
+
   }
 
   // componentDidMount() {
@@ -23,9 +27,9 @@ class SearchContainer extends Component {
   // }
   // loadInitialData() {
   //   axios
-  //     .get("http://localhost:3000/load")
-  //     .then(data => {
-  //       this.setState({
+  //     .get("http://localhost:3000/load")          // this is the old way of doing this. It isnt function programming.
+  //     .then(data => {                             // I refactored this in the section directly below 
+  //       this.setState({                           //
   //         logs: data.data
   //       });
   //     })
@@ -81,13 +85,15 @@ class SearchContainer extends Component {
   // }
 
 
-  // on submit 
-
   // onSubmit = () = {
 
   // }
 
-  // 
+  toggleSearch = () => {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
 
   render() {
     const showEllipsis = this.state;
@@ -104,8 +110,8 @@ class SearchContainer extends Component {
 
     return (
       <Container className="main-content">
-        {/* <Search handleChange={this.handleChange} state = /> 
-        <Results searchResults={this.state.search_results} /> */}
+
+        <SearchModal />
 
         <Container className="pagination-container">
           <Pagination
@@ -119,7 +125,9 @@ class SearchContainer extends Component {
           />
         </Container>
 
-        <div className="logs-container">{logs}</div>
+        <div className="logs-container">
+          {logs}
+        </div>
       </Container>
     );
   }
