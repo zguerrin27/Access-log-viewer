@@ -27,9 +27,9 @@ class SearchContainer extends Component {
   // }
   // loadInitialData() {
   //   axios
-  //     .get("http://localhost:3000/load")          // this is the old way of doing this. It isnt function programming.
-  //     .then(data => {                             // I refactored this in the section directly below 
-  //       this.setState({                           //
+  //     .get("http://localhost:3000/load")    // this is the old way of doing this. It isnt functional programming.
+  //     .then(data => {                       // I refactored this in the section directly below 
+  //       this.setState({                     //
   //         logs: data.data
   //       });
   //     })

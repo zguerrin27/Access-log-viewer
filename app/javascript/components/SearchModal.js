@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import InputBar from './InputBar'
 import {
   Button,
   Modal,
@@ -16,7 +17,8 @@ import {
   DropdownButton,
   Dropdown,
   Item,
-  FormControl
+  FormControl,
+  Container
 } from 'reactstrap';
 
 
@@ -27,8 +29,13 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filters: []
+      filterKey: '',
+      filterValue: '',
+      filters: [{ key: '', value: '' }]
     }
+
+
+    // this.chooseFilter = this.chooseFilter.bind(this)
 
   }
 
@@ -38,17 +45,47 @@ class SearchModal extends Component {
     })
   }
 
-  toggleDropDown = () => {
+  addFilter = (e) => {
+    this.setState((prevState) => ({
+      filters: [...prevState.filters, { key: this.state.filterKey, value: this.state.filterValue }],
+      filterKey: '',
+      filterValue: ''
+
+    }))
+  }
+
+  onChange = (e, index) => {
+    // let preFilter = this.state.filters
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      filterValue: e.target.value
     })
   }
+
+  chooseFilter = (e) => {
+    console.log("FROM THE FILTER CLICK", e.target.value)
+    this.setState({
+      filterKey: e.target.value
+    })
+  }
+
+  removeFilter = (e, index) => {
+    console.log("REMOVED FILTER WITH INDEX OF:", index)
+    let filters = this.state.filters;
+    let oldFilters = filters.splice(index, 1)
+    console.log(oldFilters)
+    this.setState({
+      filters: filters
+    })
+
+
+  }
+
+
 
 
 
   render() {
 
-    // let { filters } = this.state
     return (
       <div>
 
@@ -57,8 +94,14 @@ class SearchModal extends Component {
           size="lg"
           onClick={this.toggleModal}
           className="modal-button">
-
           Filters
+        </Button>
+
+        <Button
+          color="success"
+          size="lg"
+          className="share-button float-right">
+          Share
         </Button>
 
         <Modal isOpen={this.state.modal}>
@@ -66,49 +109,27 @@ class SearchModal extends Component {
           <ModalBody>
             <Form onSubmit={(e) => this.onSubmit(e)}>
               <FormGroup>
-                {/* <Label for="item"></Label> */}
 
-                {/* <Input
-                  type="text"
-                  name="name"
-                  id="item"
-                  placeholder="New Name"
-                  onChange={this.onChange}>
-                </Input> */}
+                {
+                  this.state.filters.map((filter, index) => {
+                    return (
 
-                <InputGroup>
+                      <InputBar
+                        chooseFilter={this.chooseFilter}
+                        onChange={(e) => this.onChange(e, index)}
+                        addFilter={this.addFilter}
+                        key={index}
+                        removeFilter={(e) => this.removeFilter(e, index)} />
 
-                  <Input />
-                  <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
-                    <DropdownToggle caret>
-                      Search Field
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem header>Choose Below:</DropdownItem>
-                      <DropdownItem>I.P Address</DropdownItem>
-                      <DropdownItem>Password</DropdownItem>
-                      <DropdownItem>User ID</DropdownItem>
-                      <DropdownItem>Date</DropdownItem>
-                      <DropdownItem>Request Method</DropdownItem>
-                      <DropdownItem>Request Path</DropdownItem>
-                      <DropdownItem>Request Protocol</DropdownItem>
-                      <DropdownItem>Response Code</DropdownItem>
-                      <DropdownItem>Response Size</DropdownItem>
-                      <DropdownItem>Referrer</DropdownItem>
-                      <DropdownItem>Browser</DropdownItem>
-                    </DropdownMenu>
-                  </InputGroupButtonDropdown>
-                  {/* <Button
-                    color='danger'
-                    size='md'
-                    className="delete-button">
-                    Delete
-                  </Button> */}
-                </InputGroup>
+                    )
+                  })
+                }
+
                 <Button
                   color="primary"
                   block
-                  className="update-button">
+                  className="update-button"
+                  onClick={this.addFilter} >
                   Additional Filter
                 </Button>
                 <Button

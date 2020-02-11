@@ -76,10 +76,57 @@ describe("SearchContainer Component", () => {
       const wrapper = shallow(<SearchContainer />);           // simulates component, allows us to writes assertions on component
       expect(wrapper.find('.main-content'))
       expect(wrapper.find('.pagination-container'))
-      expect(wrapper.find('.logs-container'))
       done();                                                  // finally call done to tell test to finish
     }, 1000)
 
   });
+
+
+  it("checks to see if SearchModal component renders", async (done) => {
+
+    nock("http://localhost:3000")
+      .get("/load/")
+      .reply(200, {
+        data: {
+          requests: [
+            REQUEST1
+          ],
+          page: 1,
+          pages: 1
+        }
+      });
+
+    setTimeout(() => {
+      const wrapper = shallow(<SearchContainer />);           // simulates component, allows us to writes assertions on component
+      // console.log(wrapper.debug())
+      expect(wrapper.containsMatchingElement('<SearchModal />'));
+      done();                                                  // finally call done to tell test to finish
+    }, 1000)
+
+  });
+
+  it("checks to see if logs list renders", async (done) => {
+    nock("http://localhost:3000")
+      .get("/load/")
+      .reply(200, {
+        data: {
+          requests: [
+            REQUEST1
+          ],
+          page: 1,
+          pages: 1
+        }
+      });
+
+    setTimeout(() => {
+      const wrapper = shallow(<SearchContainer />);
+      expect(wrapper.find('.logs-container'))
+      done();
+    }, 1000)
+
+  });
+
+
+
 
 });
