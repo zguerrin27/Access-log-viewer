@@ -34,7 +34,7 @@ class InputBar extends Component {
 
   }
 
-  toggleDropDown = () => {
+  toggleDropdown = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     })
@@ -47,7 +47,7 @@ class InputBar extends Component {
 
       <InputGroup  >
         <Input onChange={this.props.onChange} className='input-bar' />
-        <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
+        <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} onClick={this.toggleDropdown}>
           <DropdownToggle caret >
             Search Field
           </DropdownToggle>
@@ -69,10 +69,17 @@ class InputBar extends Component {
 
         <Button
           color='danger'
-          size='md'
+          // size='md'
           className="delete-button"
           onClick={this.props.removeFilter} >
           Delete
+        </Button>
+        <Button
+          color="success"
+          // size='md'
+          className="add-button"
+          onClick={this.props.addFilter} >
+          Add
         </Button>
 
       </InputGroup>
