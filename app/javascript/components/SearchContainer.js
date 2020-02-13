@@ -84,11 +84,6 @@ class SearchContainer extends Component {
   //   })
   // }
 
-
-  // onSubmit = () = {
-
-  // }
-
   toggleSearch = () => {
     this.setState({
       modal: !this.state.modal
@@ -112,6 +107,8 @@ class SearchContainer extends Component {
       <Container className="main-content">
 
         <SearchModal />
+
+
 
         <Container className="pagination-container">
           <Pagination

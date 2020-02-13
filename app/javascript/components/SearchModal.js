@@ -55,18 +55,21 @@ class SearchModal extends Component {
   }
 
   removeFilter = (e, index) => {
-
-    console.log("REMOVED FILTER WITH INDEX OF:", index)
     let filters = this.state.filters;
+    let removedFilter = filters.splice(index, 1)
 
+    // debugger;
+    // let currentFilters = this.state.filters.splice(index, 1);
 
+    console.log("REMOVED ITEM", removedFilter)
 
-    console.log("CURRENT FILTERS IN STATE: ", filters)
-    let removedFilters = filters.splice(index, 1)
-    console.log(removedFilters)
     this.setState({
       filters: filters
     })
+
+
+    this.forceUpdate();
+
   }
 
   addFilter = (e) => {
@@ -87,33 +90,32 @@ class SearchModal extends Component {
       this.setState((prevState) => ({
         filters: [...prevState.filters, { key: '', value: '' }]
       }))
+    } else {
+      this.setState((prevState) => ({
+        filters: [...prevState.filters, { key: '', value: '' }]
+      }))
     }
-
   }
 
 
 
-  // search = () => {
-  //   let filters = this.state.filters;
+  search = () => {
+    let filters = this.state.filters;
 
-  //   if (filters[0].key === "" && filters[0].value === "") {
-  //     console.log("FROMT THE FIRST IN UPDATE BUTTON");
-  //     this.setState({
-  //       filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-  //       filterKey: '',
-  //       filterValue: ''
-  //     })
-  //   }
-
-  //   if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
-  //     this.setState((prevState) => ({
-  //       filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-  //       filterKey: '',
-  //       filterValue: ''
-  //     }))
-  //   }
-
-  // }
+    if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
+      if (filters.length === 1) {
+        this.setState({
+          filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
+          filterKey: '',
+          filterValue: '',
+        })
+      } else {
+        this.setState((prevState) => ({
+          filters: [...prevState.filters.slice(0, -1), { key: this.state.filterKey, value: this.state.filterValue }]
+        }))
+      }
+    }
+  }
 
 
   render() {
@@ -152,6 +154,7 @@ class SearchModal extends Component {
                         onChange={(e) => this.onChange(e, index)}
                         addFilter={this.addFilter}
                         key={index}
+                        // key={filter['key'] + filter['value']}
                         removeFilter={(e) => this.removeFilter(e, index)}
                         addFilter={(e) => this.addFilter(e)} />
 
