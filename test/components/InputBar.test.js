@@ -54,15 +54,5 @@ describe("Input Bar Component", () => {
     done();
   })
 
-  // it("should add an inputBar component for each click of the add button", async (done) => {
-  //   const wrapper = shallow(<InputBar />)
-  //   expect(wrapper.props.state().filters).toHaveLength(1);
-  //   // console.log(wrapper.debug())
-  //   wrapper.find('.add-button btn btn-success').simulate('click')
-  //   expect(wrapper.props.state().filters).toHaveLength(1);
-  //   done()
-  // })
-
-
 
 })

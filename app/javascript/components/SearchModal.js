@@ -55,15 +55,18 @@ class SearchModal extends Component {
   }
 
   removeFilter = (e, index) => {
+
     console.log("REMOVED FILTER WITH INDEX OF:", index)
     let filters = this.state.filters;
+
+
+
     console.log("CURRENT FILTERS IN STATE: ", filters)
     let removedFilters = filters.splice(index, 1)
     console.log(removedFilters)
     this.setState({
       filters: filters
     })
-
   }
 
   addFilter = (e) => {
@@ -90,27 +93,27 @@ class SearchModal extends Component {
 
 
 
-  search = () => {
-    let filters = this.state.filters;
+  // search = () => {
+  //   let filters = this.state.filters;
 
-    if (filters[0].key === "" && filters[0].value === "") {
-      console.log("FROMT THE FIRST IN UPDATE BUTTON");
-      this.setState({
-        filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-        filterKey: '',
-        filterValue: ''
-      })
-    }
+  //   if (filters[0].key === "" && filters[0].value === "") {
+  //     console.log("FROMT THE FIRST IN UPDATE BUTTON");
+  //     this.setState({
+  //       filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
+  //       filterKey: '',
+  //       filterValue: ''
+  //     })
+  //   }
 
-    if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
-      this.setState((prevState) => ({
-        filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-        filterKey: '',
-        filterValue: ''
-      }))
-    }
+  //   if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
+  //     this.setState((prevState) => ({
+  //       filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
+  //       filterKey: '',
+  //       filterValue: ''
+  //     }))
+  //   }
 
-  }
+  // }
 
 
   render() {
@@ -156,7 +159,6 @@ class SearchModal extends Component {
                   })
                 }
 
-
                 <Button
                   color="primary"
                   block
@@ -165,11 +167,12 @@ class SearchModal extends Component {
                   Search
                 </Button>
 
-
               </FormGroup>
             </Form>
           </ModalBody>
         </Modal>
+
+
       </div>
     )
   }

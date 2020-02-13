@@ -5,7 +5,7 @@ import { shallow, mount } from "enzyme";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import InputBar from "../../app/javascript/components/InputBar";
-import { Button } from 'reactstrap';
+import { Button, InputGroupButtonDropdown } from 'reactstrap';
 configure({ adapter: new Adapter() });
 axios.defaults.adapter = require("axios/lib/adapters/http");
 
@@ -14,7 +14,7 @@ describe("SearchModal Component", () => {
 
   it("checks to see if modal/Filters button is present", async (done) => {
     const wrapper = shallow(<SearchModal />)
-    expect(wrapper.find('modal-button'))
+    expect(wrapper.find('.modal-button-1'))
     done();
   })
 
@@ -43,17 +43,29 @@ describe("SearchModal Component", () => {
   //   expect(wrapper.find('ModalHeader').prop('close')).simulate('click')
   //   const newModalOpenState = wrapper.state().modal
   //   expect(newModalOpenState).toEqual(false)
-  //   done();
+  //   done();  
   // })
 
 
-  it("should add an inputBar component for each click of the add button", async (done) => {
+  it("should add an inputBar component for each click of the add button corectly", async (done) => {
     const wrapper = mount(<SearchModal />)
-    expect(wrapper.state().filters).toHaveLength(1);
     wrapper.find(Button).first().simulate('click')
+    expect(wrapper.state().filters).toHaveLength(1);
+
+    expect(wrapper.find('Input.input-bar')).toHaveLength(1);
+    expect(wrapper.find(InputGroupButtonDropdown)).toHaveLength(1);
+    expect(wrapper.find('Button.delete-button')).toHaveLength(1);
+    expect(wrapper.find('Button.add-button')).toHaveLength(1);
+
     const addButton = wrapper.find('.add-button');
     addButton.first().simulate('click')
+
     expect(wrapper.state().filters).toHaveLength(2);
+    expect(wrapper.find('Input.input-bar')).toHaveLength(2);
+    expect(wrapper.find(InputGroupButtonDropdown)).toHaveLength(2);
+    expect(wrapper.find('Button.delete-button')).toHaveLength(2);
+    expect(wrapper.find('Button.add-button')).toHaveLength(2);
+
     done()
   })
 
