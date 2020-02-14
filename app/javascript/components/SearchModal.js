@@ -169,7 +169,7 @@ class SearchModal extends Component {
 
               </FormGroup>
             </Form>
-          </ModalBody>
+          </ModalBody>  
         </Modal>
 
 
