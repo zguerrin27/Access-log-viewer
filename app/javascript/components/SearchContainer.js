@@ -16,7 +16,8 @@ class SearchContainer extends Component {
       search_results: [],
       showEllipsis: true,
       logs: [],
-      modal: false
+      modal: false,
+      // filters: [{ key: '', value: '' }]
     };
 
 
@@ -106,8 +107,9 @@ class SearchContainer extends Component {
     return (
       <Container className="main-content">
 
-        <SearchModal />
-
+        <SearchModal
+        // filters={this.state.filters} />
+        />
 
 
         <Container className="pagination-container">

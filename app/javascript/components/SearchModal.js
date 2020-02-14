@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'react-uuid'
 import InputBar from './InputBar'
 import {
   Button,
@@ -20,6 +21,7 @@ import {
   FormControl,
   Container
 } from 'reactstrap';
+import Axios from 'axios';
 
 
 
@@ -29,9 +31,7 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filterKey: '',
-      filterValue: '',
-      filters: [{ key: '', value: '' }]
+      filters: [{ searchQuery: '', dropdownVal: '', key: uuid() }]
     }
 
   }
@@ -42,88 +42,84 @@ class SearchModal extends Component {
     })
   }
 
-  onChange = (e, index) => {
-    this.setState({
-      filterValue: e.target.value
-    })
-  }
-
-  chooseFilterFromDropdown = (e) => {
-    this.setState({
-      filterKey: e.target.value
-    })
-  }
-
-  removeFilter = (e, index) => {
-    let filters = this.state.filters;
-    let removedFilter = filters.splice(index, 1)
-
-    // debugger;
-    // let currentFilters = this.state.filters.splice(index, 1);
-
-    console.log("REMOVED ITEM", removedFilter)
-
-    this.setState({
-      filters: filters
-    })
 
 
-    this.forceUpdate();
+  // three functions 
 
-  }
+  // one that sets state
 
-  addFilter = (e) => {
-    let filters = this.state.filters;
+  // one that simply handles the on change 
 
-    if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
-      if (filters.length === 1) {
-        this.setState({
-          filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-          filterKey: '',
-          filterValue: '',
-        })
+  // params for setstate
+
+
+
+  onChange = (e, row) => {
+    e.preventDefault();
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (row.key === f.key) {
+        return {
+          ...f,
+          searchQuery: e.target.value
+        }
       } else {
-        this.setState((prevState) => ({
-          filters: [...prevState.filters.slice(0, -1), { key: this.state.filterKey, value: this.state.filterValue }]
-        }))
+        return f;
       }
-      this.setState((prevState) => ({
-        filters: [...prevState.filters, { key: '', value: '' }]
-      }))
-    } else {
-      this.setState((prevState) => ({
-        filters: [...prevState.filters, { key: '', value: '' }]
-      }))
-    }
+    })
+    this.setState({
+      filters: updatedFilters
+    })
   }
 
-
-
-  search = () => {
-    let filters = this.state.filters;
-
-    if (filters[filters.length - 1].key === "" && filters[filters.length - 1].value === "") {
-      if (filters.length === 1) {
-        this.setState({
-          filters: [{ key: this.state.filterKey, value: this.state.filterValue }],
-          filterKey: '',
-          filterValue: '',
-        })
+  chooseValueFromDropdown = (e, row) => {
+    e.preventDefault();
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (row.key === f.key) {
+        return {
+          ...f,
+          dropdownVal: e.target.value
+        }
       } else {
-        this.setState((prevState) => ({
-          filters: [...prevState.filters.slice(0, -1), { key: this.state.filterKey, value: this.state.filterValue }]
-        }))
+        return f;
       }
-    }
+    })
+    this.setState({
+      filters: updatedFilters
+    })
   }
+
+  removeFilterRow = (e, filter) => {
+    let uuid = filter.key;
+    this.setState((prevState) => ({
+      filters: prevState.filters.filter(f => f.key !== uuid)
+    }))
+  }
+
+  addNewFilterRow = (e) => {
+    e.preventDefault()
+    this.setState((prevState) => ({
+      filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', key: uuid() }])
+    }))
+  }
+
+
+  // search = (e) => {
+  //   console.log(e)
+  //   Axios.post("http://localhost:3000/search", {
+  //     search: e.target.value
+  //   })
+  // }
 
 
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
 
+
+
     return (
       <div>
-
         <Button
           color="primary"
           size="lg"
@@ -131,36 +127,37 @@ class SearchModal extends Component {
           className="modal-button-1">
           Filters
         </Button>
-
         <Button
           color="success"
           size="lg"
           className="share-button float-right">
           Share
         </Button>
-
         <Modal isOpen={this.state.modal}>
           <ModalHeader close={closeBtn} > Filters </ModalHeader>
           <ModalBody>
-            <Form onSubmit={(e) => this.onSubmit(e)}>
+            <Form onSubmit={(e) => this.search(e)}>
               <FormGroup>
 
-                {
-                  this.state.filters.map((filter, index) => {
-                    return (
+                {this.state.filters.map((filterRow, index) => {
 
-                      <InputBar
-                        chooseFilter={this.chooseFilterFromDropdown}
-                        onChange={(e) => this.onChange(e, index)}
-                        addFilter={this.addFilter}
-                        key={index}
-                        // key={filter['key'] + filter['value']}
-                        removeFilter={(e) => this.removeFilter(e, index)}
-                        addFilter={(e) => this.addFilter(e)} />
+                  return (
 
-                    )
-                  })
-                }
+                    <InputBar
+                      chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
+                      onChange={(e) => this.onChange(e, filterRow)}
+                      removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
+                      addNewFilterRow={(e) => this.addNewFilterRow(e)}
+                      searchQuery={filterRow.searchQuery}
+                      dropdownVal={filterRow.dropdownVal}
+                      key={filterRow.key}
+                      filtersLength={this.state.filters.length-1}
+                      index={index}
+                    />
+
+                  )
+
+                })}
 
                 <Button
                   color="primary"

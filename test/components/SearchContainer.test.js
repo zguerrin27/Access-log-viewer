@@ -29,7 +29,7 @@ const REQUEST1 = {
 
 describe("SearchContainer Component", () => {
 
-  it("checks if app makes AJAX request and sets state ", async (done) => {  //adding done keyword is very important with jest. tells                                                                                 jest that I want to have control over when the test                                                                                    finishes in the execution flow
+  it("checks if app makes AJAX request and sets state ", async (done) => {  //adding done keyword is very important with jest. tells                                                                                       jest that I want to have control over when the test                                                                                            finishes in the execution flow
     nock("http://localhost:3000")
       .get("/load/")
       .reply(200, {

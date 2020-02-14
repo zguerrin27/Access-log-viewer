@@ -27,11 +27,8 @@ class InputBar extends Component {
 
     this.state = {
       dropdownOpen: false,
-      filterkey: '',
-      filterValue: '',
-      filters: []
+      lastRowNum: this.props.lastRowNum
     }
-
   }
 
   toggleDropdown = () => {
@@ -43,27 +40,33 @@ class InputBar extends Component {
 
 
   render() {
+
+    // console.log(this.props.index)
+    // console.log(this.props.filtersLength)
+
+
     return (
 
+
       <InputGroup  >
-        <Input onChange={this.props.onChange} className='input-bar' />
+        <Input onChange={this.props.onChange} className='input-bar' value={this.props.searchQuery} />
         <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
           <DropdownToggle caret >
             Search Field
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem header >Choose Below:</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='ip' >I.P Address</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='pword' >Password</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='userId' >User ID</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='timestamp' >Date</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='requestMethod' >Request Method</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='requestPath' >Request Path</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='requestProtocol' >Request Protocol</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='responseCode' >Response Code</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='responseSize' >Response Size</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='referrer' >Referrer</DropdownItem>
-            <DropdownItem onClick={this.props.chooseFilter} value='browser' >Browser</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='ip' >I.P Address</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='pword' >Password</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='userId' >User ID</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='timestamp' >Date</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestMethod' >Request Method</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestPath' >Request Path</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestProtocol' >Request Protocol</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='responseCode' >Response Code</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='responseSize' >Response Size</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='referrer' >Referrer</DropdownItem>
+            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='browser' >Browser</DropdownItem>
           </DropdownMenu>
         </InputGroupButtonDropdown>
 
@@ -72,17 +75,25 @@ class InputBar extends Component {
           color='danger'
           size='md'
           className="delete-button"
-          onClick={this.props.removeFilter} >
+          onClick={this.props.removeFilterRow} >
           Delete
         </Button>
 
-        <Button
-          color="success"
-          size='md'
-          className="add-button"
-          onClick={this.props.addFilter} >
-          Add
-        </Button>
+        {
+          this.props.filtersLength === this.props.index
+            ?
+            <Button
+              color="success"
+              size='md'
+              className="add-button"
+              onClick={this.props.addNewFilterRow} >
+              Add
+            </Button>
+            :
+            null
+        }
+
+
 
       </InputGroup>
 

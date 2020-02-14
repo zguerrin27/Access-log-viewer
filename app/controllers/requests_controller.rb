@@ -14,8 +14,10 @@ class RequestsController < ApplicationController
     end
 
     def search 
-        @requests = Request.where(ip: "#{params[:search]}")   
-        render json: {requests: @requests}
+        puts "#{params[:search]}"
+
+        # @requests = Request.where(ip: "#{params[:search]}")   
+        # render json: {requests: @requests}
     end
 
     # def search
