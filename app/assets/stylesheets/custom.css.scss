@@ -46,9 +46,17 @@ li:nth-child(odd) {
   margin-top: 8px;
 }
 
-// .add-button {
-//   margin-top: 5px;
-// }
+.add-button {
+  min-width: 75px;
+}
+
+.delete-button {
+  min-width: 75px;
+}
+
+.dropdown-button {
+  min-width: 133px;
+}
 
 .search-button {
   margin-top: 10px;

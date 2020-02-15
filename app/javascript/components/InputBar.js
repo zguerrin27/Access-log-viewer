@@ -51,8 +51,8 @@ class InputBar extends Component {
       <InputGroup  >
         <Input onChange={this.props.onChange} className='input-bar' value={this.props.searchQuery} />
         <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
-          <DropdownToggle caret >
-            Search Field
+          <DropdownToggle className="dropdown-button" caret >
+            {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem header >Choose Below:</DropdownItem>
@@ -70,14 +70,20 @@ class InputBar extends Component {
           </DropdownMenu>
         </InputGroupButtonDropdown>
 
-
-        <Button
-          color='danger'
-          size='md'
-          className="delete-button"
-          onClick={this.props.removeFilterRow} >
-          Delete
+        {
+          this.props.deleteButton
+            ?
+            null
+            :
+            <Button
+              color='danger'
+              size='md'
+              className="delete-button"
+              onClick={this.props.removeFilterRow} >
+              Delete
         </Button>
+        }
+
 
         {
           this.props.filtersLength === this.props.index

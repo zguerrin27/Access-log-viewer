@@ -151,8 +151,10 @@ class SearchModal extends Component {
                       searchQuery={filterRow.searchQuery}
                       dropdownVal={filterRow.dropdownVal}
                       key={filterRow.key}
-                      filtersLength={this.state.filters.length-1}
+                      filtersLength={this.state.filters.length - 1}
+                      deleteButton={this.state.filters.length - 1 === 0}
                       index={index}
+                      dropdownTitle={filterRow.dropdownVal}
                     />
 
                   )
@@ -169,7 +171,7 @@ class SearchModal extends Component {
 
               </FormGroup>
             </Form>
-          </ModalBody>  
+          </ModalBody>
         </Modal>
 
 
