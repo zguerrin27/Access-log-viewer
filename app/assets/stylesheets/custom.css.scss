@@ -6,13 +6,17 @@
   color: white;
 }
 
-li {
+.logs-container li {
   list-style: none;
   font-size: medium;
   padding: 10px;
 }
-li:nth-child(odd) {
+.logs-container :nth-child(odd) {
   background-color: white;
+  color: black;
+}
+
+.logs-container :nth-child(even) {
   color: black;
 }
 
@@ -43,30 +47,76 @@ li:nth-child(odd) {
 }
 
 .modal-button-1 {
-  margin-top: 8px;
-}
-
-.add-button {
-  min-width: 75px;
-}
-
-.delete-button {
-  min-width: 75px;
-}
-
-.dropdown-button {
-  min-width: 133px;
-}
-
-.search-button {
-  margin-top: 10px;
-}
-
-.input-bar {
-  margin-bottom: 2px;
-  margin-top: 2px;
+  margin-top: 4px;
+  width: 125px;
 }
 
 .share-button {
-  margin-top: 8px;
+  margin-top: 4px;
+  width: 125px;
 }
+
+.add-button {
+  margin-top: 5px;
+  background-color: rgb(133, 133, 133) !important;
+  color: white !important;
+}
+
+.text-above-add-btn {
+  margin-top: 10px !important;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+// .search-button {
+//   margin-top: 2x !important; 
+// }
+
+.delete-button {
+  min-width: 75px;
+  margin: 2px;
+}
+
+.btn-block + .btn-block {
+  margin-top: 2px !important;
+}
+
+// .modal-action-button-container {
+//   max-width: 300px !important;
+// }
+
+.dropdown-button {
+  min-width: 133px;
+  margin: 2px;
+  border-radius: 3.5px !important;
+}
+
+.btn-secondary {
+  background-color: none !important;
+}
+
+.input-bar {
+  margin: 2px 2px 2px 2px;
+  border-radius: 3.5px !important;
+  border-color: rgb(108, 117, 125) !important;
+}
+
+.modal-title {
+  font-size: x-large;
+  // color: white;
+}
+
+// .modal-header {
+//   background-color: #343a40;
+// }
+
+.ant-calendar-picker-input {
+  min-width: 251px !important;
+  max-width: 251px !important;
+  margin: 2px 2px 2px 2px !important;
+  padding: 5.25px 10.25px !important;
+  height: 33.5px !important;
+  border-color: rgb(108, 117, 125) !important;
+  color: rgb(108, 117, 125) !important;
+}
+

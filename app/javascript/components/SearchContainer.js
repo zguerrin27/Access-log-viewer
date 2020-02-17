@@ -16,8 +16,7 @@ class SearchContainer extends Component {
       search_results: [],
       showEllipsis: true,
       logs: [],
-      modal: false,
-      // filters: [{ key: '', value: '' }]
+      modal: false
     };
 
 
@@ -67,25 +66,7 @@ class SearchContainer extends Component {
     });
   }
 
-
-  // SEARCH FEATURE
-
-  // handleChange(e){
-  //   axios.post("http://localhost:3000/search", {
-  //     // search_for: ''
-  //     search: e.target.value
-  //   })
-  //   .then((data)=> {
-  //     this.setState({
-  //       search_results: [...data.data.requests]
-  //     })
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
-  // }
-
-  toggleSearch = () => {
+  toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     })
@@ -108,7 +89,7 @@ class SearchContainer extends Component {
       <Container className="main-content">
 
         <SearchModal
-        // filters={this.state.filters} />
+
         />
 
 

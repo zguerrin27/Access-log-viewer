@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DateTime from './DateTime';
 import {
   Button,
   Modal,
@@ -10,6 +11,7 @@ import {
   Input,
   InputGroup,
   InputGroupButtonDropdown,
+  InputGroupAddon,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -19,6 +21,7 @@ import {
   FormControl,
   Container
 } from 'reactstrap';
+
 
 
 class InputBar extends Component {
@@ -49,9 +52,8 @@ class InputBar extends Component {
 
 
       <InputGroup  >
-        <Input onChange={this.props.onChange} className='input-bar' value={this.props.searchQuery} />
-        <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
-          <DropdownToggle className="dropdown-button" caret >
+        <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
+          <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
             {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
           </DropdownToggle>
           <DropdownMenu >
@@ -71,34 +73,30 @@ class InputBar extends Component {
         </InputGroupButtonDropdown>
 
         {
+          this.props.dropdownTitle !== "timestamp"
+            ?
+            <Input
+              onChange={this.props.onChange}
+              className='input-bar'
+              value={this.props.searchQuery} />
+            :
+            <DateTime
+            />
+        }
+
+        {
           this.props.deleteButton
             ?
             null
             :
             <Button
-              color='danger'
+              color="none"
               size='md'
-              className="delete-button"
+              className="delete-button btn btn-outline-danger"
               onClick={this.props.removeFilterRow} >
               Delete
-        </Button>
-        }
-
-
-        {
-          this.props.filtersLength === this.props.index
-            ?
-            <Button
-              color="success"
-              size='md'
-              className="add-button"
-              onClick={this.props.addNewFilterRow} >
-              Add
             </Button>
-            :
-            null
         }
-
 
 
       </InputGroup>

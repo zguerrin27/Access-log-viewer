@@ -25,6 +25,7 @@ import Axios from 'axios';
 
 
 
+
 class SearchModal extends Component {
   constructor(props) {
     super(props)
@@ -115,26 +116,26 @@ class SearchModal extends Component {
 
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
-
+    let filtersLength = this.state.filters.length;
 
 
     return (
       <div>
         <Button
-          color="primary"
+          color="none"
           size="lg"
           onClick={this.toggleModal}
-          className="modal-button-1">
+          className="modal-button-1 btn btn-outline-primary">
           Filters
         </Button>
         <Button
-          color="success"
+          color="none"
           size="lg"
-          className="share-button float-right">
+          className="share-button btn btn-outline-success float-right">
           Share
         </Button>
         <Modal isOpen={this.state.modal}>
-          <ModalHeader close={closeBtn} > Filters </ModalHeader>
+          <ModalHeader close={closeBtn} className="modal-header" > Filters </ModalHeader>
           <ModalBody>
             <Form onSubmit={(e) => this.search(e)}>
               <FormGroup>
@@ -147,7 +148,7 @@ class SearchModal extends Component {
                       chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
                       onChange={(e) => this.onChange(e, filterRow)}
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
-                      addNewFilterRow={(e) => this.addNewFilterRow(e)}
+
                       searchQuery={filterRow.searchQuery}
                       dropdownVal={filterRow.dropdownVal}
                       key={filterRow.key}
@@ -161,13 +162,53 @@ class SearchModal extends Component {
 
                 })}
 
-                <Button
-                  color="primary"
-                  block
-                  onClick={this.search}
-                  className="search-button">
-                  Search
-                </Button>
+
+                {
+                  this.state.filters[filtersLength - 1].dropdownVal === "" || this.state.filters[filtersLength - 1].searchQuery === ""
+                    ?
+                    <div>
+                      <p className="text-above-add-btn">All fields must be entered</p>
+                      <Button
+                        disabled
+                        color="light"
+                        block
+                        className="add-button"
+                        onClick={(e) => this.addNewFilterRow(e)} >
+                        Add
+                    </Button>
+                      <Button
+                        disabled
+                        color="dark"
+                        block
+                        onClick={this.search}
+                        className="search-button">
+                        Search
+                    </Button>
+                    </div>
+                    :
+                    <div>
+                      <Button
+                        color="light"
+                        block
+                        className="add-button"
+                        onClick={(e) => this.addNewFilterRow(e)} >
+                        Add
+                    </Button>
+                      <Button
+                        color="dark"
+                        block
+                        onClick={this.search}
+                        className="search-button">
+                        Search
+                    </Button>
+                    </div>
+                }
+
+
+
+
+
+
 
               </FormGroup>
             </Form>
