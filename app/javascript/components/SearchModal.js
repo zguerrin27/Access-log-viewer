@@ -114,6 +114,26 @@ class SearchModal extends Component {
   // }
 
 
+  // switch statement 
+
+
+  placeholderPicker = (dropdownVal) => {
+    const options = {
+      ip: "17.23.156.123...",
+      pword: "enter password",
+      userId: 'enter userId',
+      requestMethod: 'GET...',
+      requestPath: '/path/of/request...',
+      requestProtocol: 'HTTP/1.0...',
+      responseCode: '200...',
+      responseSize: "234560...",
+      referrer: '/path/of/referrer...',
+      browser: 'Safari, Chrome....'
+    }
+    return options[dropdownVal]
+  }
+
+
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
     let filtersLength = this.state.filters.length;
@@ -141,14 +161,14 @@ class SearchModal extends Component {
               <FormGroup>
 
                 {this.state.filters.map((filterRow, index) => {
-
+                  const placeholder = this.placeholderPicker(filterRow.dropdownVal)
                   return (
 
                     <InputBar
                       chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
                       onChange={(e) => this.onChange(e, filterRow)}
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
-
+                      // filtersState={this.state.filters}
                       searchQuery={filterRow.searchQuery}
                       dropdownVal={filterRow.dropdownVal}
                       key={filterRow.key}
@@ -156,6 +176,7 @@ class SearchModal extends Component {
                       deleteButton={this.state.filters.length - 1 === 0}
                       index={index}
                       dropdownTitle={filterRow.dropdownVal}
+                      placeholder={placeholder}
                     />
 
                   )

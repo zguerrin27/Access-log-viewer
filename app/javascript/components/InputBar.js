@@ -32,6 +32,8 @@ class InputBar extends Component {
       dropdownOpen: false,
       lastRowNum: this.props.lastRowNum
     }
+
+
   }
 
   toggleDropdown = () => {
@@ -40,13 +42,66 @@ class InputBar extends Component {
     })
   }
 
+  loopOverDropdownOptions = () => {
+
+    const options = [
+      {
+        value: 'ip',
+        text: 'I.P Address',
+      },
+      {
+        value: 'pword',
+        text: 'Password',
+      },
+      {
+        value: 'userId',
+        text: 'User ID',
+      },
+      {
+        value: 'timestamp',
+        text: 'Timestamp',
+      },
+      {
+        value: 'requestMethod',
+        text: 'Request Method',
+      },
+      {
+        value: 'requestPath',
+        text: 'Request Path',
+      },
+      {
+        value: 'requestProtocol',
+        text: 'Request Protocol',
+      },
+      {
+        value: 'responseCode',
+        text: 'Response Code',
+      },
+      {
+        value: 'responseSize',
+        text: 'Response Size',
+      },
+      {
+        value: 'referrer',
+        text: 'Referrer',
+      },
+      {
+        value: 'browser',
+        text: 'Browser',
+      }
+    ]
+
+    return options.map(option => {
+      return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} value={option.value} > {option.text} </DropdownItem>
+
+    })
+  }
 
 
   render() {
 
-    // console.log(this.props.index)
-    // console.log(this.props.filtersLength)
-
+    const dropdowns = this.loopOverDropdownOptions()
+    
 
     return (
 
@@ -58,17 +113,7 @@ class InputBar extends Component {
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem header >Choose Below:</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='ip' >I.P Address</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='pword' >Password</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='userId' >User ID</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='timestamp' >Date</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestMethod' >Request Method</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestPath' >Request Path</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='requestProtocol' >Request Protocol</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='responseCode' >Response Code</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='responseSize' >Response Size</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='referrer' >Referrer</DropdownItem>
-            <DropdownItem onClick={this.props.chooseValueFromDropdown} value='browser' >Browser</DropdownItem>
+            {dropdowns}
           </DropdownMenu>
         </InputGroupButtonDropdown>
 
@@ -78,7 +123,9 @@ class InputBar extends Component {
             <Input
               onChange={this.props.onChange}
               className='input-bar'
-              value={this.props.searchQuery} />
+              value={this.props.searchQuery}
+              placeholder={this.props.placeholder}
+            />
             :
             <DateTime
             />
