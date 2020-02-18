@@ -114,21 +114,18 @@ class SearchModal extends Component {
   // }
 
 
-  // switch statement 
-
-
   placeholderPicker = (dropdownVal) => {
     const options = {
-      ip: "17.23.156.123...",
-      pword: "enter password",
-      userId: 'enter userId',
-      requestMethod: 'GET...',
-      requestPath: '/path/of/request...',
-      requestProtocol: 'HTTP/1.0...',
-      responseCode: '200...',
-      responseSize: "234560...",
-      referrer: '/path/of/referrer...',
-      browser: 'Safari, Chrome....'
+      ip_address: "'17.23.156.123...'",
+      password: "'-'",
+      user_id: "'-'",
+      request_method: "'GET'",
+      request_path: "'/path/of/request...'",
+      request_protocol: "'HTTP/1.0'",
+      response_code: "'200, 404...'",
+      response_size: "'234560...'",
+      referrer: "'/path/of/referrer...'",
+      browser: "'Safari, Chrome....'"
     }
     return options[dropdownVal]
   }
@@ -168,9 +165,9 @@ class SearchModal extends Component {
                       chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
                       onChange={(e) => this.onChange(e, filterRow)}
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
-                      // filtersState={this.state.filters}
+                      filtersState={this.state.filters}
                       searchQuery={filterRow.searchQuery}
-                      dropdownVal={filterRow.dropdownVal}
+                      // dropdownVal={filterRow.dropdownVal}
                       key={filterRow.key}
                       filtersLength={this.state.filters.length - 1}
                       deleteButton={this.state.filters.length - 1 === 0}
@@ -191,36 +188,36 @@ class SearchModal extends Component {
                       <p className="text-above-add-btn">All fields must be entered</p>
                       <Button
                         disabled
-                        color="light"
+                        color="none"
                         block
                         className="add-button"
                         onClick={(e) => this.addNewFilterRow(e)} >
-                        Add
+                        Add Another Filte
                     </Button>
                       <Button
                         disabled
-                        color="dark"
+                        color="none"
                         block
                         onClick={this.search}
                         className="search-button">
-                        Search
+                        Update Results
                     </Button>
                     </div>
                     :
                     <div>
                       <Button
-                        color="light"
+                        color="none"
                         block
                         className="add-button"
                         onClick={(e) => this.addNewFilterRow(e)} >
-                        Add
+                        Add Another Filter
                     </Button>
                       <Button
-                        color="dark"
+                        color="none"
                         block
                         onClick={this.search}
                         className="search-button">
-                        Search
+                        Update Results
                     </Button>
                     </div>
                 }

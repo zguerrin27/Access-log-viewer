@@ -58,7 +58,7 @@
 
 .add-button {
   margin-top: 5px;
-  background-color: rgb(133, 133, 133) !important;
+  background-color: rgb(99, 148, 253) !important;
   color: white !important;
 }
 
@@ -68,9 +68,10 @@
   text-align: center;
 }
 
-// .search-button {
-//   margin-top: 2x !important; 
-// }
+.search-button {
+  background-color: rgb(22, 92, 197) !important;
+  color: white !important;
+}
 
 .delete-button {
   min-width: 75px;
@@ -95,11 +96,17 @@
   background-color: none !important;
 }
 
-.input-bar {
+#input-bar {
   margin: 2px 2px 2px 2px;
-  border-radius: 3.5px !important;
-  border-color: rgb(108, 117, 125) !important;
+  border-radius: 3.5px;
+  border-color: rgb(108, 117, 125);
 }
+
+::placeholder {
+  color: rgb(202, 202, 202) !important;
+}
+
+
 
 .modal-title {
   font-size: x-large;

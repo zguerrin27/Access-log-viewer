@@ -45,55 +45,28 @@ class InputBar extends Component {
   loopOverDropdownOptions = () => {
 
     const options = [
-      {
-        value: 'ip',
-        text: 'I.P Address',
-      },
-      {
-        value: 'pword',
-        text: 'Password',
-      },
-      {
-        value: 'userId',
-        text: 'User ID',
-      },
-      {
-        value: 'timestamp',
-        text: 'Timestamp',
-      },
-      {
-        value: 'requestMethod',
-        text: 'Request Method',
-      },
-      {
-        value: 'requestPath',
-        text: 'Request Path',
-      },
-      {
-        value: 'requestProtocol',
-        text: 'Request Protocol',
-      },
-      {
-        value: 'responseCode',
-        text: 'Response Code',
-      },
-      {
-        value: 'responseSize',
-        text: 'Response Size',
-      },
-      {
-        value: 'referrer',
-        text: 'Referrer',
-      },
-      {
-        value: 'browser',
-        text: 'Browser',
-      }
+      { value: 'ip_address', text: 'I.P Address' },
+      { value: 'password', text: 'Password' },
+      { value: 'user_id', text: 'User ID' },
+      { value: 'timestamp', text: 'Timestamp' },
+      { value: 'request_method', text: 'Request Method' },
+      { value: 'request_path', text: 'Request Path' },
+      { value: 'request_protocol', text: 'Request Protocol' },
+      { value: 'response_code', text: 'Response Code' },
+      { value: 'response_size', text: 'Response Size' },
+      { value: 'referrer', text: 'Referrer' },
+      { value: 'browser', text: 'Browser' }
     ]
 
     return options.map(option => {
-      return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} value={option.value} > {option.text} </DropdownItem>
+      var grayedOut = false
 
+      this.props.filtersState.map(f => {
+        if (f.dropdownVal === option.value) {
+          grayedOut = true
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
 
@@ -101,7 +74,7 @@ class InputBar extends Component {
   render() {
 
     const dropdowns = this.loopOverDropdownOptions()
-    
+
 
     return (
 
@@ -122,7 +95,7 @@ class InputBar extends Component {
             ?
             <Input
               onChange={this.props.onChange}
-              className='input-bar'
+              id="input-bar"
               value={this.props.searchQuery}
               placeholder={this.props.placeholder}
             />

@@ -78,9 +78,9 @@ class SearchContainer extends Component {
     const logs = this.state.logs.requests
       ? this.state.logs.requests.map(log => (
         <li key={log.id}>
-          {log.ip} {log.pword} {log.userId} {log.requestMethod}{" "}
-          {log.requestPath} {log.requestProtocol} {log.responseCode}{" "}
-          {log.responseSize} {log.referrer} {log.browser}{" "}
+          {log.ip_address} {log.password} {log.user_id} {log.request_method}{" "}
+          {log.request_path} {log.request_protocol} {log.response_code}{" "}
+          {log.response_size} {log.referrer} {log.browser}{" "}
         </li>
       ))
       : null;
