@@ -7,31 +7,25 @@ class DateTime extends Component {
     super(props)
 
     this.state = {
-
+      
     }
 
   }
 
-
-
   onChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
-    console.log('Formatted Selected Time: ', dateString);
-  }
-
-  onOk = (value) => {
-    console.log('onOk: ', value);
+    this.props.dateTimeOnChange(dateString)
   }
 
 
+  // onOk = (value) => {
+  //   console.log('onOk: ', value);
+  // }
 
   render() {
     return (
-
       <div >
         <DatePicker showTime placeholder="Select Time" onChange={this.onChange} onOk={this.onOk} />
       </div>
-
     )
   }
 }

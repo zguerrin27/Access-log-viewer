@@ -91,6 +91,24 @@ class SearchModal extends Component {
     })
   }
 
+  dateTimeOnChange = (dateString, filterRow) => {
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (filterRow.key === f.key) {
+        return {
+          ...f,
+          searchQuery: dateString
+        }
+      } else {
+        return f;
+      }
+    })
+    this.setState({
+      filters: updatedFilters
+    })
+
+  }
+
   removeFilterRow = (e, filter) => {
     let uuid = filter.key;
     this.setState((prevState) => ({
@@ -117,8 +135,8 @@ class SearchModal extends Component {
   placeholderPicker = (dropdownVal) => {
     const options = {
       ip_address: "'17.23.156.123...'",
-      password: "'-'",
-      user_id: "'-'",
+      password: "'Enter password'",
+      user_id: "'Enter user_id'",
       request_method: "'GET'",
       request_path: "'/path/of/request...'",
       request_protocol: "'HTTP/1.0'",
@@ -164,10 +182,10 @@ class SearchModal extends Component {
                     <InputBar
                       chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
                       onChange={(e) => this.onChange(e, filterRow)}
+                      dateTimeOnChange={(e) => this.dateTimeOnChange(e, filterRow)}
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
                       filtersState={this.state.filters}
                       searchQuery={filterRow.searchQuery}
-                      // dropdownVal={filterRow.dropdownVal}
                       key={filterRow.key}
                       filtersLength={this.state.filters.length - 1}
                       deleteButton={this.state.filters.length - 1 === 0}

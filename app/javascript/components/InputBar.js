@@ -75,9 +75,7 @@ class InputBar extends Component {
 
     const dropdowns = this.loopOverDropdownOptions()
 
-
     return (
-
 
       <InputGroup  >
         <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
@@ -101,6 +99,7 @@ class InputBar extends Component {
             />
             :
             <DateTime
+              dateTimeOnChange={(dateString) => this.props.dateTimeOnChange(dateString)}
             />
         }
 
