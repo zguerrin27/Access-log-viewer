@@ -123,13 +123,19 @@ class SearchModal extends Component {
     }))
   }
 
-
-  // search = (e) => {
-  //   console.log(e)
-  //   Axios.post("http://localhost:3000/search", {
-  //     search: e.target.value
-  //   })
-  // }
+  search = (e) => {
+    e.preventDefault()
+    Axios.post("http://localhost:3000/search", {
+      search: this.state.filters
+    })
+      .then((res) => {
+        console.log("RESPONSE IS: ", res)
+        this.props.updateState(res)
+      })
+      .catch((err) => {
+        console.log("ERROR IS: ", err)
+      })
+  }
 
 
   placeholderPicker = (dropdownVal) => {
@@ -172,7 +178,7 @@ class SearchModal extends Component {
         <Modal isOpen={this.state.modal}>
           <ModalHeader close={closeBtn} className="modal-header" > Filters </ModalHeader>
           <ModalBody>
-            <Form onSubmit={(e) => this.search(e)}>
+            <Form >
               <FormGroup>
 
                 {this.state.filters.map((filterRow, index) => {
@@ -216,7 +222,8 @@ class SearchModal extends Component {
                         disabled
                         color="none"
                         block
-                        onClick={this.search}
+                        // type="submit"
+                        onClick={(e) => this.search(e)}
                         className="search-button">
                         Update Results
                     </Button>
@@ -233,7 +240,8 @@ class SearchModal extends Component {
                       <Button
                         color="none"
                         block
-                        onClick={this.search}
+                        // type="submit"
+                        onClick={(e) => this.search(e)}
                         className="search-button">
                         Update Results
                     </Button>

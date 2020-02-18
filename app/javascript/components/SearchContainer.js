@@ -16,7 +16,8 @@ class SearchContainer extends Component {
       search_results: [],
       showEllipsis: true,
       logs: [],
-      modal: false
+      modal: false,
+      requests: ''
     };
 
 
@@ -61,6 +62,7 @@ class SearchContainer extends Component {
   }
 
   updateState(data) {
+    console.log(data)
     this.setState({
       logs: data.data
     });
@@ -89,9 +91,8 @@ class SearchContainer extends Component {
       <Container className="main-content">
 
         <SearchModal
-
+          updateState={(res) => this.updateState(res)}
         />
-
 
         <Container className="pagination-container">
           <Pagination

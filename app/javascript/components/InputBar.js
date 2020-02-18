@@ -66,6 +66,7 @@ class InputBar extends Component {
           grayedOut = true
         }
       })
+      
       return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
