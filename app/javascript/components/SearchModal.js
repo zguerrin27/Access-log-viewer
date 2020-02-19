@@ -125,6 +125,7 @@ class SearchModal extends Component {
 
   search = (e) => {
     e.preventDefault()
+
     Axios.post("http://localhost:3000/search", {
       search: this.state.filters
     })
@@ -135,6 +136,7 @@ class SearchModal extends Component {
       .catch((err) => {
         console.log("ERROR IS: ", err)
       })
+    this.toggleModal()
   }
 
 
@@ -216,13 +218,12 @@ class SearchModal extends Component {
                         block
                         className="add-button"
                         onClick={(e) => this.addNewFilterRow(e)} >
-                        Add Another Filte
+                        Add Another Filter
                     </Button>
                       <Button
                         disabled
                         color="none"
                         block
-                        // type="submit"
                         onClick={(e) => this.search(e)}
                         className="search-button">
                         Update Results
@@ -240,19 +241,12 @@ class SearchModal extends Component {
                       <Button
                         color="none"
                         block
-                        // type="submit"
                         onClick={(e) => this.search(e)}
                         className="search-button">
                         Update Results
                     </Button>
                     </div>
                 }
-
-
-
-
-
-
 
               </FormGroup>
             </Form>
