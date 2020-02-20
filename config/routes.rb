@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'load', to: 'requests#load'
 
-  post 'search', to: 'requests#search'
+  get 'search', to: 'requests#search'
 
   resources :request
 

@@ -43,16 +43,10 @@ class SearchModal extends Component {
     })
   }
 
-
-
   // three functions 
-
   // one that sets state
-
   // one that simply handles the on change 
-
   // params for setstate
-
 
 
   onChange = (e, row) => {
@@ -125,17 +119,7 @@ class SearchModal extends Component {
 
   search = (e) => {
     e.preventDefault()
-
-    Axios.post("http://localhost:3000/search", {
-      search: this.state.filters
-    })
-      .then((res) => {
-        console.log("RESPONSE IS: ", res)
-        this.props.updateState(res)
-      })
-      .catch((err) => {
-        console.log("ERROR IS: ", err)
-      })
+    this.props.hoistFiltersFromModal(this.state.filters)
     this.toggleModal()
   }
 

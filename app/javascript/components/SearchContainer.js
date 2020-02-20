@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import uuid from 'react-uuid'
 import SearchModal from './SearchModal';
 import {
   Pagination,
@@ -12,18 +13,16 @@ class SearchContainer extends Component {
     super(props);
 
     this.state = {
-      searchTerm: "",
-      search_results: [],
       showEllipsis: true,
       logs: [],
-      modal: false
+      modal: false,
+      filters: [{ searchQuery: '', dropdownVal: '' }]  // uuid comes from modal
     };
-
 
   }
 
   // componentDidMount() {
-  //   this.loadInitialData();
+  //   this.loadInitialData();         // older older code lol
   // }
   // loadInitialData() {
   //   axios
@@ -49,15 +48,67 @@ class SearchContainer extends Component {
 
   // ===================================================================================
 
-  componentDidMount() {
-    this.makeAJAXCall();
+  // componentDidMount() {
+  //   this.makeAJAXCall();                                                         // older code
+  // }
+
+  // async makeAJAXCall(page = 0) {
+  //   const addedInfo = page === 0 ? "" : "?page=" + page;
+  //   const url = "http://localhost:3000/load/" + addedInfo;
+  //   const res = await axios.get(url);
+  //   this.updateState(res)
+  // }
+
+  // ===================================================================================  //split for array => string for params 
+
+
+  // componentDidMount() {  // res => state                                             // nicer code
+  //   const res = this.search()
+  //   this.updateState(res)
+  // }
+
+  // async search(page = 0) {    //  res => 
+  //   const pageNum = page === 0 ? 0 : page;
+  //   const params = { filters: this.state.filters, page: pageNum }
+  //   const url = "http://localhost:3000/search/"
+  //   const res = await this.makeAJAXCall({ url, search: params })
+  //   return res
+  // }
+
+  // async makeAJAXCall({ url, search }){
+  //   const res = await axios.post(url, { search });   // post to back end 
+  //   return res;
+  // }
+
+  // ===================================================================================== // working with get
+
+
+  componentDidMount() {             
+    this.loadData()
   }
 
-  async makeAJAXCall(page = 0) {
+  loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
-    const url = "http://localhost:3000/load/" + addedInfo;
-    const res = await axios.get(url);
-    this.updateState(res);
+    axios.get("http://localhost:3000/search/" + addedInfo, {
+      params: {
+        search: this.state.filters
+      }
+    })
+    .then((res) => {
+      this.updateState(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
+  hoistFiltersFromModal = (filters) => {
+    this.setState({
+      filters: filters
+    })
+    setTimeout(() => {        // work around for timing the hoist of filters state from sub comp
+      this.loadData()         // need to wait a milisecond for the setstate to update the load criteria
+    }, 10)
   }
 
   updateState(data) {
@@ -72,13 +123,14 @@ class SearchContainer extends Component {
     })
   }
 
+
   render() {
-    const showEllipsis = this.state;
+    const { showEllipsis } = this.state;
 
     const logs = this.state.logs.requests
       ? this.state.logs.requests.map(log => (
         <li key={log.id}>
-          {log.ip_address} {log.password} {log.user_id} {log.request_method}{" "}
+          {log.ip_address} {log.password} {log.user_id} {log.timestamp} {log.request_method}{" "}
           {log.request_path} {log.request_protocol} {log.response_code}{" "}
           {log.response_size} {log.referrer} {log.browser}{" "}
         </li>
@@ -89,13 +141,17 @@ class SearchContainer extends Component {
       <Container className="main-content">
 
         <SearchModal
-          updateState={(res) => this.updateState(res)}
+          searchedFiltersState={this.state.filters}
+          updateState={(filtersFromModal) => this.updateState(filtersFromModal)}
+          hoistFiltersFromModal={(e) => this.hoistFiltersFromModal(e)}
+          search={() => this.loadData()}
         />
 
         <Container className="pagination-container">
           <Pagination
             // onPageChange={this.handlePage}
-            onPageChange={(e, props) => this.makeAJAXCall(props.activePage)}
+            // onPageChange={(e, props) => this.makeAJAXCall(props.activePage)}
+            onPageChange={(e, props) => this.loadData(props.activePage)}
             size="large"
             siblingRange="1"
             defaultActivePage={this.state.logs.page || 1}
