@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 
 
-
 class InputBar extends Component {
   constructor(props) {
     super(props)
@@ -30,42 +29,38 @@ class InputBar extends Component {
   }
 
   loopOverDropdownOptions = () => {
-
     const options = [
-      { value: 'ip_address'},
-      { value: 'password'},
-      { value: 'user_id'},
-      { value: 'timestamp'},
-      { value: 'request_method'},
-      { value: 'request_path'},
-      { value: 'request_protocol'},
-      { value: 'response_code'},
-      { value: 'response_size'},
-      { value: 'referrer'},
-      { value: 'browser'}
+      { value: 'ip_address' },
+      { value: 'password' },
+      { value: 'user_id' },
+      { value: 'timestamp' },
+      { value: 'request_method' },
+      { value: 'request_path' },
+      { value: 'request_protocol' },
+      { value: 'response_code' },
+      { value: 'response_size' },
+      { value: 'referrer' },
+      { value: 'browser' }
     ]
-
     return options.map(option => {
       var grayedOut = false
-
       this.props.filtersState.map(f => {
         if (f.dropdownVal === option.value) {
           grayedOut = true
         }
       })
-      
       return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
-
 
   render() {
 
     const dropdowns = this.loopOverDropdownOptions()
 
+
     return (
 
-      <InputGroup  >
+      <InputGroup className="input-group-grow"  >
         <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
           <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
             {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
@@ -75,6 +70,7 @@ class InputBar extends Component {
             {dropdowns}
           </DropdownMenu>
         </InputGroupButtonDropdown>
+
 
         {
           this.props.dropdownTitle !== "timestamp"

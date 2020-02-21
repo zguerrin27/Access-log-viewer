@@ -9,6 +9,11 @@ class RequestsController < ApplicationController
     end
 
 
+    def search2
+        @search = Search.from(params)
+        @search.search
+    end
+
     def search 
         search_params = params[:search]
 

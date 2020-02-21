@@ -3,7 +3,7 @@ require "test_helper"
 class RequestTest < ActiveSupport::TestCase
 
     def setup
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
     end
 
     test "request should be valid" do 
@@ -11,43 +11,43 @@ class RequestTest < ActiveSupport::TestCase
     end
 
     test "request should not save without valid feilds" do
-        @request = Request.new(ip: "", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
         
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
 
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
-
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "", fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
+        
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)")
         invalid_request(@request)
-
-        @request = Request.new(ip: "83.149.9.216", pword: "-", userId: "-", timestamp: "12/12/12", requestMethod: "GET", requestPath: "/path/to/endpoint", requestProtocol: "HTTP/1.1", responseCode: "200", responseSize: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", fullRequest: "GET /path/to/endpoint HTTP/1.1", fullBrowserInfo: "")
+        
+        @request = Request.new(ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/sectretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "")
         invalid_request(@request)
     end
 

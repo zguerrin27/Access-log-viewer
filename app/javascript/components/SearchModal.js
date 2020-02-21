@@ -17,7 +17,7 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filters: [{ searchQuery: '', dropdownVal: '', key: uuid() }]
+      filters: [{ searchQuery: '', dropdownVal: '', predicate: '', key: uuid() }]
     }
   }
 
@@ -174,45 +174,56 @@ class SearchModal extends Component {
                 })}
 
 
+
                 {
-                  this.state.filters[filtersLength - 1].dropdownVal === "" || this.state.filters[filtersLength - 1].searchQuery === ""
+                  filtersLength <= 10   // dont allow add button if length of filters === 11
                     ?
-                    <div>
-                      <p className="text-above-add-btn">All fields must be entered</p>
-                      <Button
-                        disabled
-                        color="none"
-                        block
-                        className="add-button"
-                        onClick={(e) => this.addNewFilterRow(e)} >
-                        Add Another Filter
+                    this.state.filters[filtersLength - 1].dropdownVal === "" || this.state.filters[filtersLength - 1].searchQuery === ""
+                      ?
+                      <div>
+                        <p className="text-above-add-btn">All fields must be entered</p>
+                        <Button
+                          disabled
+                          color="none"
+                          block
+                          className="add-button"
+                          onClick={(e) => this.addNewFilterRow(e)} >
+                          Add Another Filter
                     </Button>
-                      <Button
-                        disabled
-                        color="none"
-                        block
-                        onClick={(e) => this.search(e)}
-                        className="search-button">
-                        Update Results
+                        <Button
+                          disabled
+                          color="none"
+                          block
+                          onClick={(e) => this.search(e)}
+                          className="search-button">
+                          Update Results
                     </Button>
-                    </div>
+                      </div>
+                      :
+                      <div>
+                        <Button
+                          color="none"
+                          block
+                          className="add-button"
+                          onClick={(e) => this.addNewFilterRow(e)} >
+                          Add Another Filter
+                      </Button>
+                        <Button
+                          color="none"
+                          block
+                          onClick={(e) => this.search(e)}
+                          className="search-button">
+                          Update Results
+                      </Button>
+                      </div>
                     :
-                    <div>
-                      <Button
-                        color="none"
-                        block
-                        className="add-button"
-                        onClick={(e) => this.addNewFilterRow(e)} >
-                        Add Another Filter
+                    <Button
+                      color="none"
+                      block
+                      onClick={(e) => this.search(e)}
+                      className="search-button-max-filters">
+                      Update Results
                     </Button>
-                      <Button
-                        color="none"
-                        block
-                        onClick={(e) => this.search(e)}
-                        className="search-button">
-                        Update Results
-                    </Button>
-                    </div>
                 }
 
               </FormGroup>

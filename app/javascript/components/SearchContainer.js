@@ -101,15 +101,15 @@ class SearchContainer extends Component {
       console.log(err)
     })
   }
-  
+
 
   hoistFiltersFromModal = (filters) => {
     this.setState({
       filters: filters
     })
-    setTimeout(() => {        // work around for timing the hoist of filters state from sub comp
-      this.loadData()         // need to wait a milisecond for the setstate to update the load criteria
-    }, 10)
+    setTimeout(() => {      // work around for timing the hoist of filters state from modal comp
+      this.loadData()       // need to wait a milisecond for the setstate to update the load criteria in setstate line above
+    }, 10)                  
   }
 
   updateState(data) {

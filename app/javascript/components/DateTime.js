@@ -22,7 +22,7 @@ class DateTime extends Component {
 
   render() {
     return (
-      <div >
+      <div className="dateTimeDiv">
         <DatePicker showTime placeholder="Select Time" onChange={this.onChange} onOk={this.onOk} />
       </div>
     )
