@@ -2,24 +2,12 @@ import React, { Component } from 'react';
 import DateTime from './DateTime';
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Label,
   Input,
   InputGroup,
   InputGroupButtonDropdown,
-  InputGroupAddon,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  DropdownButton,
-  Dropdown,
-  Item,
-  FormControl,
-  Container
+  DropdownItem
 } from 'reactstrap';
 
 
@@ -33,7 +21,6 @@ class InputBar extends Component {
       lastRowNum: this.props.lastRowNum
     }
 
-
   }
 
   toggleDropdown = () => {
@@ -45,17 +32,17 @@ class InputBar extends Component {
   loopOverDropdownOptions = () => {
 
     const options = [
-      { value: 'ip_address', text: 'I.P Address' },
-      { value: 'password', text: 'Password' },
-      { value: 'user_id', text: 'User ID' },
-      { value: 'timestamp', text: 'Timestamp' },
-      { value: 'request_method', text: 'Request Method' },
-      { value: 'request_path', text: 'Request Path' },
-      { value: 'request_protocol', text: 'Request Protocol' },
-      { value: 'response_code', text: 'Response Code' },
-      { value: 'response_size', text: 'Response Size' },
-      { value: 'referrer', text: 'Referrer' },
-      { value: 'browser', text: 'Browser' }
+      { value: 'ip_address'},
+      { value: 'password'},
+      { value: 'user_id'},
+      { value: 'timestamp'},
+      { value: 'request_method'},
+      { value: 'request_path'},
+      { value: 'request_protocol'},
+      { value: 'response_code'},
+      { value: 'response_size'},
+      { value: 'referrer'},
+      { value: 'browser'}
     ]
 
     return options.map(option => {

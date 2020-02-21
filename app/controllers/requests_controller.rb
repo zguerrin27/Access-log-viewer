@@ -21,6 +21,8 @@ class RequestsController < ApplicationController
             end
         end
 
+        
+
         filtered_requests = if search_by.empty?
                                 Request.all
                             else

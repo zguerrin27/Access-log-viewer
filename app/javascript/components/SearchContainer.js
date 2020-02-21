@@ -101,6 +101,7 @@ class SearchContainer extends Component {
       console.log(err)
     })
   }
+  
 
   hoistFiltersFromModal = (filters) => {
     this.setState({
@@ -141,8 +142,6 @@ class SearchContainer extends Component {
       <Container className="main-content">
 
         <SearchModal
-          searchedFiltersState={this.state.filters}
-          updateState={(filtersFromModal) => this.updateState(filtersFromModal)}
           hoistFiltersFromModal={(e) => this.hoistFiltersFromModal(e)}
           search={() => this.loadData()}
         />

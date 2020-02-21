@@ -7,23 +7,8 @@ import {
   ModalHeader,
   ModalBody,
   Form,
-  FormGroup,
-  Label,
-  Input,
-  InputGroup,
-  InputGroupButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  DropdownButton,
-  Dropdown,
-  Item,
-  FormControl,
-  Container
+  FormGroup
 } from 'reactstrap';
-import Axios from 'axios';
-
-
 
 
 class SearchModal extends Component {
@@ -34,7 +19,6 @@ class SearchModal extends Component {
       dropdownOpen: false,
       filters: [{ searchQuery: '', dropdownVal: '', key: uuid() }]
     }
-
   }
 
   toggleModal = () => {
@@ -62,9 +46,7 @@ class SearchModal extends Component {
         return f;
       }
     })
-    this.setState({
-      filters: updatedFilters
-    })
+    this.updateModalState(updatedFilters)
   }
 
   chooseValueFromDropdown = (e, row) => {
@@ -80,9 +62,7 @@ class SearchModal extends Component {
         return f;
       }
     })
-    this.setState({
-      filters: updatedFilters
-    })
+    this.updateModalState(updatedFilters)
   }
 
   dateTimeOnChange = (dateString, filterRow) => {
@@ -97,10 +77,13 @@ class SearchModal extends Component {
         return f;
       }
     })
+    this.updateModalState(updatedFilters)
+  }
+
+  updateModalState = (updatedFilters) => {
     this.setState({
       filters: updatedFilters
     })
-
   }
 
   removeFilterRow = (e, filter) => {
