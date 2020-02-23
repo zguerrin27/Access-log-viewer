@@ -4,7 +4,6 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     request = {ip_address: "83.149.9.216", password: "-", user_id: "-", timestamp: "12/12/12", request_method: "GET", request_path: "/path/to/endpoint", request_protocol: "HTTP/1.1", response_code: "200", response_size: "23456", referrer: "http://apple.com/secretHelicopter", browser: "Safari", full_request: "GET /path/to/endpoint HTTP/1.1", full_browser_info: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)"}
-    
     Request.create!(request)
   end
   

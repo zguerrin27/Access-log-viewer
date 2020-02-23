@@ -17,7 +17,7 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filters: [{ searchQuery: '', dropdownVal: '', predicate: '', key: uuid() }]
+      filters: [{ searchQuery: '', dropdownVal: '', predicate: '', predicate: '', key: uuid() }]
     }
   }
 

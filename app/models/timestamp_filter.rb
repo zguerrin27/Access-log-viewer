@@ -4,8 +4,9 @@ class TimestampFilter
     @params = params
   end
 
+
   def build_query(scope)
-    
+
   end
 
 end

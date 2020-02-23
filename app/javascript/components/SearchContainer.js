@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import uuid from 'react-uuid'
 import SearchModal from './SearchModal';
 import {
   Pagination,
   Container,
-  Icon,
+  Table,
 } from "semantic-ui-react";
 
 class SearchContainer extends Component {
@@ -16,35 +15,10 @@ class SearchContainer extends Component {
       showEllipsis: true,
       logs: [],
       modal: false,
-      filters: [{ searchQuery: '', dropdownVal: '' }]  // uuid comes from modal
+      filters: [{ searchQuery: '', dropdownVal: '', modifier: '' }]  // uuid comes from modal
     };
 
   }
-
-  // componentDidMount() {
-  //   this.loadInitialData();         // older older code lol
-  // }
-  // loadInitialData() {
-  //   axios
-  //     .get("http://localhost:3000/load")    // this is the old way of doing this. It isnt functional programming.
-  //     .then(data => {                       // I refactored this in the section directly below 
-  //       this.setState({                     //
-  //         logs: data.data
-  //       });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
-  // handlePage = (e, props) => {
-  //   axios
-  //     .get("http://localhost:3000/load/?page=" + props.activePage)
-  //     .then(data => {
-  //       this.setState({
-  //         logs: data.data
-  //       });
-  //     });
-  // };
 
   // ===================================================================================
 
@@ -83,7 +57,7 @@ class SearchContainer extends Component {
   // ===================================================================================== // working with get
 
 
-  componentDidMount() {             
+  componentDidMount() {
     this.loadData()
   }
 
@@ -94,12 +68,12 @@ class SearchContainer extends Component {
         search: this.state.filters
       }
     })
-    .then((res) => {
-      this.updateState(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((res) => {
+        this.updateState(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
 
@@ -109,7 +83,7 @@ class SearchContainer extends Component {
     })
     setTimeout(() => {      // work around for timing the hoist of filters state from modal comp
       this.loadData()       // need to wait a milisecond for the setstate to update the load criteria in setstate line above
-    }, 10)                  
+    }, 10)
   }
 
   updateState(data) {
@@ -127,28 +101,46 @@ class SearchContainer extends Component {
 
   render() {
     const { showEllipsis } = this.state;
+    const filters = this.state.filters[0];
+    const filtersAndValues = filters.searchQuery && filters.dropdownVal !== ""
+      ? this.state.filters.map(filter => (
+        <p key={filter.id}>{filter.dropdownVal}: {filter.searchQuery}</p>
+      ))
+      :
+      null;
 
     const logs = this.state.logs.requests
       ? this.state.logs.requests.map(log => (
-        <li key={log.id}>
-          {log.ip_address} {log.password} {log.user_id} {log.timestamp} {log.request_method}{" "}
-          {log.request_path} {log.request_protocol} {log.response_code}{" "}
-          {log.response_size} {log.referrer} {log.browser}{" "}
-        </li>
+        <tr key={log.id}>
+          <td id="ip-td">{log.ip_address}</td>
+          <td>{log.password}</td>
+          <td>{log.user_id}</td>
+          <td id="timestamp-td">{log.timestamp}</td>
+          <td>{log.request_method}</td>
+          <td id="path-td">{log.request_path}</td>
+          <td>{log.request_protocol}</td>
+          <td>{log.response_code}</td>
+          <td>{log.response_size}</td>
+          <td>{log.referrer}</td>
+          <td id="browser-td">{log.browser}</td>
+        </tr>
       ))
       : null;
 
     return (
-      <Container className="main-content">
 
+      <div>
         <SearchModal
           hoistFiltersFromModal={(e) => this.hoistFiltersFromModal(e)}
           search={() => this.loadData()}
         />
 
+        <Container>
+          {filtersAndValues}
+        </Container>
+
         <Container className="pagination-container">
           <Pagination
-            // onPageChange={this.handlePage}
             // onPageChange={(e, props) => this.makeAJAXCall(props.activePage)}
             onPageChange={(e, props) => this.loadData(props.activePage)}
             size="large"
@@ -159,11 +151,34 @@ class SearchContainer extends Component {
           />
         </Container>
 
-        <div className="logs-container">
-          {logs}
+
+
+        <div id="table-div" >
+          <Table striped >
+            <thead className="table-header" >
+              <tr>
+                <th>ip_address</th>
+                <th>password</th>
+                <th>user_id</th>
+                <th>timestamp</th>
+                <th>request_method</th>
+                <th>request_path</th>
+                <th>request_protocol</th>
+                <th>response_code</th>
+                <th>response_code</th>
+                <th>referrer</th>
+                <th>browser</th>
+              </tr>
+            </thead>
+            <tbody >
+              {logs}
+            </tbody>
+          </Table>
         </div>
 
-      </Container>
+
+
+      </div>
     );
   }
 }

@@ -1,0 +1,119 @@
+1. method that takes request parameters and creates instances of search filters
+
+
+class RequestPathFilter
+    def initialize(params)
+        @query = params[:query]
+        @predicate = params[:predicate]
+    end
+
+    def build_query(report)
+        case predicate
+        when :begin
+            report.where("like %'" + query )
+        end
+        report
+    end
+end
+
+class Search
+    def initialize(params)
+
+    end
+
+    def search
+        request = Request
+        params.each do |param|
+            if param == :request_path
+                report = RequestPathFilter.new(params, request).build_query
+            if params = :ip
+                report = IPFilter.new(params, request)
+            end
+        end
+    end
+end
+
+
+Request.where()
+
+
+
+
+
+Timestamp 
+- before a date and time
+- exact date and time 
+- after date and time 
+
+request_path / referrer
+- starts with 
+- contains 
+- ends with 
+
+response_size
+- smaller than 
+- exact size 
+- larger than 
+
+
+
+
+
+
+class RequestController
+  def search
+    @search = Search.new(params, Request)
+    @search.search
+  end
+end
+class Search
+  def initialize(params, scope=Request)
+    @scope = scope
+    @params = params
+  end
+  def search
+    params.each do |param|
+      case params.type
+      when :between
+        @scope = BetweenFilter.new(params, @scope).build_query
+      when :equals
+	@scope = EqualsFilter.new(params, @scope).build_query
+      when :like
+	@scope = LikeFilter.new(params, @scope).build_query
+      end
+    end
+    @scope
+  end
+end
+class BetweenFilter
+  def initialize(params, scope = Request)
+    @starts_at = params[:starts_at]
+    @ends_at = params[:ends_at]
+    @scope = scope
+  end
+  def build_query
+    @scope = @scope.where("params[:column] >= ?", @starts_at) if @starts_at
+    @scope = @scope.where("params[:column] >= ?", @ends_at) if @ends_at
+    return @scope
+  end
+end
+class EqualsFilter
+  def initialize(params, scope = Request)
+    @query = params[:query]
+    @scope = scope
+  end
+  def build_query
+    @scope = @scope.where("params[:column] = ?", @query) if @query
+    return @scope
+  end
+end
+class LikeFilter
+  def initialize(params, scope = Request)
+    @query = params[:query]
+    @scope = scope
+  end
+  def build_query
+    @scope = @scope.where("params[:column] like '%?%'", @query) if @query
+    return @scope
+  end
+end

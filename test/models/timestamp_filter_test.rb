@@ -4,11 +4,11 @@ class TimestampFilterTest < ActiveSupport::TestCase
   
   test "it should build from params" do 
     request = Request
-
-    params = [{dropdownVal: "ip_address", key: "6e6bdaa-d7f-880b", search_query: "2013-02-07 00:00:00"}]
+    params = [{dropdownVal: "ip_address", search_query: "124.12.45.123"}]
     filter = TimestampFilter.new(params)
     request = filter.build_query(request)
-    expected_request = Request.where(ip_address: "2013-02-07 00:00:00")
+    expected_request = Request.where(ip_address: "124.12.45.123")
     assert_equal expected_request, request
   end 
+  
 end
