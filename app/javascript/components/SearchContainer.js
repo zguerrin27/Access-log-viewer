@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import SearchModal from './SearchModal';
+import { FaRegTimesCircle } from "react-icons/fa";
+import { Jumbotron } from "reactstrap";
 import {
   Pagination,
   Container,
   Table,
 } from "semantic-ui-react";
+
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -15,7 +18,7 @@ class SearchContainer extends Component {
       showEllipsis: true,
       logs: [],
       modal: false,
-      filters: [{ searchQuery: '', dropdownVal: '', modifier: '' }]  // uuid comes from modal
+      filters: [{ searchQuery: '', dropdownVal: '' }]  // uuid comes from modal
     };
 
   }
@@ -23,7 +26,7 @@ class SearchContainer extends Component {
   // ===================================================================================
 
   // componentDidMount() {
-  //   this.makeAJAXCall();                                                         // older code
+  //   this.makeAJAXCall();                                                         // older code, wont work with pagination
   // }
 
   // async makeAJAXCall(page = 0) {
@@ -76,7 +79,6 @@ class SearchContainer extends Component {
       })
   }
 
-
   hoistFiltersFromModal = (filters) => {
     this.setState({
       filters: filters
@@ -98,16 +100,33 @@ class SearchContainer extends Component {
     })
   }
 
+  removeFilterinJumbotron = (e, filter) => {
+    e.preventDefault()
+    console.log("REMOVE CLIKED-FILTER IS: ", filter)
+    const clickedFilterKey = filter.key
+
+    this.setState((prevState) => ({
+      filters: prevState.filters.filter(f => f.key !== clickedFilterKey)
+    }))
+
+    // this.loadData()
+  }
+
+  displayFiltersinJumbotron = () => {
+    const filters = this.state.filters;
+    const filtersToBeDisplayed = filters.map(filter => (
+      <p key={filter.key}> {filter.dropdownVal}: {filter.searchQuery} <FaRegTimesCircle onClick={(e) => this.removeFilterinJumbotron(e, filter)} /> </p>
+    ))
+    return filtersToBeDisplayed
+  }
+
+
 
   render() {
     const { showEllipsis } = this.state;
     const filters = this.state.filters[0];
-    const filtersAndValues = filters.searchQuery && filters.dropdownVal !== ""
-      ? this.state.filters.map(filter => (
-        <p key={filter.id}>{filter.dropdownVal}: {filter.searchQuery}</p>
-      ))
-      :
-      null;
+    const filtersInJumbotron = this.displayFiltersinJumbotron()
+
 
     const logs = this.state.logs.requests
       ? this.state.logs.requests.map(log => (
@@ -130,14 +149,26 @@ class SearchContainer extends Component {
     return (
 
       <div>
+
         <SearchModal
           hoistFiltersFromModal={(e) => this.hoistFiltersFromModal(e)}
           search={() => this.loadData()}
         />
 
-        <Container>
-          {filtersAndValues}
-        </Container>
+        {/* {
+          filters.searchQuery && filters.dropdownVal !== ""
+            ?
+            <div id="jumbotronId">
+              <Jumbotron fluid>
+                <Container fluid>
+                  {filtersInJumbotron}
+                </Container>
+              </Jumbotron>
+            </div>
+            :
+            null
+        } */}
+
 
         <Container className="pagination-container">
           <Pagination
@@ -151,8 +182,6 @@ class SearchContainer extends Component {
           />
         </Container>
 
-
-
         <div id="table-div" >
           <Table striped >
             <thead className="table-header" >
@@ -165,7 +194,7 @@ class SearchContainer extends Component {
                 <th>request_path</th>
                 <th>request_protocol</th>
                 <th>response_code</th>
-                <th>response_code</th>
+                <th>response_size</th>
                 <th>referrer</th>
                 <th>browser</th>
               </tr>
@@ -175,8 +204,6 @@ class SearchContainer extends Component {
             </tbody>
           </Table>
         </div>
-
-
 
       </div>
     );

@@ -57,6 +57,21 @@ td {
   height: 55px;
 }
 
+#jumbotronId {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px !important;
+  width: 75vw;
+  border: solid;
+  border-radius: 10px;
+  border-color: #e9ecef;
+}
+
+.error-message {
+  color: red;
+  margin-left: 148px;
+}
+
 .navbar-brand {
   font-size: large !important;
 }

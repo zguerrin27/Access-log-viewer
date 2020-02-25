@@ -57,6 +57,8 @@ class InputBar extends Component {
 
     const dropdowns = this.loopOverDropdownOptions()
 
+    const formErrors = this.props.formErrors;
+
 
     return (
 
@@ -76,16 +78,23 @@ class InputBar extends Component {
           this.props.dropdownTitle !== "timestamp"
             ?
             <Input
+              // onChange={this.props.onChange, this.props.handleErrors}
               onChange={this.props.onChange}
               id="input-bar"
               value={this.props.searchQuery}
+              name={this.props.dropdownTitle}
               placeholder={this.props.placeholder}
             />
             :
             <DateTime
               dateTimeOnChange={(dateString) => this.props.dateTimeOnChange(dateString)}
             />
+
         }
+        {/* <br />
+        {formErrors.ip_address.length > 0 && (
+          <span className="error-message">{formErrors.ip_address}</span>
+        )} */}
 
         {
           this.props.deleteButton
