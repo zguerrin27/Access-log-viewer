@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid'
 import InputBar from './InputBar'
+import validateInput from './validate';
 import {
   Button,
   Modal,
@@ -14,11 +15,15 @@ import {
 const validateForm = (formErrors) => {
   let valid = true;
   Object.values(formErrors).forEach(
-    // if we have an error string set valid to false
     (val) => val.length > 0 && (valid = false)
   );
   return valid;
 }
+
+const validIpRegex =
+  RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
+const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
 
 class SearchModal extends Component {
@@ -40,7 +45,8 @@ class SearchModal extends Component {
         response_size: '',
         referrer: '',
         browser: ''
-      }
+      },
+      errorToBeDisplayed: ''
     }
   }
 
@@ -66,21 +72,35 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
+
+
+
   chooseValueFromDropdown = (e, row) => {
     e.preventDefault();
     const filters = this.state.filters;
+    const formErrors = { ...this.state.formErrors };
+
+    formErrors[row.dropdownVal] = "";    // when change the dropdown, also delete the error from formErrors
+    this.setState({
+      formErrors                         // short hand for formErrors: formErrors
+    })
+
     const updatedFilters = filters.map(f => {
       if (row.key === f.key) {
         return {
           ...f,
-          dropdownVal: e.target.value
+          dropdownVal: e.target.value,
+          searchQuery: ''
         }
       } else {
         return f;
       }
     })
     this.updateModalState(updatedFilters)
+
   }
+
+
 
   dateTimeOnChange = (dateString, filterRow) => {
     const filters = this.state.filters;
@@ -104,30 +124,48 @@ class SearchModal extends Component {
   }
 
   removeFilterRow = (e, filter) => {
-    let uuid = filter.key;
+    const formErrors = { ...this.state.formErrors };
+    formErrors[filter.dropdownVal] = "";    // when you delete a row also delete the error from formErrors
+    this.setState({
+      formErrors                            // short hand for formErrors: formErrors
+    })
     this.setState((prevState) => ({
-      filters: prevState.filters.filter(f => f.key !== uuid)
+      filters: prevState.filters.filter(f => f.key !== filter.key)
     }))
   }
+
+
 
   addNewFilterRow = (e) => {
     e.preventDefault()
-    this.setState((prevState) => ({
-      filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', key: uuid() }])
-    }))
+    const formErrors = { ...this.state.formErrors };
+    if (validateForm(formErrors)) {
+      this.setState((prevState) => ({
+        filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', key: uuid() }])
+      }))
+    } else {
+      const error = Object.values(formErrors)
+      var filteredError = error.filter(Boolean);
+      alert(filteredError)
+    }
   }
+
+
 
   search = (e) => {
     e.preventDefault()
-    if (validateForm(this.state.formErrors)) {
-      console.info('Valid Form')
+    const formErrors = { ...this.state.formErrors };
+    if (validateForm(formErrors)) {
       this.props.hoistFiltersFromModal(this.state.filters)
       this.toggleModal()
     } else {
-      console.error('Invalid Form')
-      this.toggleModal()
+      const error = Object.values(formErrors)
+      var filteredError = error.filter(Boolean);
+      alert(filteredError)
     }
   }
+
+
 
   placeholderPicker = (dropdownVal) => {
     const options = {
@@ -145,85 +183,108 @@ class SearchModal extends Component {
     return options[dropdownVal]
   }
 
+  requestMethodChecker = (value) => {
+    let successValues = [
+      "GET",
+      "HEAD",
+      "POST",
+      "PUT",
+      "DELETE",
+      "CONNECT",
+      "OPTIONS",
+      "TRACE"
+    ]
+    if (successValues.indexOf(value) !== -1) {
+      return true;
+    }
+  }
+
+  requestProtocolChecker = (value) => {
+    let successValues = [
+      "HTTP/1.0",
+      "HTTP/1.1",
+      "HTTP/2.0"
+    ]
+    if (successValues.indexOf(value) !== -1) {
+      return true;
+    }
+  }
+
   handleErrors = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = this.state.formErrors;
 
     switch (name) {
-      case 'ip_address':
+      case 'ip_address':                            // done
         formErrors.ip_address =
-          value.length < 5 && value.length > 0
-            ? 'Entered ip_address is not valid!'
-            : '';
+          validIpRegex.test(value)
+            ? ''
+            : 'Entered ip_address is not valid!';
         break;
-      case 'password':
+      case 'password':                             // done       
         formErrors.password =
-          // validEmailRegex.test(value)
-          value.length < 5 && value.length > 0
+          value.length < 1 && value.length - 1 !== 0
             ? 'Entered password is not valid!'
             : '';
         break;
-      case 'user_id':
+      case 'user_id':                              // done 
         formErrors.user_id =
-          value.length < 5 && value.length > 0
+          value.length < 1
             ? 'Entered user_id is not valid!'
             : '';
         break;
-      case 'timestamp':
+      case 'timestamp':                            // done
         formErrors.timestamp =
-          value.length < 5 && value.length > 0
+          value.length < 1
             ? 'Entered timestamp is not valid!'
             : '';
         break;
-      case 'request_method':
+      case 'request_method':                       // done
         formErrors.request_method =
-          value.length < 5 && value.length > 0
-            ? 'Entered request_method is not valid!'
-            : '';
+          this.requestMethodChecker(value)
+            ? ''
+            : 'Entered request_method is not valid!';
         break;
-      case 'request_path':
+      case 'request_path':                         // done
         formErrors.request_path =
-          value.length < 5 && value.length > 0
+          value.length < 1
             ? 'Entered request_path is not valid!'
             : '';
         break;
-      case 'request_protocol':
+      case 'request_protocol':                     // done
         formErrors.request_protocol =
-          value.length < 5 && value.length > 0
-            ? 'Entered request_protocol is not valid!'
-            : '';
+          this.requestProtocolChecker(value)
+            ? ''
+            : 'Entered request_protocol is not valid!';
         break;
-      case 'response_code':
+      case 'response_code':                       // done 
         formErrors.response_code =
-          value.length < 5 && value.length > 0
-            ? 'Entered response_code is not valid!'
-            : '';
+          validResponseCodeRegex.test(value)
+            ? ''
+            : 'Entered response_code is not valid!';
         break;
-      case 'response_size':
+      case 'response_size':                      // done 
         formErrors.response_size =
-          value.length < 5 && value.length > 0
-            ? 'Entered response_size is not valid!'
-            : '';
-        break;
-      case 'referrer':
+          validResponseSizeRegex.test(value)
+            ? ''
+            : 'Entered response_size is not valid!';
+        break;    
+      case 'referrer':                            // done
         formErrors.referrer =
-          value.length < 5 && value.length > 0
+          value.length < 1
             ? 'Entered referrer is not valid!'
             : '';
         break;
       case 'browser':
-        formErrors.browser =
-          value.length < 5 && value.length > 0
+        formErrors.browser =                     // done 
+          value.length < 1
             ? 'Entered browser is not valid!'
             : '';
         break;
       default:
         break;
     }
-    // this.setState({ formErrors, [name]: value }, () => {
-    //   // console.log("SET ERRORS STATE WITH:", formErrors)
-    // })
 
     this.setState({ formErrors, [name]: value })
   }
@@ -233,18 +294,12 @@ class SearchModal extends Component {
     this.handleErrors(e)
   }
 
-
-
-
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
     const filtersLength = this.state.filters.length;
-    const { formErrors } = this.state;
-
-    const emptyOrNotErrorsObj = isEmpty(formErrors)
-    function isEmpty(obj) {
-      return Object.keys(obj).length === 0;
-    }
+    const filters = this.state.filters;
+    const dropdownsEmpty = obj => obj.dropdownVal === ''
+    const searchQuerysEmpty = obj => obj.searchQuery === ''
 
     return (
       <div>
@@ -267,12 +322,11 @@ class SearchModal extends Component {
             <Form >
               <FormGroup>
 
-                {this.state.filters.map((filterRow, index) => {
+                {filters.map((filterRow, index) => {
                   const placeholder = this.placeholderPicker(filterRow.dropdownVal)
                   return (
                     <InputBar
                       chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
-                      // onChange={(e) => this.searchQueryOnChange(e, filterRow)}
                       onChange={(e) => { this.combineOnChanges(e, filterRow) }}
                       dateTimeOnChange={(e) => this.dateTimeOnChange(e, filterRow)}
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
@@ -289,38 +343,13 @@ class SearchModal extends Component {
                   )
                 })}
 
-                {formErrors.ip_address.length > 0 ? <span className="error-message">{formErrors.ip_address}<br /></span> : null}
-                {formErrors.password.length > 0 ? <span className="error-message">{formErrors.password}<br /></span> : null}
-                {formErrors.user_id.length > 0 ? <span className="error-message">{formErrors.user_id}<br /></span> : null}
-                {formErrors.timestamp.length > 0 ? <span className="error-message">{formErrors.timestamp}<br /></span> : null}
-                {formErrors.request_method.length > 0 ? <span className="error-message">{formErrors.request_method}<br /></span> : null}
-                {formErrors.request_path.length > 0 ? <span className="error-message">{formErrors.request_path}<br /></span> : null}
-                {formErrors.request_protocol.length > 0 ? <span className="error-message">{formErrors.request_protocol}<br /></span> : null}
-                {formErrors.response_code.length > 0 ? <span className="error-message">{formErrors.response_code}<br /></span> : null}
-                {formErrors.response_size.length > 0 ? <span className="error-message">{formErrors.response_size}<br /></span> : null}
-                {formErrors.referrer.length > 0 ? <span className="error-message">{formErrors.referrer}<br /></span> : null}
-                {formErrors.browser.length > 0 ? <span className="error-message">{formErrors.browser}<br /></span> : null}
-
-
                 {
                   filtersLength <= 10   // dont allow add button if length of filters === 11
                     ?
-                    this.state.filters[filtersLength - 1].dropdownVal === "" ||
-                      this.state.filters[filtersLength - 1].searchQuery === "" ||
-                      formErrors.ip_address.length > 0 ||
-                      formErrors.password.length > 0 ||
-                      formErrors.user_id.length > 0 ||
-                      formErrors.timestamp.length > 0 ||
-                      formErrors.request_method.length > 0 ||
-                      formErrors.request_path.length > 0 ||
-                      formErrors.request_protocol.length > 0 ||
-                      formErrors.response_code.length > 0 ||
-                      formErrors.response_size.length > 0 ||
-                      formErrors.referrer.length > 0 ||
-                      formErrors.browser.length > 0
+                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true      // actual black magic 
                       ?
                       <div>
-                        {/* <p className="text-above-add-btn">All fields must be entered</p> */}
+                        <p className="text-above-add-btn">All fields must have value entered</p>
                         <Button
                           disabled
                           color="none"
