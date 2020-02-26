@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import uuid from 'react-uuid'
-import InputBar from './InputBar'
+import uuid from 'react-uuid';
+import InputBar from './InputBar';
 import validateInput from './validate';
 import {
   Button,
@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 
 
-const validateForm = (formErrors) => {
+const validateForm = (formErrors) => {         // if all of the strings in formErros are empty, returns true 
   let valid = true;
   Object.values(formErrors).forEach(
     (val) => val.length > 0 && (valid = false)
@@ -32,7 +32,15 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filters: [{ searchQuery: '', dropdownVal: '', predicate: '', key: uuid() }],
+      filters: [{ 
+        searchQuery: '',
+        dropdownVal: '', 
+        reqMethDropdown: '',
+        resSizeDropdown: '',
+        timestampDropdown: '',
+        urlFieldDropdown: '', 
+        key: uuid()
+      }],
       formErrors: {
         ip_address: '',
         password: '',
@@ -102,7 +110,7 @@ class SearchModal extends Component {
 
 
 
-  dateTimeOnChange = (dateString, filterRow) => {
+  dateTimeOnChange = (dateString, filterRow) => {   // functionality for datetime any module
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
       if (filterRow.key === f.key) {
@@ -117,7 +125,7 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-  updateModalState = (updatedFilters) => {
+  updateModalState = (updatedFilters) => {   // update filters state
     this.setState({
       filters: updatedFilters
     })
@@ -125,7 +133,7 @@ class SearchModal extends Component {
 
   removeFilterRow = (e, filter) => {
     const formErrors = { ...this.state.formErrors };
-    formErrors[filter.dropdownVal] = "";    // when you delete a row also delete the error from formErrors
+    formErrors[filter.dropdownVal] = "";    // when you delete a row also delete the error from formErrors, override with empty string ""
     this.setState({
       formErrors                            // short hand for formErrors: formErrors
     })
@@ -159,9 +167,9 @@ class SearchModal extends Component {
       this.props.hoistFiltersFromModal(this.state.filters)
       this.toggleModal()
     } else {
-      const error = Object.values(formErrors)
-      var filteredError = error.filter(Boolean);
-      alert(filteredError)
+      const error = Object.values(formErrors)                 // gets values
+      var filteredError = error.filter(Boolean);              // trims empty values ,, from string 
+      alert(filteredError)                                    // alert error string 
     }
   }
 
@@ -269,7 +277,7 @@ class SearchModal extends Component {
           validResponseSizeRegex.test(value)
             ? ''
             : 'Entered response_size is not valid!';
-        break;    
+        break;
       case 'referrer':                            // done
         formErrors.referrer =
           value.length < 1

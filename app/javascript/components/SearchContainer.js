@@ -79,7 +79,7 @@ class SearchContainer extends Component {
       })
   }
 
-  hoistFiltersFromModal = (filters) => {
+  hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
     this.setState({
       filters: filters
     })

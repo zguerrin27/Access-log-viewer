@@ -53,6 +53,8 @@ class InputBar extends Component {
     })
   }
 
+
+
   render() {
 
     const dropdowns = this.loopOverDropdownOptions()
@@ -73,12 +75,29 @@ class InputBar extends Component {
           </DropdownMenu>
         </InputGroupButtonDropdown>
 
+        {
+          this.props.dropdownTitle === request_protocol 
+          ?
+          <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
+            <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
+              {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
+            </DropdownToggle>
+            <DropdownMenu >
+              <DropdownItem header >Choose Below:</DropdownItem>
+              {dropdowns}
+            </DropdownMenu>
+          </InputGroupButtonDropdown>
+          :
+          null
+        }
+
+
+
 
         {
           this.props.dropdownTitle !== "timestamp"
             ?
             <Input
-              // onChange={this.props.onChange, this.props.handleErrors}
               onChange={this.props.onChange}
               id="input-bar"
               value={this.props.searchQuery}
@@ -91,10 +110,6 @@ class InputBar extends Component {
             />
 
         }
-        {/* <br />
-        {formErrors.ip_address.length > 0 && (
-          <span className="error-message">{formErrors.ip_address}</span>
-        )} */}
 
         {
           this.props.deleteButton

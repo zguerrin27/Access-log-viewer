@@ -1,52 +1,81 @@
+// function requestMethodChecker(value) {
+//     let successValues = [
+//         "GET",
+//         "HEAD",
+//         "POST",
+//         "PUT",
+//         "DELETE",
+//         "CONNECT",
+//         "OPTIONS",
+//         "TRACE"
+//     ]
+//     if (successValues.indexOf(value) !== -1) {
+//         return true;
+//     }
+// }
 
+// requestProtocolChecker(value){
+//     let successValues = [
+//         "HTTP/1.0",
+//         "HTTP/1.1",
+//         "HTTP/2.0"
+//     ]
+//     if (successValues.indexOf(value) !== -1) {
+//         return true;
+//     }
+// }
 
 const validIpRegex =
     RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
 const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
+
+
+
+
 export default function validateInput(name, value, formErrors) {
 
     switch (name) {
-        case 'ip_address':                            // done
+        case 'ip_address':
             formErrors.ip_address =
                 validIpRegex.test(value)
                     ? ''
                     : 'Entered ip_address is not valid!';
             break;
-        case 'password':                             // done       
+        case 'password':
             formErrors.password =
                 value.length < 1
                     ? 'Entered password is not valid!'
                     : '';
             break;
-        case 'user_id':                              // done 
+        case 'user_id':
             formErrors.user_id =
                 value.length < 1
                     ? 'Entered user_id is not valid!'
                     : '';
             break;
-        case 'timestamp':                            // done
+        case 'timestamp':
             formErrors.timestamp =
                 value.length < 1
                     ? 'Entered timestamp is not valid!'
                     : '';
             break;
-        case 'request_method':                       // done
+        case 'request_method':
             formErrors.request_method =
-                this.requestMethodChecker(value)
+                requestMethodChecker(value)
                     ? ''
                     : 'Entered request_method is not valid!';
             break;
-        case 'request_path':                         // done
+        case 'request_path':
             formErrors.request_path =
                 value.length < 1
                     ? 'Entered request_path is not valid!'
                     : '';
             break;
-        case 'request_protocol':                     // done
+        case 'request_protocol':
             formErrors.request_protocol =
-                this.requestProtocolChecker(value)
+                requestProtocolChecker(value)
                     ? ''
                     : 'Entered request_protocol is not valid!';
             break;
