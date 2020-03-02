@@ -93,6 +93,10 @@ td {
   width: 210px;
 }
 
+.modal-content {
+  min-width: 571px;
+}
+
 .add-button {
   margin-top: 5px;
   background-color: rgb(165, 165, 165) !important;
@@ -130,6 +134,22 @@ td {
 
 .dropdown-button {
   min-width: 148px;
+  margin: 2px;
+  border-radius: 3.5px !important;
+}
+
+.second-dropdown-div {
+  flex-grow: 1;
+}
+
+.second-dropdown-button {
+  width: 100%;
+  margin: 2px;
+  border-radius: 3.5px !important;
+}
+
+.resSize-dropdown {
+  min-width: 109px;
   margin: 2px;
   border-radius: 3.5px !important;
 }

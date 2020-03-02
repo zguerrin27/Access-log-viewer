@@ -32,13 +32,10 @@ class SearchModal extends Component {
     this.state = {
       modal: false,
       dropdownOpen: false,
-      filters: [{ 
+      filters: [{
         searchQuery: '',
-        dropdownVal: '', 
-        reqMethDropdown: '',
-        resSizeDropdown: '',
-        timestampDropdown: '',
-        urlFieldDropdown: '', 
+        dropdownVal: '',
+        modifier: '',
         key: uuid()
       }],
       formErrors: {
@@ -53,10 +50,10 @@ class SearchModal extends Component {
         response_size: '',
         referrer: '',
         browser: ''
-      },
-      errorToBeDisplayed: ''
+      }
     }
   }
+
 
   toggleModal = () => {
     this.setState({
@@ -64,8 +61,9 @@ class SearchModal extends Component {
     })
   }
 
+
   searchQueryOnChange = (e, row) => {                               // refactor this
-    e.preventDefault();                                             // this is doing 2 things. change 55
+    e.preventDefault();                                             // this is doing 2 things. change 65
     const filters = this.state.filters;                             // into a return updated filters
     const updatedFilters = filters.map(f => {                       // almost the same function as below 
       if (row.key === f.key) {
@@ -81,18 +79,14 @@ class SearchModal extends Component {
   }
 
 
-
-
   chooseValueFromDropdown = (e, row) => {
     e.preventDefault();
     const filters = this.state.filters;
     const formErrors = { ...this.state.formErrors };
-
-    formErrors[row.dropdownVal] = "";    // when change the dropdown, also delete the error from formErrors
+    formErrors[row.dropdownVal] = "";                  // when change the dropdown, also delete the error from formErrors
     this.setState({
-      formErrors                         // short hand for formErrors: formErrors
+      formErrors                                     
     })
-
     const updatedFilters = filters.map(f => {
       if (row.key === f.key) {
         return {
@@ -105,12 +99,72 @@ class SearchModal extends Component {
       }
     })
     this.updateModalState(updatedFilters)
-
   }
 
 
 
-  dateTimeOnChange = (dateString, filterRow) => {   // functionality for datetime any module
+
+// =================================================================  these can be grouped into one / two functions
+
+  chooseReqProtocolDropdown = (e, row) => {
+    e.preventDefault();
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (row.key === f.key) {
+        return {
+          ...f,
+          // reqProtoDropdown: e.target.value,
+          searchQuery: e.target.value
+        }
+      } else {
+        return f;
+      }
+    })
+    this.updateModalState(updatedFilters)
+  }
+
+
+  chooseReqMethDropdown = (e, row) => {
+    e.preventDefault();
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (row.key === f.key) {
+        return {
+          ...f,
+          // reqMethDropdown: e.target.value,
+          searchQuery: e.target.value
+        }
+      } else {
+        return f;
+      }
+    })
+    this.updateModalState(updatedFilters)
+  }
+
+
+  chooseModifierDropdown = (e, row) => {
+    e.preventDefault();
+    const filters = this.state.filters;
+    const updatedFilters = filters.map(f => {
+      if (row.key === f.key) {
+        return {
+          ...f,
+          modifier: e.target.value
+        }
+      } else {
+        return f;
+      }
+    })
+    this.updateModalState(updatedFilters)
+  }
+
+
+// ============================================================================================================================
+
+
+
+
+  dateTimeOnChange = (dateString, filterRow) => {   
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
       if (filterRow.key === f.key) {
@@ -125,17 +179,20 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-  updateModalState = (updatedFilters) => {   // update filters state
+
+
+  updateModalState = (updatedFilters) => {  
     this.setState({
       filters: updatedFilters
     })
   }
 
+
   removeFilterRow = (e, filter) => {
     const formErrors = { ...this.state.formErrors };
     formErrors[filter.dropdownVal] = "";    // when you delete a row also delete the error from formErrors, override with empty string ""
     this.setState({
-      formErrors                            // short hand for formErrors: formErrors
+      formErrors                           
     })
     this.setState((prevState) => ({
       filters: prevState.filters.filter(f => f.key !== filter.key)
@@ -149,7 +206,7 @@ class SearchModal extends Component {
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.setState((prevState) => ({
-        filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', key: uuid() }])
+        filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', modifier: '', key: uuid() }])
       }))
     } else {
       const error = Object.values(formErrors)
@@ -157,7 +214,6 @@ class SearchModal extends Component {
       alert(filteredError)
     }
   }
-
 
 
   search = (e) => {
@@ -172,7 +228,6 @@ class SearchModal extends Component {
       alert(filteredError)                                    // alert error string 
     }
   }
-
 
 
   placeholderPicker = (dropdownVal) => {
@@ -224,68 +279,68 @@ class SearchModal extends Component {
     let formErrors = this.state.formErrors;
 
     switch (name) {
-      case 'ip_address':                            // done
+      case 'ip_address':                          
         formErrors.ip_address =
           validIpRegex.test(value)
             ? ''
             : 'Entered ip_address is not valid!';
         break;
-      case 'password':                             // done       
+      case 'password':                                
         formErrors.password =
           value.length < 1 && value.length - 1 !== 0
             ? 'Entered password is not valid!'
             : '';
         break;
-      case 'user_id':                              // done 
+      case 'user_id':                           
         formErrors.user_id =
           value.length < 1
             ? 'Entered user_id is not valid!'
             : '';
         break;
-      case 'timestamp':                            // done
+      case 'timestamp':                            
         formErrors.timestamp =
           value.length < 1
             ? 'Entered timestamp is not valid!'
             : '';
         break;
-      case 'request_method':                       // done
+      case 'request_method':                      
         formErrors.request_method =
           this.requestMethodChecker(value)
             ? ''
             : 'Entered request_method is not valid!';
         break;
-      case 'request_path':                         // done
+      case 'request_path':                         
         formErrors.request_path =
           value.length < 1
             ? 'Entered request_path is not valid!'
             : '';
         break;
-      case 'request_protocol':                     // done
+      case 'request_protocol':                     
         formErrors.request_protocol =
           this.requestProtocolChecker(value)
             ? ''
             : 'Entered request_protocol is not valid!';
         break;
-      case 'response_code':                       // done 
+      case 'response_code':                        
         formErrors.response_code =
           validResponseCodeRegex.test(value)
             ? ''
             : 'Entered response_code is not valid!';
         break;
-      case 'response_size':                      // done 
+      case 'response_size':                      
         formErrors.response_size =
           validResponseSizeRegex.test(value)
             ? ''
             : 'Entered response_size is not valid!';
         break;
-      case 'referrer':                            // done
+      case 'referrer':                            
         formErrors.referrer =
           value.length < 1
             ? 'Entered referrer is not valid!'
             : '';
         break;
       case 'browser':
-        formErrors.browser =                     // done 
+        formErrors.browser =                     
           value.length < 1
             ? 'Entered browser is not valid!'
             : '';
@@ -307,7 +362,7 @@ class SearchModal extends Component {
     const filtersLength = this.state.filters.length;
     const filters = this.state.filters;
     const dropdownsEmpty = obj => obj.dropdownVal === ''
-    const searchQuerysEmpty = obj => obj.searchQuery === ''
+    const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
 
     return (
       <div>
@@ -340,6 +395,7 @@ class SearchModal extends Component {
                       removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
                       filtersState={this.state.filters}
                       searchQuery={filterRow.searchQuery}
+                      modifier={filterRow.modifier}
                       key={filterRow.key}
                       filtersLength={this.state.filters.length - 1}
                       deleteButton={this.state.filters.length - 1 === 0}
@@ -347,6 +403,9 @@ class SearchModal extends Component {
                       dropdownTitle={filterRow.dropdownVal}
                       placeholder={placeholder}
                       formErrors={this.state.formErrors}
+                      chooseProtoDropdown={(e) => this.chooseReqProtocolDropdown(e, filterRow)}
+                      chooseReqMethDropdown={(e) => this.chooseReqMethDropdown(e, filterRow)}
+                      chooseModifierDropdown={(e) => this.chooseModifierDropdown(e, filterRow)}
                     />
                   )
                 })}
@@ -354,7 +413,7 @@ class SearchModal extends Component {
                 {
                   filtersLength <= 10   // dont allow add button if length of filters === 11
                     ?
-                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true      // actual black magic 
+                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true      // actual witchcraft
                       ?
                       <div>
                         <p className="text-above-add-btn">All fields must have value entered</p>

@@ -17,7 +17,9 @@ class InputBar extends Component {
 
     this.state = {
       dropdownOpen: false,
-      lastRowNum: this.props.lastRowNum
+      reqProtoDropdown: false,
+      reqMethDropdown: false,
+      modifierDropdown: false,
     }
 
   }
@@ -28,19 +30,37 @@ class InputBar extends Component {
     })
   }
 
+  toggleReqProtoDropdown = () => {
+    this.setState({
+      reqProtoDropdown: !this.state.reqProtoDropdown
+    })
+  }
+
+  toggleReqMethDropdown = () => {
+    this.setState({
+      reqMethDropdown: !this.state.reqMethDropdown
+    })
+  }
+
+  toggleModifierDropdown = () => {
+    this.setState({
+      modifierDropdown: !this.state.modifierDropdown
+    })
+  }
+
   loopOverDropdownOptions = () => {
     const options = [
-      { value: 'ip_address' },
-      { value: 'password' },
-      { value: 'user_id' },
-      { value: 'timestamp' },
-      { value: 'request_method' },
-      { value: 'request_path' },
-      { value: 'request_protocol' },
-      { value: 'response_code' },
-      { value: 'response_size' },
-      { value: 'referrer' },
-      { value: 'browser' }
+      { value: 'ip_address', text: 'IP Address' },
+      { value: 'password', text: 'Password' },
+      { value: 'user_id', text: 'User ID' },
+      { value: 'timestamp', text: 'Timestamp' },
+      { value: 'request_method', text: 'Request Method' },
+      { value: 'request_path', text: 'Request Path' },
+      { value: 'request_protocol', text: 'Request Protocol' },
+      { value: 'response_code', text: 'Response Code' },
+      { value: 'response_size', text: 'Response Size' },
+      { value: 'referrer', text: 'Referrer' },
+      { value: 'browser', text: 'Browser' }
     ]
     return options.map(option => {
       var grayedOut = false
@@ -49,25 +69,125 @@ class InputBar extends Component {
           grayedOut = true
         }
       })
-      return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+      return <DropdownItem onClick={this.props.chooseValueFromDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.text} </DropdownItem>
+    })
+  }
+
+  reqProtocolOptions = () => {    // why have another state object called this specfic drop down???just push into searchQuery
+    const options = [
+      { value: 'HTTP/1.0' },
+      { value: 'HTTP/1.1' },
+      { value: 'HTTP/2.0' }
+    ]
+    return options.map(option => {
+      var grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.searchQuery === option.value) {
+          grayedOut = true                        
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseProtoDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
 
 
+  reqMethOptions = () => {    
+    const options = [
+      { value: 'GET' },
+      { value: 'POST' },
+      { value: 'PUT' },
+      { value: 'HEAD' },
+      { value: 'DELETE' },
+      { value: 'CONNECT' },
+      { value: 'OPTIONS' },
+      { value: 'TRACE' }
+    ]
+    return options.map(option => {
+      var grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.searchQuery === option.value) {
+          grayedOut = true
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseReqMethDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+    })
+  }
+
+
+  resSizeModifierOptions = () => {
+    const options = [
+      { value: 'Less Than' },
+      { value: 'Exactly' },
+      { value: 'Larger Than' }
+    ]
+    return options.map(option => {
+      var grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.searchQuery === option.value) {
+          grayedOut = true
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+    })
+  }
+
+  urlModifierOptions = () => {
+    const options = [
+      { value: 'Starts With' },
+      { value: 'Contains' },
+      { value: 'Ends With' }
+    ]
+    return options.map(option => {
+      var grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.searchQuery === option.value) {
+          grayedOut = true
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+    })
+  }
+
+  timestampModifierOptions = () => {
+    const options = [
+      { value: 'Before time' },
+      { value: 'At time' },
+      { value: 'After time' }
+    ]
+    return options.map(option => {
+      var grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.searchQuery === option.value) {
+          grayedOut = true
+        }
+      })
+      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+    })
+  }
 
   render() {
 
     const dropdowns = this.loopOverDropdownOptions()
+    const reqProtoDropdowns = this.reqProtocolOptions()
+    const reqMethDropdowns = this.reqMethOptions()
+    const resSizeModifierDropdowns = this.resSizeModifierOptions()
+    const urlModifierDropdowns = this.urlModifierOptions()
+    const timestampModifierDropdowns = this.timestampModifierOptions()
+    const protoDropdownTitle = this.props.searchQuery
+    const reqMethDropdownTitle = this.props.searchQuery
+    const modifierDropdownTitle = this.props.modifier
+    const dropdownTitle = this.props.dropdownTitle
+  
 
-    const formErrors = this.props.formErrors;
 
 
     return (
 
       <InputGroup className="input-group-grow"  >
+
         <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
           <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
-            {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
+            {dropdownTitle === "" ? "Select" : dropdownTitle}
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem header >Choose Below:</DropdownItem>
@@ -75,16 +195,17 @@ class InputBar extends Component {
           </DropdownMenu>
         </InputGroupButtonDropdown>
 
+
         {
-          this.props.dropdownTitle === request_protocol 
+          dropdownTitle === 'request_protocol'  
           ?
-          <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
-            <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
-              {this.props.dropdownTitle === "" ? "Select" : this.props.dropdownTitle}
+            <InputGroupButtonDropdown addonType="prepend" className="second-dropdown-div" isOpen={this.state.reqProtoDropdown} toggle={this.toggleReqProtoDropdown} onClick={this.toggleReqProtoDropdown} >
+            <DropdownToggle color="none" className="second-dropdown-button btn btn-outline-secondary"  caret >
+              {protoDropdownTitle === "" ? "Select" : protoDropdownTitle}
             </DropdownToggle>
             <DropdownMenu >
               <DropdownItem header >Choose Below:</DropdownItem>
-              {dropdowns}
+              {reqProtoDropdowns}
             </DropdownMenu>
           </InputGroupButtonDropdown>
           :
@@ -92,10 +213,79 @@ class InputBar extends Component {
         }
 
 
+        {
+          dropdownTitle === 'request_method'
+            ?
+            <InputGroupButtonDropdown addonType="prepend" className="second-dropdown-div" isOpen={this.state.reqMethDropdown} toggle={this.toggleReqMethDropdown} onClick={this.toggleReqMethDropdown} >
+              <DropdownToggle color="none" className="second-dropdown-button btn btn-outline-secondary" caret >
+                {reqMethDropdownTitle === "" ? "Select" : reqMethDropdownTitle}
+              </DropdownToggle>
+              <DropdownMenu >
+                <DropdownItem header >Choose Below:</DropdownItem>
+                {reqMethDropdowns}
+              </DropdownMenu>
+            </InputGroupButtonDropdown>
+            :
+            null
+        }
 
 
         {
-          this.props.dropdownTitle !== "timestamp"
+          dropdownTitle === 'response_size'
+            ?
+            <InputGroupButtonDropdown addonType="prepend"  isOpen={this.state.modifierDropdown} toggle={this.toggleModifierDropdown} onClick={this.toggleModifierDropdown} >
+              <DropdownToggle color="none" className="resSize-dropdown btn btn-outline-secondary"  caret >
+                {modifierDropdownTitle === "" ? "Select" : modifierDropdownTitle}
+              </DropdownToggle>
+              <DropdownMenu >
+                <DropdownItem header >Choose Below:</DropdownItem>
+                {resSizeModifierDropdowns}
+              </DropdownMenu>
+            </InputGroupButtonDropdown>
+            :
+            null
+        }
+
+
+        {
+          dropdownTitle === 'request_path' || dropdownTitle === 'referrer'
+            ?
+            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.resSizeModifierDropdown} toggle={this.toggleResSizeModDropdown} onClick={this.toggleResSizeModDropdown} >
+              <DropdownToggle color="none" className="resSize-dropdown btn btn-outline-secondary" caret >
+                {modifierDropdownTitle === "" ? "Select" : modifierDropdownTitle}
+              </DropdownToggle>
+              <DropdownMenu >
+                <DropdownItem header >Choose Below:</DropdownItem>
+                {urlModifierDropdowns}
+              </DropdownMenu>
+            </InputGroupButtonDropdown>
+            :
+            null
+        }
+
+
+        {
+          dropdownTitle === 'timestamp'
+            ?
+            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.resSizeModifierDropdown} toggle={this.toggleResSizeModDropdown} onClick={this.toggleResSizeModDropdown} >
+              <DropdownToggle color="none" className="resSize-dropdown btn btn-outline-secondary" caret >
+                {modifierDropdownTitle === "" ? "Select" : modifierDropdownTitle}
+              </DropdownToggle>
+              <DropdownMenu >
+                <DropdownItem header >Choose Below:</DropdownItem>
+                {timestampModifierDropdowns}
+              </DropdownMenu>
+            </InputGroupButtonDropdown>
+            :
+            null
+        }
+
+
+
+        {
+          dropdownTitle !== "timestamp" &&
+          dropdownTitle !== "request_protocol" &&
+          dropdownTitle !== "request_method"
             ?
             <Input
               onChange={this.props.onChange}
@@ -105,11 +295,15 @@ class InputBar extends Component {
               placeholder={this.props.placeholder}
             />
             :
-            <DateTime
-              dateTimeOnChange={(dateString) => this.props.dateTimeOnChange(dateString)}
-            />
-
+              dropdownTitle === "timestamp"
+              ?
+              <DateTime
+                dateTimeOnChange={(dateString) => this.props.dateTimeOnChange(dateString)}
+              />
+              :
+              null
         }
+
 
         {
           this.props.deleteButton
