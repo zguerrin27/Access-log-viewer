@@ -4,33 +4,6 @@
   font-size: 25px !important;
 }
 
-// .logs-container li {          // removed the logs container div...changed to  
-//   list-style: none;           // reactstrap table..styling for the below
-//   font-size: medium;          // keeping here for reference 
-//   padding: 10px;
-// }
-// .logs-container :nth-child(odd) {
-//   background-color: white;
-//   color: black;
-// }
-
-// .logs-container :nth-child(even) {
-//   color: black;
-// }
-
-// .logs-container {
-//   border-style: solid;
-//   border-width: 1px;
-//   border-color: #d3d3d3;
-//   border-radius: 5px;
-//   padding: 2px;
-//   min-height: 50vh;
-//   max-width: 85vw;
-//   overflow-wrap: break-word;
-//   margin-top: 5px;
-//   background-color: #e8e8e8;
-// }
-
 #table-div {
   margin-top: 4px;
 }
@@ -52,19 +25,12 @@ td {
 #ip-td {
   min-width: 136px;
 }
+#userID-td {
+  min-width: 71px;
+}
 
 .navbar {
   height: 55px;
-}
-
-#jumbotronId {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0px !important;
-  width: 75vw;
-  border: solid;
-  border-radius: 10px;
-  border-color: #e9ecef;
 }
 
 .error-message {
@@ -81,26 +47,94 @@ td {
   margin-top: 5px;
 }
 
+.main-modal-container {
+  display: flex;
+  align-items: flex-start;
+  min-height: 50px;
+}
+
+.modal-btns-container {
+  flex-direction: column;
+  width: 214px;
+  margin-right: 4px;
+}
+
 .modal-button-1 {
   margin-top: 4px;
   margin-left: 4px;
   width: 210px;
+  height: 49px;
 }
 
 .share-button {
-  margin-top: 4px;
-  margin-right: 4px;
+  margin: 4px;
   width: 210px;
+  height: 49px;
+  position: absolute;
+  right: 0;
 }
+
+// .btn-outline-dark:hover {
+//   border-color: #6f9283 !important;
+//   background-color: #6f9283 !important;
+// }
+
+.modal-button-1.btn-outline-dark:hover {
+  border-color: #2B8569 !important;
+  background-color: #2B8569 !important;
+}
+
+.share-button.btn-outline-dark:hover {
+  border-color: #0C4232 !important;
+  background-color: #0C4232 !important;
+}
+
+.clear-filters {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+.jumbotron-container {
+  width: 74%;
+  background-color: rgb(233, 236, 239);
+  border-radius: 10px;
+  border: solid;
+  border-color: rgb(233, 236, 239);
+  align-items: stretch;
+  margin-top: 4px;
+}
+
+#jumbotron-id {
+  margin-bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#jumbotron-id p {
+  margin: 0.5em;
+  padding: 0.5em;
+  font-weight: 500;
+  font-size: small;
+  font-style: italic;
+}
+
+
 
 .modal-content {
   min-width: 571px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .add-button {
   margin-top: 5px;
   background-color: rgb(165, 165, 165) !important;
-  // background-color: rgb(99, 148, 253) !important;
   color: white !important;
 }
 
@@ -112,13 +146,11 @@ td {
 
 .search-button {
   background-color: rgb(90, 90, 90) !important;
-  // background-color: rgb(22, 92, 197) !important;
   color: white !important;
 }
 
 .search-button-max-filters{
   background-color: rgb(90, 90, 90) !important;
-  // background-color: rgb(22, 92, 197) !important;
   margin-top: 5px !important;
   color: white !important;
 }

@@ -177,6 +177,7 @@ class InputBar extends Component {
     const reqMethDropdownTitle = this.props.searchQuery
     const modifierDropdownTitle = this.props.modifier
     const dropdownTitle = this.props.dropdownTitle
+    const dropdownLabel = this.props.dropdownLabel
   
 
 
@@ -187,7 +188,7 @@ class InputBar extends Component {
 
         <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} onClick={this.toggleDropdown}>
           <DropdownToggle color="none" className="dropdown-button btn btn-outline-secondary" caret >
-            {dropdownTitle === "" ? "Select" : dropdownTitle}
+            {dropdownLabel === "" ? "Select" : dropdownLabel}
           </DropdownToggle>
           <DropdownMenu >
             <DropdownItem header >Choose Below:</DropdownItem>
@@ -250,7 +251,7 @@ class InputBar extends Component {
         {
           dropdownTitle === 'request_path' || dropdownTitle === 'referrer'
             ?
-            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.resSizeModifierDropdown} toggle={this.toggleResSizeModDropdown} onClick={this.toggleResSizeModDropdown} >
+            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.modifierDropdown} toggle={this.toggleModifierDropdown} onClick={this.toggleModifierDropdown} >
               <DropdownToggle color="none" className="resSize-dropdown btn btn-outline-secondary" caret >
                 {modifierDropdownTitle === "" ? "Select" : modifierDropdownTitle}
               </DropdownToggle>
@@ -267,7 +268,7 @@ class InputBar extends Component {
         {
           dropdownTitle === 'timestamp'
             ?
-            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.resSizeModifierDropdown} toggle={this.toggleResSizeModDropdown} onClick={this.toggleResSizeModDropdown} >
+            <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.modifierDropdown} toggle={this.toggleModifierDropdown} onClick={this.toggleModifierDropdown} >
               <DropdownToggle color="none" className="resSize-dropdown btn btn-outline-secondary" caret >
                 {modifierDropdownTitle === "" ? "Select" : modifierDropdownTitle}
               </DropdownToggle>

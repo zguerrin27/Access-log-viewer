@@ -109,7 +109,10 @@ class SearchContainer extends Component {
       filters: prevState.filters.filter(f => f.key !== clickedFilterKey)
     }))
 
-    // this.loadData()
+    setTimeout(() => {      
+      this.loadData()      
+    }, 10)
+
   }
 
   displayFiltersinJumbotron = () => {
@@ -133,7 +136,7 @@ class SearchContainer extends Component {
         <tr key={log.id}>
           <td id="ip-td">{log.ip_address}</td>
           <td>{log.password}</td>
-          <td>{log.user_id}</td>
+          <td id="userID-td">{log.user_id}</td>
           <td id="timestamp-td">{log.timestamp}</td>
           <td>{log.request_method}</td>
           <td id="path-td">{log.request_path}</td>
@@ -155,24 +158,8 @@ class SearchContainer extends Component {
           search={() => this.loadData()}
         />
 
-        {/* {
-          filters.searchQuery && filters.dropdownVal !== ""
-            ?
-            <div id="jumbotronId">
-              <Jumbotron fluid>
-                <Container fluid>
-                  {filtersInJumbotron}
-                </Container>
-              </Jumbotron>
-            </div>
-            :
-            null
-        } */}
-
-
         <Container className="pagination-container">
           <Pagination
-            // onPageChange={(e, props) => this.makeAJAXCall(props.activePage)}
             onPageChange={(e, props) => this.loadData(props.activePage)}
             size="large"
             siblingRange="1"
@@ -186,17 +173,17 @@ class SearchContainer extends Component {
           <Table striped >
             <thead className="table-header" >
               <tr>
-                <th>ip_address</th>
-                <th>password</th>
-                <th>user_id</th>
-                <th>timestamp</th>
-                <th>request_method</th>
-                <th>request_path</th>
-                <th>request_protocol</th>
-                <th>response_code</th>
-                <th>response_size</th>
-                <th>referrer</th>
-                <th>browser</th>
+                <th>IP Address</th>
+                <th>Password</th>
+                <th>User ID</th>
+                <th>Timestamp</th>
+                <th>Request Method</th>
+                <th>Request Path</th>
+                <th>Request Protocol</th>
+                <th>Response Code</th>
+                <th>Response Size</th>
+                <th>Referrer</th>
+                <th>Browser</th>
               </tr>
             </thead>
             <tbody >

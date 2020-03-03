@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import uuid from 'react-uuid';
 import InputBar from './InputBar';
 import validateInput from './validate';
+import { FaRegTimesCircle } from "react-icons/fa";
 import {
   Button,
   Modal,
   ModalHeader,
   ModalBody,
   Form,
-  FormGroup
+  FormGroup,
+  Jumbotron,
+  Container
 } from 'reactstrap';
 
 
@@ -20,8 +23,7 @@ const validateForm = (formErrors) => {         // if all of the strings in formE
   return valid;
 }
 
-const validIpRegex =
-  RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
 const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
@@ -35,6 +37,7 @@ class SearchModal extends Component {
       filters: [{
         searchQuery: '',
         dropdownVal: '',
+        dropdownLabel: '',
         modifier: '',
         key: uuid()
       }],
@@ -92,6 +95,7 @@ class SearchModal extends Component {
         return {
           ...f,
           dropdownVal: e.target.value,
+          dropdownLabel: e.target.textContent,
           searchQuery: ''
         }
       } else {
@@ -206,7 +210,7 @@ class SearchModal extends Component {
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.setState((prevState) => ({
-        filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', modifier: '', key: uuid() }])
+        filters: prevState.filters.concat([{ searchQuery: '', dropdownVal: '', dropdownLabel: '' , modifier: '', key: uuid() }])
       }))
     } else {
       const error = Object.values(formErrors)
@@ -217,10 +221,11 @@ class SearchModal extends Component {
 
 
   search = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.props.hoistFiltersFromModal(this.state.filters)
+      console.log("SEARCH HIT")
       this.toggleModal()
     } else {
       const error = Object.values(formErrors)                 // gets values
@@ -352,6 +357,38 @@ class SearchModal extends Component {
     this.setState({ formErrors, [name]: value })
   }
 
+  clearFilters = (e) => {
+    const filtersState = this.state.filters;
+    filtersState.map(f => {
+      this.removeFilterRow(e, f)
+    })
+    this.addNewFilterRow(e)
+    setTimeout(() => {
+      this.search(e)
+    }, 10)
+  }
+
+  removeFilterinJumbotron = (e, filter) => {
+    e.preventDefault()
+    const filtersState = this.state.filters;
+    this.removeFilterRow(e, filter)
+    filtersState.length - 1 === 0 ? this.addNewFilterRow(e) : null
+    setTimeout(() => {
+      this.search(e)
+      this.toggleModal()
+    }, 10)
+  }
+
+
+  displayFiltersinJumbotron = () => {
+    const filters = this.state.filters;
+    const filtersToBeDisplayed = filters.map(filter => (
+      <p key={filter.key}> {filter.dropdownLabel} {filter.modifier}: {filter.searchQuery} <FaRegTimesCircle onClick={(e) => this.removeFilterinJumbotron(e, filter)} /></p> 
+    ))
+    return filtersToBeDisplayed
+  }
+
+
   combineOnChanges = (e, row) => {
     this.searchQueryOnChange(e, row)
     this.handleErrors(e)
@@ -359,28 +396,58 @@ class SearchModal extends Component {
 
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
+    const clearBtn = <button className="clear-filters" onClick={this.clearFilters}>Clear Filters</button>;
     const filtersLength = this.state.filters.length;
     const filters = this.state.filters;
     const dropdownsEmpty = obj => obj.dropdownVal === ''
     const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
 
+    const jumbotronFilters = this.state.filters[0]
+    const filtersInJumbotron = this.displayFiltersinJumbotron()
+
+
     return (
-      <div>
+      <div className="main-modal-container">
+
+        <div className="modal-btns-container">
+          <Button
+            color="none"
+            size="lg"
+            onClick={this.toggleModal}
+            className="modal-button-1 btn btn-outline-dark">
+            Filters
+          </Button>
+        </div>
+
+         {
+          !this.state.modal && jumbotronFilters && jumbotronFilters.searchQuery && jumbotronFilters.dropdownVal !== ""
+           ?
+            <div className="jumbotron-container" >
+              <div id="jumbotron-id" >
+                {filtersInJumbotron}
+              </div >
+            </div >
+           :
+           null
+         }
+
         <Button
           color="none"
           size="lg"
-          onClick={this.toggleModal}
-          className="modal-button-1 btn btn-outline-primary">
-          Filters
-        </Button>
-        <Button
-          color="none"
-          size="lg"
-          className="share-button btn btn-outline-success float-right">
+          className="share-button btn btn-outline-dark">
           Share
         </Button>
+       
+
         <Modal isOpen={this.state.modal}>
-          <ModalHeader close={closeBtn} className="modal-header" > Filters </ModalHeader>
+          {
+            filtersLength === 1 && filters[0].dropdownVal === "" && filters[0].searchQuery === ""
+            ?
+            <ModalHeader className="modal-header" close={closeBtn} > Filters </ModalHeader> 
+            :
+            <ModalHeader className="modal-header" close={clearBtn} > Filters </ModalHeader> 
+          }
+             
           <ModalBody>
             <Form >
               <FormGroup>
@@ -401,6 +468,7 @@ class SearchModal extends Component {
                       deleteButton={this.state.filters.length - 1 === 0}
                       index={index}
                       dropdownTitle={filterRow.dropdownVal}
+                      dropdownLabel={filterRow.dropdownLabel}
                       placeholder={placeholder}
                       formErrors={this.state.formErrors}
                       chooseProtoDropdown={(e) => this.chooseReqProtocolDropdown(e, filterRow)}
