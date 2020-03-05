@@ -10,6 +10,10 @@ axios.defaults.adapter = require("axios/lib/adapters/http");
 
 const nock = require("nock");
 
+const FILTERS = {
+  ip_address: "83.149.9.216"
+}
+
 const REQUEST1 = {
   ip: "83.149.9.216",
   pword: "-",
@@ -29,9 +33,9 @@ const REQUEST1 = {
 
 describe("SearchContainer Component", () => {
 
-  it("checks if app makes AJAX request and sets state ", async (done) => {  //adding done keyword is very important with jest. tells                                                                                       jest that I want to have control over when the test                                                                                            finishes in the execution flow
+  it("checks if app makes AJAX request and sets initial state ", async (done) => {  //adding done keyword is very important with jest. tells                                                                                                                                                                     jest that I want to have control over when the test                                                                                                                                                                         finishes in the execution flow
     nock("http://localhost:3000")
-      .get("/load/")
+      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D")
       .reply(200, {
         data: {
           requests: [
@@ -46,10 +50,11 @@ describe("SearchContainer Component", () => {
     const logsState = wrapper.state().logs;             // initally the logs are empty 
     expect(logsState).toEqual([]);                      // passes 
     setTimeout(() => {
-      const logsState = wrapper.state().logs;                  // after 1sec it checks state again 
-      expect(logsState.data.requests[0]).toEqual(REQUEST1)     // confirms that component mounted and makeAJAXCall was called 
-      expect(logsState.data.page).toEqual(1)                   // pagination test
-      expect(logsState.data.pages).toEqual(1)                  // pagination test 
+      const logsState = wrapper.state();                  // after 1sec it checks state again 
+      console.log(logsState) 
+      expect(logsState.logs.data.requests[0]).toEqual(REQUEST1)     // confirms that component mounted and makeAJAXCall was called 
+      expect(logsState.logs.data.page).toEqual(1)                   // pagination test
+      expect(logsState.logs.data.pages).toEqual(1)                  // pagination test 
       expect(wrapper.find('.main-content'))
       expect(wrapper.find('.pagination-container'))
       expect(wrapper.find('.logs-container'))
@@ -59,9 +64,9 @@ describe("SearchContainer Component", () => {
   });
 
 
-  it("checks if each component renders", async (done) => {   // adding done keyword is very important with jest. tells                                                                                          jest that I want to have control over when the test                                                                                             finishes in the execution flow 
+  it("checks if each component renders", async (done) => {   // adding done keyword is very important with jest. tells jest that I want to have control over when the test finishes in the execution flow 
     nock("http://localhost:3000")
-      .get("/load/")
+      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D")
       .reply(200, {
         data: {
           requests: [
@@ -85,7 +90,7 @@ describe("SearchContainer Component", () => {
   it("checks to see if SearchModal component renders", async (done) => {
 
     nock("http://localhost:3000")
-      .get("/load/")
+      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D")
       .reply(200, {
         data: {
           requests: [
@@ -98,7 +103,6 @@ describe("SearchContainer Component", () => {
 
     setTimeout(() => {
       const wrapper = shallow(<SearchContainer />);           // simulates component, allows us to writes assertions on component
-      // console.log(wrapper.debug())
       expect(wrapper.containsMatchingElement('<SearchModal />'));
       done();                                                  // finally call done to tell test to finish
     }, 1000)
@@ -107,7 +111,7 @@ describe("SearchContainer Component", () => {
 
   it("checks to see if logs list renders", async (done) => {
     nock("http://localhost:3000")
-      .get("/load/")
+      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D")
       .reply(200, {
         data: {
           requests: [

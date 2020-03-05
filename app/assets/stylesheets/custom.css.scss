@@ -35,7 +35,9 @@ td {
 
 .error-message {
   color: red;
-  margin-left: 148px;
+  font-weight: 600;
+  margin-left: 163px;
+  margin-top: 8px !important;
 }
 
 .navbar-brand {
@@ -74,20 +76,20 @@ td {
   right: 0;
 }
 
-// .btn-outline-dark:hover {
-//   border-color: #6f9283 !important;
-//   background-color: #6f9283 !important;
+.btn-outline-dark:hover {
+  border-color: #6f9283 !important;
+  background-color: #6f9283 !important;
+}
+
+// .modal-button-1.btn-outline-dark:hover {
+//   border-color: #2B8569 !important;
+//   background-color: #2B8569 !important;
 // }
 
-.modal-button-1.btn-outline-dark:hover {
-  border-color: #2B8569 !important;
-  background-color: #2B8569 !important;
-}
-
-.share-button.btn-outline-dark:hover {
-  border-color: #0C4232 !important;
-  background-color: #0C4232 !important;
-}
+// .share-button.btn-outline-dark:hover {
+//   border-color: #0C4232 !important;
+//   background-color: #0C4232 !important;
+// }
 
 .clear-filters {
   background: none;
@@ -124,10 +126,8 @@ td {
   font-style: italic;
 }
 
-
-
 .modal-content {
-  min-width: 571px;
+  min-width: 595px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -181,7 +181,7 @@ td {
 }
 
 .resSize-dropdown {
-  min-width: 109px;
+  min-width: 117px;
   margin: 2px;
   border-radius: 3.5px !important;
 }

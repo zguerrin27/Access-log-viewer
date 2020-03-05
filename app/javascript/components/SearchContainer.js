@@ -108,10 +108,9 @@ class SearchContainer extends Component {
     this.setState((prevState) => ({
       filters: prevState.filters.filter(f => f.key !== clickedFilterKey)
     }))
-
     setTimeout(() => {      
       this.loadData()      
-    }, 10)
+    }, 7)
 
   }
 

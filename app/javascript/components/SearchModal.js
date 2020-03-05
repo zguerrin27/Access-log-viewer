@@ -24,7 +24,7 @@ const validateForm = (formErrors) => {         // if all of the strings in formE
 }
 
 const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
-const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
+const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5]$)/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
 
@@ -53,7 +53,8 @@ class SearchModal extends Component {
         response_size: '',
         referrer: '',
         browser: ''
-      }
+      },
+      errorToBeDisplayed: ''
     }
   }
 
@@ -65,10 +66,10 @@ class SearchModal extends Component {
   }
 
 
-  searchQueryOnChange = (e, row) => {                               // refactor this
-    e.preventDefault();                                             // this is doing 2 things. change 65
-    const filters = this.state.filters;                             // into a return updated filters
-    const updatedFilters = filters.map(f => {                       // almost the same function as below 
+  searchQueryOnChange = (e, row) => {                               
+    e.preventDefault();                                             
+    const filters = this.state.filters;                             
+    const updatedFilters = filters.map(f => {                      
       if (row.key === f.key) {
         return {
           ...f,
@@ -88,8 +89,8 @@ class SearchModal extends Component {
     const formErrors = { ...this.state.formErrors };
     formErrors[row.dropdownVal] = "";                  // when change the dropdown, also delete the error from formErrors
     this.setState({
-      formErrors                                     
-    })
+      formErrors
+   })
     const updatedFilters = filters.map(f => {
       if (row.key === f.key) {
         return {
@@ -187,7 +188,8 @@ class SearchModal extends Component {
 
   updateModalState = (updatedFilters) => {  
     this.setState({
-      filters: updatedFilters
+      filters: updatedFilters,
+      errorToBeDisplayed: ""      // anytime you change the form stop displaying error...wait till next action like add or submit 
     })
   }
 
@@ -206,7 +208,6 @@ class SearchModal extends Component {
 
 
   addNewFilterRow = (e) => {
-    e.preventDefault()
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.setState((prevState) => ({
@@ -215,22 +216,20 @@ class SearchModal extends Component {
     } else {
       const error = Object.values(formErrors)
       var filteredError = error.filter(Boolean);
-      alert(filteredError)
+      this.setState({errorToBeDisplayed: filteredError})
     }
   }
 
 
   search = (e) => {
-    // e.preventDefault()
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.props.hoistFiltersFromModal(this.state.filters)
-      console.log("SEARCH HIT")
       this.toggleModal()
     } else {
       const error = Object.values(formErrors)                 // gets values
       var filteredError = error.filter(Boolean);              // trims empty values ,, from string 
-      alert(filteredError)                                    // alert error string 
+      this.setState({ errorToBeDisplayed: filteredError })                                   // alert error string 
     }
   }
 
@@ -250,6 +249,8 @@ class SearchModal extends Component {
     }
     return options[dropdownVal]
   }
+
+  
 
   requestMethodChecker = (value) => {
     let successValues = [
@@ -288,84 +289,83 @@ class SearchModal extends Component {
         formErrors.ip_address =
           validIpRegex.test(value)
             ? ''
-            : 'Entered ip_address is not valid!';
+            : 'Entered IP Address is not valid';
         break;
       case 'password':                                
         formErrors.password =
           value.length < 1 && value.length - 1 !== 0
-            ? 'Entered password is not valid!'
+            ? 'Entered Password is not valid'
             : '';
         break;
       case 'user_id':                           
         formErrors.user_id =
           value.length < 1
-            ? 'Entered user_id is not valid!'
+            ? 'Entered User ID is not valid'
             : '';
         break;
       case 'timestamp':                            
         formErrors.timestamp =
           value.length < 1
-            ? 'Entered timestamp is not valid!'
+            ? 'Entered Timestamp is not valid'
             : '';
         break;
       case 'request_method':                      
         formErrors.request_method =
           this.requestMethodChecker(value)
             ? ''
-            : 'Entered request_method is not valid!';
+            : 'Entered Request Method is not valid';
         break;
       case 'request_path':                         
         formErrors.request_path =
           value.length < 1
-            ? 'Entered request_path is not valid!'
+            ? 'Entered Request Path is not valid'
             : '';
         break;
       case 'request_protocol':                     
         formErrors.request_protocol =
           this.requestProtocolChecker(value)
             ? ''
-            : 'Entered request_protocol is not valid!';
+            : 'Entered Request Protocol is not valid';
         break;
       case 'response_code':                        
         formErrors.response_code =
           validResponseCodeRegex.test(value)
             ? ''
-            : 'Entered response_code is not valid!';
+            : 'Entered Response Code is not valid';
         break;
       case 'response_size':                      
         formErrors.response_size =
           validResponseSizeRegex.test(value)
             ? ''
-            : 'Entered response_size is not valid!';
+            : 'Entered Response Size is not valid';
         break;
       case 'referrer':                            
         formErrors.referrer =
           value.length < 1
-            ? 'Entered referrer is not valid!'
+            ? 'Entered Referrer is not valid'
             : '';
         break;
       case 'browser':
         formErrors.browser =                     
           value.length < 1
-            ? 'Entered browser is not valid!'
+            ? 'Entered Browser is not valid'
             : '';
         break;
       default:
         break;
     }
-
     this.setState({ formErrors, [name]: value })
   }
 
-  clearFilters = (e) => {
-    const filtersState = this.state.filters;
-    filtersState.map(f => {
+  clearFiltersInJumbotron = (e) => {
+    const filters = this.state.filters;
+    filters.map(f => {
       this.removeFilterRow(e, f)
     })
-    this.addNewFilterRow(e)
     setTimeout(() => {
+      this.addNewFilterRow(e)
       this.search(e)
-    }, 10)
+    }, 3)
   }
 
   removeFilterinJumbotron = (e, filter) => {
@@ -379,7 +379,6 @@ class SearchModal extends Component {
     }, 10)
   }
 
-
   displayFiltersinJumbotron = () => {
     const filters = this.state.filters;
     const filtersToBeDisplayed = filters.map(filter => (
@@ -388,7 +387,6 @@ class SearchModal extends Component {
     return filtersToBeDisplayed
   }
 
-
   combineOnChanges = (e, row) => {
     this.searchQueryOnChange(e, row)
     this.handleErrors(e)
@@ -396,12 +394,12 @@ class SearchModal extends Component {
 
   render() {
     const closeBtn = <button className="close" onClick={this.toggleModal}>&times;</button>;
-    const clearBtn = <button className="clear-filters" onClick={this.clearFilters}>Clear Filters</button>;
+    const clearBtn = <button className="clear-filters" onClick={this.clearFiltersInJumbotron}>Clear Filters</button>;
     const filtersLength = this.state.filters.length;
     const filters = this.state.filters;
+    const errorToBeDisplayed = this.state.errorToBeDisplayed;
     const dropdownsEmpty = obj => obj.dropdownVal === ''
     const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
-
     const jumbotronFilters = this.state.filters[0]
     const filtersInJumbotron = this.displayFiltersinJumbotron()
 
@@ -445,7 +443,9 @@ class SearchModal extends Component {
             ?
             <ModalHeader className="modal-header" close={closeBtn} > Filters </ModalHeader> 
             :
-            <ModalHeader className="modal-header" close={clearBtn} > Filters </ModalHeader> 
+            <div>
+                <ModalHeader className="modal-header" close={clearBtn} > Filters </ModalHeader> 
+            </div>
           }
              
           <ModalBody>
@@ -504,6 +504,7 @@ class SearchModal extends Component {
                       </div>
                       :
                       <div>
+                        <p className="error-message">{errorToBeDisplayed}</p>
                         <Button
                           color="none"
                           block
