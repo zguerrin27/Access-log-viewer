@@ -25,18 +25,28 @@ describe("Input Bar Component", () => {
   it("checks to see if a dropdown button renders", async (done) => {
 
     
-    // const smWrapper = mount(<SearchModal />)
-    // smWrapper.find("Button button.modal-button-1").first().simulate('click');  // open modal
+    // const SmWrapper = mount(<SearchModal />)
+    // SmWrapper.find("Button button.modal-button-1").first().simulate('click');  // open modal
 
+    // const wrapper = shallow(<InputBar />)
+
+   
     // const dropdownButton = smWrapper.find('DropdownToggle button.dropdown-button').at(0)  // simulate dropdown click
     // dropdownButton.simulate('click');
 
-    const wrapper = shallow(<InputBar filterState={filterState}/>)
-    console.log(wrapper.debug())
+    // console.log("BLAHHHHHHHHH",smWrapper.debug())
+
+   
+    // setTimeout(() => {
+    //   const wrapper = shallow(<InputBar />)
+    //   expect(wrapper.find('#input-bdddar'))
+    //   console.log("BLAHHH 222222222222", wrapper.debug())
+    //   done();                                                  // finally call done to tell test to finish
+    // }, 1000)
 
 
     // expect(wrapper.find('DropdownMenu'))
-    done()
+    // done()
   })
 
   // it("checks to see if input bar renders", async (done) => {
@@ -45,15 +55,15 @@ describe("Input Bar Component", () => {
   //   done()
   // })
 
-  // it("checks to see if dropdown opens when clicked", async (done) => {
-  //   const wrapper = shallow(<InputBar />)
-  //   const dropdownOpenState = wrapper.state().dropdownOpen
-  //   expect(dropdownOpenState).toEqual(false)
-  //   wrapper.find('InputGroupButtonDropdown').simulate('click')
-  //   const newDropdownOpenState = wrapper.state().dropdownOpen
-  //   expect(newDropdownOpenState).toEqual(true)
-  //   done();
-  // })
+  it("checks to see if dropdown opens when clicked", async (done) => {
+    const wrapper = shallow(<InputBar />)
+    const dropdownOpenState = wrapper.state().dropdownOpen
+    expect(dropdownOpenState).toEqual(false)
+    wrapper.find('InputGroupButtonDropdown').simulate('click')
+    const newDropdownOpenState = wrapper.state().dropdownOpen
+    expect(newDropdownOpenState).toEqual(true)
+    done();
+  })
 
   // it("checks to see if dropdown closes when clicked", async (done) => {
   //   const wrapper = shallow(<InputBar />)

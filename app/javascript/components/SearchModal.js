@@ -229,7 +229,7 @@ class SearchModal extends Component {
     } else {
       const error = Object.values(formErrors)                 // gets values
       var filteredError = error.filter(Boolean);              // trims empty values ,, from string 
-      this.setState({ errorToBeDisplayed: filteredError })                                   // alert error string 
+      this.setState({ errorToBeDisplayed: filteredError })    // alert error string 
     }
   }
 
@@ -250,8 +250,6 @@ class SearchModal extends Component {
     return options[dropdownVal]
   }
 
-  
-
   requestMethodChecker = (value) => {
     let successValues = [
       "GET",
@@ -266,6 +264,7 @@ class SearchModal extends Component {
     if (successValues.indexOf(value) !== -1) {
       return true;
     }
+    return false;
   }
 
   requestProtocolChecker = (value) => {
@@ -277,7 +276,18 @@ class SearchModal extends Component {
     if (successValues.indexOf(value) !== -1) {
       return true;
     }
+    return false;
   }
+
+  checkForPresence = (value) => {
+    if(value > 0){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //return (value == null || value.length === 0);
 
   handleErrors = (e) => {
     e.preventDefault();
@@ -287,13 +297,13 @@ class SearchModal extends Component {
     switch (name) {
       case 'ip_address':                          
         formErrors.ip_address =
-          validIpRegex.test(value)
+          validIpRegex.test(value)  
             ? ''
             : 'Entered IP Address is not valid';
         break;
       case 'password':                                
         formErrors.password =
-          value.length < 1 && value.length - 1 !== 0
+          value.length < 1        //&& value.length - 1 !== 0
             ? 'Entered Password is not valid'
             : '';
         break;

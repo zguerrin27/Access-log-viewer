@@ -18,7 +18,8 @@ class SearchContainer extends Component {
       showEllipsis: true,
       logs: [],
       modal: false,
-      filters: [{ searchQuery: '', dropdownVal: '' }]  // uuid comes from modal
+      filters: [{ searchQuery: '', dropdownVal: '' }],  // uuid comes from modal
+      paramsURLforBookmark: ''
     };
 
   }
@@ -64,6 +65,11 @@ class SearchContainer extends Component {
     this.loadData()
   }
 
+  componentDidUpdate(){
+    const url = this.state.paramsURLforBookmark      
+    window.location.hash = url;                     // push search params into url for bookmarking and sharing etc
+  }
+
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
     axios.get("http://localhost:3000/search/" + addedInfo, {
@@ -71,12 +77,13 @@ class SearchContainer extends Component {
         search: this.state.filters
       }
     })
-      .then((res) => {
-        this.updateState(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    .then((res) => {
+      console.log(res)
+      this.updateState(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
@@ -88,9 +95,10 @@ class SearchContainer extends Component {
     }, 10)
   }
 
-  updateState(data) {
+  updateState(res) {
     this.setState({
-      logs: data.data
+      logs: res.data,
+      paramsURLforBookmark: res.request.responseURL
     });
   }
 
@@ -126,9 +134,6 @@ class SearchContainer extends Component {
 
   render() {
     const { showEllipsis } = this.state;
-    const filters = this.state.filters[0];
-    const filtersInJumbotron = this.displayFiltersinJumbotron()
-
 
     const logs = this.state.logs.requests
       ? this.state.logs.requests.map(log => (
@@ -150,11 +155,12 @@ class SearchContainer extends Component {
 
     return (
 
-      <div>
+      <div className="search-container">
 
         <SearchModal
           hoistFiltersFromModal={(e) => this.hoistFiltersFromModal(e)}
           search={() => this.loadData()}
+          bookmarkURL={this.state.paramsURLforBookmark}
         />
 
         <Container className="pagination-container">
