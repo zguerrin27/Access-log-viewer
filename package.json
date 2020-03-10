@@ -1,7 +1,6 @@
 {
   "name": "Access_Log_Viewer",
   "private": true,
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-react": "^7.8.3",
