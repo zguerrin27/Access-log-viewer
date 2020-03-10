@@ -72,7 +72,7 @@ class SearchContainer extends Component {
 
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
-    axios.get("http://localhost:3000/search/" + addedInfo, {
+    axios.get("/search/" + addedInfo, {
       params: {
         search: this.state.filters
       }
