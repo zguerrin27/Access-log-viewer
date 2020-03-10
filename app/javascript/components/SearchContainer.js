@@ -72,19 +72,36 @@ class SearchContainer extends Component {
 
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
-    axios.get("http://localhost:3000/search/" + addedInfo, {
+    axios.get("https://access-log-viewer.herokuapp.com/search/" + addedInfo, {
       params: {
         search: this.state.filters
       }
     })
-    .then((res) => {
-      console.log(res)
-      this.updateState(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((res) => {
+        console.log(res)
+        this.updateState(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
+  
+
+  // loadData = (page = 0) => {
+  //   const addedInfo = page === 0 ? "" : "?page=" + page;
+  //   axios.get("http://localhost:3000/search/" + addedInfo, {
+  //     params: {
+  //       search: this.state.filters
+  //     }
+  //   })
+  //   .then((res) => {
+  //     console.log(res)
+  //     this.updateState(res)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
 
   hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
     this.setState({
