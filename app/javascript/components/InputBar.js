@@ -150,9 +150,9 @@ class InputBar extends Component {
 
   timestampModifierOptions = () => {
     const options = [
-      { value: 'Before time' },
-      { value: 'At time' },
-      { value: 'After time' }
+      { value: 'Before Time' },
+      { value: 'At Time' },
+      { value: 'After Time' }
     ]
     return options.map(option => {
       var grayedOut = false

@@ -18,7 +18,7 @@ class SearchContainer extends Component {
       showEllipsis: true,
       logs: [],
       modal: false,
-      filters: [{ searchQuery: '', dropdownVal: '' }],  // uuid comes from modal
+      filters: [{ searchQuery: '', dropdownVal: '', modifier: '' }],  // uuid comes from modal
       paramsURLforBookmark: ''
     };
 
@@ -65,10 +65,10 @@ class SearchContainer extends Component {
     this.loadData()
   }
 
-  componentDidUpdate(){
-    const url = this.state.paramsURLforBookmark      
-    window.location.hash = url;                     // push search params into url for bookmarking and sharing etc
-  }
+  // componentDidUpdate(){
+  //   const url = this.state.paramsURLforBookmark      
+  //   window.location.hash = url;                     // push search params into url for bookmarking and sharing etc
+  // }
 
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
@@ -78,12 +78,12 @@ class SearchContainer extends Component {
       }
     })
     .then((res) => {
-      console.log(res)
       this.updateState(res)
     })
     .catch((err) => {
       console.log(err)
     })
+    
   }
 
   hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
@@ -92,6 +92,7 @@ class SearchContainer extends Component {
     })
     setTimeout(() => {      // work around for timing the hoist of filters state from modal comp
       this.loadData()       // need to wait a milisecond for the setstate to update the load criteria in setstate line above
+      // this.clearFilterState()
     }, 10)
   }
 
@@ -100,6 +101,12 @@ class SearchContainer extends Component {
       logs: res.data,
       paramsURLforBookmark: res.request.responseURL
     });
+  }
+
+  clearFilterState = () => {
+    this.setState({
+      filters: [{ searchQuery: '', dropdownVal: '', modifier: '' }]
+    })
   }
 
   toggleModal = () => {
