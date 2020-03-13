@@ -409,6 +409,7 @@ class SearchModal extends Component {
     const filters = this.state.filters;
     const errorToBeDisplayed = this.state.errorToBeDisplayed;
     const dropdownsEmpty = obj => obj.dropdownVal === ''
+    const modifiersEmpty = obj => obj.modifier === ''
     const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
     const jumbotronFilters = this.state.filters[0]
     const filtersInJumbotron = this.displayFiltersinJumbotron()
@@ -491,7 +492,7 @@ class SearchModal extends Component {
                 {
                   filtersLength <= 10   // dont allow add button if length of filters === 11
                     ?
-                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true      // actual witchcraft
+                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true // actual witchcraft || filters.some(modifiersEmpty) === true 
                       ?
                       <div>
                         <p className="text-above-add-btn">All fields must have value entered</p>

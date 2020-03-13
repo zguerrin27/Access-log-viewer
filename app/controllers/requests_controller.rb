@@ -9,54 +9,37 @@ class RequestsController < ApplicationController
     end
 
     def search 
-
-        search_params = params[:search]
-
-        search_by = {}
-        modified_requests = {}
-
-        search_params.each do |search_param|
-            search_param = JSON.parse(search_param)  
-
-            puts "****** THESE ARE THE PARSED SEARCH PARAMS *********", search_param
-
-            unless [search_param["dropdownVal"], search_param["searchQuery"]].any?(&:blank?)   
-          
-                if search_param["modifier"].empty?
+        search_params = params[:search]   # grab params sent from front end 
+        search_by = {}                    # create empty hash for normal searches
+        modified_requests = {}             # create empty hash for searches that indclude modifiers.."less than..etc" I will call this modifed searches
+        search_params.each do |search_param|   # loop through each line 
+            search_param = JSON.parse(search_param)   # parse to JSON
+            unless [search_param["dropdownVal"], search_param["searchQuery"]].any?(&:blank?)   # if either dropdown or searchQ is empty or blank skip
+                if search_param["modifier"].empty?                                          # if the line is not a modifed search..push values into  search_by hash
                     search_by[search_param["dropdownVal"]] = search_param["searchQuery"]
-
-                elsif !search_param["modifier"].empty?
+                elsif !search_param["modifier"].empty?                                          # if modifier is not empty...push results to the added_filter private method...save results in the modified requests hash
                     modified_requests = added_filter(search_param["dropdownVal"], search_param["modifier"], search_param["searchQuery"])
                 end
-                       
             end
         end
-
-
-        unmodified_requests = if search_by.empty?
+        unmodified_requests = if search_by.empty?                       # if search_by is empty get everything in db 
                                             Request.all                 # when you do Request...it is referencing the model
                                         else
-                                            Request.where(search_by)
+                                            Request.where(search_by)    # else get just the results that match the params 
                                         end
-
-        
-        filtered_requests = unmodified_requests.merge(modified_requests)
-
-        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10)
+        filtered_requests = unmodified_requests.merge(modified_requests)  # merge both normal searches with modified searches 
+        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10)  # return to user 
         render json: {
             requests: @requests,
             page: @requests.current_page,
             pages: @requests.total_pages
         }
-
     end
-
-
 
     private 
 
     def added_filter(dropdownVal, modifier, value)
-        @requests ||= Request                      # this is a placeholder work around so that the @requests the first time = Request (empty model)
+        @requests ||= Request                      # this is a placeholder work around so that the @requests the first time = Request (empty model) ||= means "Or equals"
         case modifier
             when "Less Than"
                 @requests = @requests.less_than_size(value)   # changed this to @requests = @requests from @request = Request.scope because the Request.scope overrides itsself each time. The @requests = @requests.scope keeps adding to the @requests instance variable 
@@ -81,10 +64,5 @@ class RequestsController < ApplicationController
         return @requests
 
     end
-
-  
-
-    
-
 
 end
