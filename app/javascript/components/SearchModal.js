@@ -287,8 +287,6 @@ class SearchModal extends Component {
     }
   }
 
-  //return (value == null || value.length === 0);
-
   handleErrors = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -409,7 +407,7 @@ class SearchModal extends Component {
     const filters = this.state.filters;
     const errorToBeDisplayed = this.state.errorToBeDisplayed;
     const dropdownsEmpty = obj => obj.dropdownVal === ''
-    const modifiersEmpty = obj => obj.modifier === ''
+    const modifiersEmpty = obj => obj.dropdownVal === "timestamp" && obj.modifier === '' || obj.dropdownVal === "request_path" && obj.modifier === '' || obj.dropdownVal === "referrer" && obj.modifier === '' || obj.dropdownVal === "response_size" && obj.modifier === '' 
     const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
     const jumbotronFilters = this.state.filters[0]
     const filtersInJumbotron = this.displayFiltersinJumbotron()
@@ -455,7 +453,7 @@ class SearchModal extends Component {
             <ModalHeader className="modal-header" close={closeBtn} > Filters </ModalHeader> 
             :
             <div>
-                <ModalHeader className="modal-header" close={clearBtn} > Filters </ModalHeader> 
+              <ModalHeader className="modal-header" close={clearBtn} > Filters </ModalHeader> 
             </div>
           }
              
@@ -490,9 +488,9 @@ class SearchModal extends Component {
                 })}
 
                 {
-                  filtersLength <= 10   // dont allow add button if length of filters === 11
+                  filtersLength <= 10    // dont allow add button if length of filters === 11 or more
                     ?
-                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true // actual witchcraft || filters.some(modifiersEmpty) === true 
+                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true  // actual witchcraft... if any of these 3 fields are empty...disable the add and update button
                       ?
                       <div>
                         <p className="text-above-add-btn">All fields must have value entered</p>
@@ -513,7 +511,7 @@ class SearchModal extends Component {
                           Update Results
                         </Button>
                       </div>
-                      :
+                      :                                                                   // else...provide a wokring add and update button
                       <div>
                         <p className="error-message">{errorToBeDisplayed}</p>
                         <Button
@@ -532,13 +530,30 @@ class SearchModal extends Component {
                         </Button>
                       </div>
                     :
-                    <Button
-                      color="none"
-                      block
-                      onClick={(e) => this.search(e)}
-                      className="search-button-max-filters">
-                      Update Results
-                    </Button>
+                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true && filtersLength === 11
+                    ?
+                    <div>
+                      <p className="text-above-add-btn">All fields must have value entered</p>
+                      <Button
+                        disabled
+                        color="none"
+                        block
+                        onClick={(e) => this.search(e)}
+                        className="search-button-max-filters">
+                        Update Results
+                      </Button>
+                    </div>
+                    :
+                    <div>
+                      <p className="error-message">{errorToBeDisplayed}</p>
+                      <Button
+                        color="none"
+                        block
+                        onClick={(e) => this.search(e)}
+                        className="search-button">
+                        Update Results
+                      </Button>
+                    </div>
                 }
 
               </FormGroup>

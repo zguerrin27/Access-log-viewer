@@ -24,19 +24,6 @@ class SearchContainer extends Component {
 
   }
 
-  // ===================================================================================
-
-  // componentDidMount() {
-  //   this.makeAJAXCall();                                                         // older code, wont work with pagination
-  // }
-
-  // async makeAJAXCall(page = 0) {
-  //   const addedInfo = page === 0 ? "" : "?page=" + page;
-  //   const url = "http://localhost:3000/load/" + addedInfo;
-  //   const res = await axios.get(url);
-  //   this.updateState(res)
-  // }
-
   // ===================================================================================  //split for array => string for params 
 
 
@@ -65,10 +52,16 @@ class SearchContainer extends Component {
     this.loadData()
   }
 
-  // componentDidUpdate(){
-  //   const url = this.state.paramsURLforBookmark      
-  //   window.location.hash = url;                     // push search params into url for bookmarking and sharing etc
-  // }
+  componentDidUpdate(){
+    let url = this.state.paramsURLforBookmark 
+    console.log("URL", url)
+    let newUrl = url.replace('http://localhost:3000', '');
+    console.log("NEW URL ", newUrl)                         // this is what needs to be added to http://localhost:3000
+    // window.location.hash = newUrl;       
+    console.log("SEARCH: ", window.location.search)
+    console.log("ACTUAL PATH NAME: ", window.location.pathname)   
+    
+  }
 
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
@@ -78,6 +71,7 @@ class SearchContainer extends Component {
       }
     })
     .then((res) => {
+      console.log(res)
       this.updateState(res)
     })
     .catch((err) => {
@@ -92,7 +86,6 @@ class SearchContainer extends Component {
     })
     setTimeout(() => {      // work around for timing the hoist of filters state from modal comp
       this.loadData()       // need to wait a milisecond for the setstate to update the load criteria in setstate line above
-      // this.clearFilterState()
     }, 10)
   }
 
@@ -126,7 +119,6 @@ class SearchContainer extends Component {
     setTimeout(() => {      
       this.loadData()      
     }, 7)
-
   }
 
   displayFiltersinJumbotron = () => {
