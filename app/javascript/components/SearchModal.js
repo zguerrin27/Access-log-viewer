@@ -58,15 +58,13 @@ class SearchModal extends Component {
     }
   }
 
-
   toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     })
   }
 
-
-  searchQueryOnChange = (e, row) => {                               
+  searchQueryOnChange = (e, row) => {                 // onChange to handle user input 
     e.preventDefault();                                             
     const filters = this.state.filters;                             
     const updatedFilters = filters.map(f => {                      
@@ -82,22 +80,21 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-
-  chooseValueFromDropdown = (e, row) => {
+  chooseValueFromDropdown = (e, row) => { // main drop down for search coloumn in db
     e.preventDefault();
     const filters = this.state.filters;
     const formErrors = { ...this.state.formErrors };
-    formErrors[row.dropdownVal] = "";                  // when change the dropdown, also delete the error from formErrors
+    formErrors[row.dropdownVal] = "";                  // when change the dropdown, also delete the error from formErrors, set back to empty 
     this.setState({
       formErrors
-   })
+    })
     const updatedFilters = filters.map(f => {
       if (row.key === f.key) {
         return {
           ...f,
-          dropdownVal: e.target.value,
-          dropdownLabel: e.target.textContent,
-          searchQuery: ''
+          dropdownVal: e.target.value,              // set title of column for search params 
+          dropdownLabel: e.target.textContent,      // display more Human Friendly verison on dropdown Title
+          searchQuery: ''                           // set SQ to empty to protect data and error checking 
         }
       } else {
         return f;
@@ -106,19 +103,13 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-
-
-
-// =================================================================  these can be grouped into one / two functions
-
-  chooseReqProtocolDropdown = (e, row) => {
+  chooseRequestControlledDropdown = (e, row) => { // req protocol and req method 
     e.preventDefault();
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
       if (row.key === f.key) {
         return {
           ...f,
-          // reqProtoDropdown: e.target.value,
           searchQuery: e.target.value
         }
       } else {
@@ -128,26 +119,7 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-
-  chooseReqMethDropdown = (e, row) => {
-    e.preventDefault();
-    const filters = this.state.filters;
-    const updatedFilters = filters.map(f => {
-      if (row.key === f.key) {
-        return {
-          ...f,
-          // reqMethDropdown: e.target.value,
-          searchQuery: e.target.value
-        }
-      } else {
-        return f;
-      }
-    })
-    this.updateModalState(updatedFilters)
-  }
-
-
-  chooseModifierDropdown = (e, row) => {
+  chooseModifierDropdown = (e, row) => {         // less than...before time.. etc etc
     e.preventDefault();
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
@@ -163,13 +135,7 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-
-// ============================================================================================================================
-
-
-
-
-  dateTimeOnChange = (dateString, filterRow) => {   
+  dateTimeOnChange = (dateString, filterRow) => {   // ant design datetime picker 
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
       if (filterRow.key === f.key) {
@@ -184,15 +150,12 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-
-
   updateModalState = (updatedFilters) => {  
     this.setState({
       filters: updatedFilters,
       errorToBeDisplayed: ""      // anytime you change the form stop displaying error...wait till next action like add or submit 
     })
   }
-
 
   removeFilterRow = (e, filter) => {
     const formErrors = { ...this.state.formErrors };
@@ -204,8 +167,6 @@ class SearchModal extends Component {
       filters: prevState.filters.filter(f => f.key !== filter.key)
     }))
   }
-
-
 
   addNewFilterRow = (e) => {
     const formErrors = { ...this.state.formErrors };
@@ -220,8 +181,7 @@ class SearchModal extends Component {
     }
   }
 
-
-  search = (e) => {
+  search = (e) => {                                             // lift state of filters to search container to make search
     const formErrors = { ...this.state.formErrors };
     if (validateForm(formErrors)) {
       this.props.hoistFiltersFromModal(this.state.filters)
@@ -232,7 +192,6 @@ class SearchModal extends Component {
       this.setState({ errorToBeDisplayed: filteredError })    // alert error string 
     }
   }
-
 
   placeholderPicker = (dropdownVal) => {
     const options = {
@@ -301,7 +260,7 @@ class SearchModal extends Component {
         break;
       case 'password':                                
         formErrors.password =
-          value.length < 1        //&& value.length - 1 !== 0
+          value.length < 1       
             ? 'Entered Password is not valid'
             : '';
         break;
@@ -480,8 +439,7 @@ class SearchModal extends Component {
                       dropdownLabel={filterRow.dropdownLabel}
                       placeholder={placeholder}
                       formErrors={this.state.formErrors}
-                      chooseProtoDropdown={(e) => this.chooseReqProtocolDropdown(e, filterRow)}
-                      chooseReqMethDropdown={(e) => this.chooseReqMethDropdown(e, filterRow)}
+                      chooseRequestControlledDropdown={(e) => this.chooseRequestControlledDropdown(e, filterRow)}
                       chooseModifierDropdown={(e) => this.chooseModifierDropdown(e, filterRow)}
                     />
                   )

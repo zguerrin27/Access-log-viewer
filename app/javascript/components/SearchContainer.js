@@ -60,7 +60,6 @@ class SearchContainer extends Component {
     // window.location.hash = newUrl;       
     console.log("SEARCH: ", window.location.search)
     console.log("ACTUAL PATH NAME: ", window.location.pathname)   
-    
   }
 
   loadData = (page = 0) => {
@@ -71,13 +70,11 @@ class SearchContainer extends Component {
       }
     })
     .then((res) => {
-      console.log(res)
       this.updateState(res)
     })
     .catch((err) => {
       console.log(err)
     })
-    
   }
 
   hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
@@ -110,9 +107,7 @@ class SearchContainer extends Component {
 
   removeFilterinJumbotron = (e, filter) => {
     e.preventDefault()
-    console.log("REMOVE CLIKED-FILTER IS: ", filter)
     const clickedFilterKey = filter.key
-
     this.setState((prevState) => ({
       filters: prevState.filters.filter(f => f.key !== clickedFilterKey)
     }))
@@ -128,8 +123,6 @@ class SearchContainer extends Component {
     ))
     return filtersToBeDisplayed
   }
-
-
 
   render() {
     const { showEllipsis } = this.state;

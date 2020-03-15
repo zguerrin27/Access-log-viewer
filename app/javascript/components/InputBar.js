@@ -86,7 +86,7 @@ class InputBar extends Component {
           grayedOut = true                        
         }
       })
-      return <DropdownItem onClick={this.props.chooseProtoDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+      return <DropdownItem onClick={this.props.chooseRequestControlledDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
 
@@ -109,7 +109,7 @@ class InputBar extends Component {
           grayedOut = true
         }
       })
-      return <DropdownItem onClick={this.props.chooseReqMethDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+      return <DropdownItem onClick={this.props.chooseRequestControlledDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
     })
   }
 
