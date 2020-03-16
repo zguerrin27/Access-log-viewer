@@ -73,7 +73,7 @@ class InputBar extends Component {
     })
   }
 
-  reqProtocolOptions = () => {    // why have another state object called this specfic drop down???just push into searchQuery
+  reqProtocolOptions = () => {    
     const options = [
       { value: 'HTTP/1.0' },
       { value: 'HTTP/1.1' },
@@ -179,9 +179,6 @@ class InputBar extends Component {
     const dropdownTitle = this.props.dropdownTitle
     const dropdownLabel = this.props.dropdownLabel
   
-
-
-
     return (
 
       <InputGroup className="input-group-grow"  >
@@ -329,12 +326,3 @@ class InputBar extends Component {
 }
 
 export default InputBar;
-
-
-
-
-
-
-
-
-

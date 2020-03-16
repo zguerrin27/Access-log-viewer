@@ -10,8 +10,12 @@ All Technologies Used:
 React  
 Ruby on Rails  
 PostgresQL  
-Jest & Enzyme  
+Jest & Enzyme
+Nock  
 MiniTest  
 Axios  
 Pagination  
 Bootstrap  
+Reactstrap
+antDesigns    
+Custom CSS  
