@@ -10,6 +10,20 @@ import { Button, InputGroupButtonDropdown, ModalHeader } from 'reactstrap';
 configure({ adapter: new Adapter() });
 axios.defaults.adapter = require("axios/lib/adapters/http");
 
+  // const filters = [
+  //   {
+  //     searchQuery: 'test-password',
+  //     dropdownVal: 'password'
+  //   },
+  //   {
+  //     searchQuery: 'test-userId',
+  //     dropdownVal: 'user_id'
+  //   },
+  //   {
+  //     searchQuery: '83.149.9.216',
+  //     dropdownVal: 'ip_address'
+  //   }
+  // ]
 
 
 describe("SearchModal Component User Interaction", () => {
@@ -73,7 +87,7 @@ describe("SearchModal Component User Interaction", () => {
   })
 
 
-  it("SearchModal row and button functionality", async (done) => {       // yes this is big...but covers all the ui interaction
+  it("SearchModal row and button functionality", async (done) => {       
 
     const wrapper = mount(<SearchModal />)
     wrapper.find(Button).first().simulate('click');                       // open modal
@@ -116,43 +130,23 @@ describe("SearchModal Component User Interaction", () => {
   it("should clear all filters when Clear Filters Button is clicked", async (done) => {
     const wrapper = mount(<SearchModal />)
     expect(wrapper.state().filters).toHaveLength(1); 
-
     wrapper.find(Button).first().simulate('click'); 
-
     const dropdownButton1 = wrapper.find('DropdownToggle button.dropdown-button').at(0)  
     dropdownButton1.simulate('click');
     const password = wrapper.find('.dropdown-ITEM').at(2);                 
     password.simulate('click');
     const inputBar1 = wrapper.find('Input#input-bar');
     inputBar1.simulate('focus');
-    inputBar1.simulate('change', { target: { value: 'HelloHello' } })    
+    inputBar1.simulate('change', { target: { value: 'PASSWORD-PASSWORD' } })    
     const addButton = wrapper.find('.add-button');                       
     addButton.first().simulate('click')
 
-    expect(wrapper.state().filters).toHaveLength(2); 
-
-    const dropdownButton2 = wrapper.find('DropdownToggle button.dropdown-button').at(1)
-    dropdownButton2.simulate('click');
-    const userId = wrapper.find('.dropdown-ITEM').at(2);
-    userId.simulate('click');
-    const inputBar2 = wrapper.find('Input#input-bar').at(1)
-    inputBar2.simulate('focus');
-    inputBar2.simulate('change', { target: { value: 'USERID-USERID' } })
-   
-    
-
-    addButton.first().simulate('click')
-
-    console.log(wrapper.debug())
-    
-    // expect(wrapper.state().filters).toHaveLength(3); 
-
-    console.log(wrapper.state().filters)
-
+    expect(wrapper.state().filters).toHaveLength(2);                                  // filter state has length of 2
+    const clearFiltersBtn = wrapper.find('ModalHeader button.clear-filters')          // find clear btn
+    clearFiltersBtn.simulate('click')                                                 // click clear btn 
+    expect(wrapper.state().filters).toEqual([])                                       // filters state is now empty
+    done()
   })
-
-
-
 
 
 })

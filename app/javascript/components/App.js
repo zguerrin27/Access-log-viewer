@@ -7,7 +7,6 @@ import "semantic-ui-css/semantic.min.css";
 import 'antd/dist/antd.css';
 
 const csrfToken = document.querySelector('[name="csrf-token"]').content;
-// console.log(csrfToken)
 axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
 
 class App extends Component {

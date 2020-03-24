@@ -24,43 +24,19 @@ class SearchContainer extends Component {
 
   }
 
-  // ===================================================================================  //split for array => string for params 
-
-
-  // componentDidMount() {  // res => state                                             // nicer code
-  //   const res = this.search()
-  //   this.updateState(res)
-  // }
-
-  // async search(page = 0) {    //  res => 
-  //   const pageNum = page === 0 ? 0 : page;
-  //   const params = { filters: this.state.filters, page: pageNum }
-  //   const url = "http://localhost:3000/search/"
-  //   const res = await this.makeAJAXCall({ url, search: params })
-  //   return res
-  // }
-
-  // async makeAJAXCall({ url, search }){
-  //   const res = await axios.post(url, { search });   // post to back end 
-  //   return res;
-  // }
-
-  // ===================================================================================== // working with get
-
-
   componentDidMount() {
     this.loadData()
   }
 
-  componentDidUpdate(){
-    let url = this.state.paramsURLforBookmark 
-    console.log("URL", url)
-    let newUrl = url.replace('http://localhost:3000', '');
-    console.log("NEW URL ", newUrl)                         // this is what needs to be added to http://localhost:3000
-    // window.location.hash = newUrl;       
-    console.log("SEARCH: ", window.location.search)
-    console.log("ACTUAL PATH NAME: ", window.location.pathname)   
-  }
+  // componentDidUpdate(){
+  //   let url = this.state.paramsURLforBookmark 
+  //   console.log("URL", url)
+  //   let newUrl = url.replace('http://localhost:3000', '');
+  //   console.log("NEW URL ", newUrl)                         // this is what needs to be added to http://localhost:3000
+  //   // window.location.hash = newUrl;       
+  //   console.log("SEARCH: ", window.location.search)
+  //   console.log("ACTUAL PATH NAME: ", window.location.pathname)   
+  // }
 
   loadData = (page = 0) => {
     const addedInfo = page === 0 ? "" : "?page=" + page;
@@ -79,7 +55,7 @@ class SearchContainer extends Component {
 
   hoistFiltersFromModal = (filters) => {    // gets state from modal then calls load to search db 
     this.setState({
-      filters: filters
+      filters: filters 
     })
     setTimeout(() => {      // work around for timing the hoist of filters state from modal comp
       this.loadData()       // need to wait a milisecond for the setstate to update the load criteria in setstate line above

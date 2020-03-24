@@ -9,26 +9,26 @@ class RequestsController < ApplicationController
     end
 
     def search 
-        search_params = params[:search]   # grab params sent from front end 
-        search_by = {}                    # create empty hash for normal searches
-        modified_requests = {}             # create empty hash for searches that indclude modifiers.."less than..etc" I will call this modifed searches
-        search_params.each do |search_param|   # loop through each line 
-            search_param = JSON.parse(search_param)   # parse to JSON
-            unless [search_param["dropdownVal"], search_param["searchQuery"]].any?(&:blank?)   # if either dropdown or searchQ is empty or blank skip
-                if search_param["modifier"].empty?                                          # if the line is not a modifed search..push values into  search_by hash
+        search_params = params[:search]                                                                                                 # grab params sent from front end 
+        search_by = {}                                                                                                                  # create empty hash for normal searches
+        modified_requests = {}                                                                                                          # create empty hash for searches that indclude modifiers.."less than..etc" I will call this modifed searches
+        search_params.each do |search_param|                                                                                            # loop through each line 
+            search_param = JSON.parse(search_param)                                                                                     # parse to JSON
+            unless [search_param["dropdownVal"], search_param["searchQuery"]].any?(&:blank?)                                            # if either dropdown or searchQ is empty or blank skip
+                if search_param["modifier"].empty?                                                                                      # if the line is not a modifed search..push values into  search_by hash
                     search_by[search_param["dropdownVal"]] = search_param["searchQuery"]
-                elsif !search_param["modifier"].empty?                                          # if modifier is not empty...push results to the added_filter private method...save results in the modified requests hash
+                elsif !search_param["modifier"].empty?                                                                                  # if modifier is not empty...push results to the added_filter private method...save results in the modified requests hash
                     modified_requests = added_filter(search_param["dropdownVal"], search_param["modifier"], search_param["searchQuery"])
                 end
             end
         end
-        unmodified_requests = if search_by.empty?                       # if search_by is empty get everything in db 
-                                            Request.all                 # when you do Request...it is referencing the model
+        unmodified_requests = if search_by.empty?                                                                                       # if search_by is empty get everything in db 
+                                            Request.all                                                                                 # when you do Request...it is referencing the model
                                         else
-                                            Request.where(search_by)    # else get just the results that match the params 
+                                            Request.where(search_by)                                                                    # else get just the results that match the params 
                                         end
-        filtered_requests = unmodified_requests.merge(modified_requests)  # merge both normal searches with modified searches 
-        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10)  # return to user 
+        filtered_requests = unmodified_requests.merge(modified_requests)                                                                # merge both normal searches with modified searches 
+        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10)                                                 # return to user 
         render json: {
             requests: @requests,
             page: @requests.current_page,

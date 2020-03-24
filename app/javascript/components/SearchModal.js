@@ -94,7 +94,8 @@ class SearchModal extends Component {
           ...f,
           dropdownVal: e.target.value,              // set title of column for search params 
           dropdownLabel: e.target.textContent,      // display more Human Friendly verison on dropdown Title
-          searchQuery: ''                           // set SQ to empty to protect data and error checking 
+          searchQuery: '',                          // set SQ to empty to protect data and error checking
+          modifier: ''                              // clear modifer field as well
         }
       } else {
         return f;
@@ -196,8 +197,8 @@ class SearchModal extends Component {
   placeholderPicker = (dropdownVal) => {
     const options = {
       ip_address: "'17.23.156.123...'",
-      password: "'Enter password'",
-      user_id: "'Enter user_id'",
+      password: "'Enter Password'",
+      user_id: "'Enter User ID'",
       request_method: "'GET'",
       request_path: "'/path/of/request...'",
       request_protocol: "'HTTP/1.0'",
@@ -239,7 +240,7 @@ class SearchModal extends Component {
   }
 
   checkForPresence = (value) => {
-    if(value > 0){
+    if(value.trim().length > 0){
       return true;
     } else {
       return false;
@@ -260,21 +261,21 @@ class SearchModal extends Component {
         break;
       case 'password':                                
         formErrors.password =
-          value.length < 1       
-            ? 'Entered Password is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered Password is not valid';
         break;
       case 'user_id':                           
         formErrors.user_id =
-          value.length < 1
-            ? 'Entered User ID is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered User ID is not valid';
         break;
       case 'timestamp':                            
         formErrors.timestamp =
-          value.length < 1
-            ? 'Entered Timestamp is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered Timestamp is not valid';
         break;
       case 'request_method':                      
         formErrors.request_method =
@@ -284,9 +285,9 @@ class SearchModal extends Component {
         break;
       case 'request_path':                         
         formErrors.request_path =
-          value.length < 1
-            ? 'Entered Request Path is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered Request Path is not valid';
         break;
       case 'request_protocol':                     
         formErrors.request_protocol =
@@ -308,15 +309,15 @@ class SearchModal extends Component {
         break;
       case 'referrer':                            
         formErrors.referrer =
-          value.length < 1
-            ? 'Entered Referrer is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered Referrer is not valid';
         break;
       case 'browser':
         formErrors.browser =                     
-          value.length < 1
-            ? 'Entered Browser is not valid'
-            : '';
+          this.checkForPresence(value)
+            ? ''
+            : 'Entered Browser is not valid';
         break;
       default:
         break;
@@ -370,7 +371,6 @@ class SearchModal extends Component {
     const searchQuerysEmpty = obj => obj.searchQuery.trim() === ''
     const jumbotronFilters = this.state.filters[0]
     const filtersInJumbotron = this.displayFiltersinJumbotron()
-
 
     return (
       <div className="main-modal-container">

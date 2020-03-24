@@ -7,47 +7,50 @@ import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 axios.defaults.adapter = require("axios/lib/adapters/http");
+// const nock = require("nock");
 
-const filterState = [{
-  searchQuery: 'test-password-SQ',
-  dropdownVal: 'password',
-  dropdownLabel: 'Password',
-  modifier: 'test-modifier',
-  key: "66ab0-7c28-83d-b7b-5b880636a21b"
-}]
+// const filterState = [{
+//   searchQuery: 'test-password-SQ',
+//   dropdownVal: 'password',
+//   dropdownLabel: 'Password',
+//   modifier: 'test-modifier',
+//   key: "66ab0-7c28-83d-b7b-5b880636a21b"
+// }]
 
-
-
-
+// const REQUEST1 = {
+//   ip: "83.149.9.216",
+//   pword: "-",
+//   userId: "-",
+//   timestamp: "12/12/12",
+//   requestMethod: "GET",
+//   requestPath: "/path/to/endpoint",
+//   requestProtocol: "HTTP/1.1",
+//   responseCode: "200",
+//   responseSize: "23456",
+//   referrer: "http://apple.com/secretHelicopter",
+//   browser: "Safari",
+//   fullRequest: "GET /path/to/endpoint HTTP/1.1",
+//   fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)"
+// };
 
 describe("Input Bar Component", () => {
 
-  it("checks to see if a dropdown button renders", async (done) => {
 
-    
-    // const SmWrapper = mount(<SearchModal />)
-    // SmWrapper.find("Button button.modal-button-1").first().simulate('click');  // open modal
+  // beforeEach(() => {
+  //   nock("http://localhost:3000")
+  //     .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22,%22modifier%22:%22%22%7D")               // ?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D 
+  //     .reply(200, {
+  //       data: {
+  //         requests: [
+  //           REQUEST1
+  //         ],
+  //         page: 1,
+  //         pages: 1
+  //       }
+  //     });
+  // });
 
-    // const wrapper = shallow(<InputBar />)
-
-   
-    // const dropdownButton = smWrapper.find('DropdownToggle button.dropdown-button').at(0)  // simulate dropdown click
-    // dropdownButton.simulate('click');
-
-    // console.log("BLAHHHHHHHHH",smWrapper.debug())
-
-   
-    // setTimeout(() => {
-    //   const wrapper = shallow(<InputBar />)
-    //   expect(wrapper.find('#input-bdddar'))
-    //   console.log("BLAHHH 222222222222", wrapper.debug())
-    //   done();                                                  // finally call done to tell test to finish
-    // }, 1000)
-
-
-    // expect(wrapper.find('DropdownMenu'))
-    // done()
-  })
+  
 
   // it("checks to see if input bar renders", async (done) => {
   //   const wrapper = shallow(<InputBar />)
@@ -57,12 +60,15 @@ describe("Input Bar Component", () => {
 
   it("checks to see if dropdown opens when clicked", async (done) => {
     const wrapper = shallow(<InputBar />)
-    const dropdownOpenState = wrapper.state().dropdownOpen
-    expect(dropdownOpenState).toEqual(false)
-    wrapper.find('InputGroupButtonDropdown').simulate('click')
-    const newDropdownOpenState = wrapper.state().dropdownOpen
-    expect(newDropdownOpenState).toEqual(true)
+    console.log(wrapper.debug())
+    // const dropdownOpenState = wrapper.state().dropdownOpen
+    // expect(dropdownOpenState).toEqual(false)
+    // wrapper.find('InputGroupButtonDropdown').simulate('click')
+    // const newDropdownOpenState = wrapper.state().dropdownOpen
+    // expect(newDropdownOpenState).toEqual(true)
+    setTimeout(()=> {
     done();
+    }, 2000)
   })
 
   // it("checks to see if dropdown closes when clicked", async (done) => {
