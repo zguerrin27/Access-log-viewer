@@ -3,7 +3,7 @@ const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2
 const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
-const requestMethodChecker = (value) => {
+export const requestMethodChecker = (value) => {
     let successValues = [
         "GET",
         "HEAD",
@@ -20,7 +20,7 @@ const requestMethodChecker = (value) => {
     return false;
 }
 
-const requestProtocolChecker = (value) => {
+export const requestProtocolChecker = (value) => {
     let successValues = [
         "HTTP/1.0",
         "HTTP/1.1",
@@ -32,14 +32,19 @@ const requestProtocolChecker = (value) => {
     return false;
 }
 
-const checkForPresence = (value) => {
-    if (value.trim().length > 0) {
+export const checkForPresence = (value) => {
+    let trimedVal;
+    if(typeof value === "string"){
+       trimedVal = value.trim()
+    } else {
+       trimedVal = value
+    }
+    if (trimedVal.length > 0) {
         return true;
     } else {
         return false;
     }
 }
-
 
 export default function validateInput(name, value, formErrors) {
 

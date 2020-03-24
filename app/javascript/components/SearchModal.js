@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid';
 import InputBar from './InputBar';
-import validateInput from './validate';
+import validateInput from './Validate';
 import { FaRegTimesCircle } from "react-icons/fa";
 import {
   Button,
