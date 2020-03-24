@@ -115,7 +115,7 @@ describe("SearchContainer Component", () => {
     input.simulate('change', { target: { value: '83.149.9.216' } }) // fill input area with ip address to be searched
     const updateBtn = wrapper.find("Button button.search-button")
     updateBtn.simulate('click')  // search for new results
-    let key = wrapper.state().filters[0].key  // grab newly generated uuid / key and save to key var
+    let key = wrapper.state().filters[0].key  // grab newly generated uuid / key and save to key var for nock
     nock("http://localhost:3000")
       .get("/search/?search[]=%7B%22searchQuery%22:%2283.149.9.216%22,%22dropdownVal%22:%22ip_address%22,%22dropdownLabel%22:%22+IP+Address+%22,%22modifier%22:%22%22,%22key%22:%22" + key + "%22%7D")            
       .reply(200, {
@@ -127,7 +127,7 @@ describe("SearchContainer Component", () => {
           pages: 1
         }
       });
-    setTimeout(()=> {                                                                   // we need the timeout to allow for the update state method to be called etc 
+    setTimeout(()=> {                                                                    // we need the timeout to allow for the update state method to be called etc 
       expect(wrapper.state().logs.data.requests[0]).toEqual(REQUEST1)                    // this asserts that the nock was hit and returned the correct information                     
       expect(wrapper.state().logs.data.page).toEqual(1)                                                  
       expect(wrapper.state().logs.data.pages).toEqual(1) 

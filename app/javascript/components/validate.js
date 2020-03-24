@@ -1,37 +1,44 @@
-// function requestMethodChecker(value) {
-//     let successValues = [
-//         "GET",
-//         "HEAD",
-//         "POST",
-//         "PUT",
-//         "DELETE",
-//         "CONNECT",
-//         "OPTIONS",
-//         "TRACE"
-//     ]
-//     if (successValues.indexOf(value) !== -1) {
-//         return true;
-//     }
-// }
 
-// requestProtocolChecker(value){
-//     let successValues = [
-//         "HTTP/1.0",
-//         "HTTP/1.1",
-//         "HTTP/2.0"
-//     ]
-//     if (successValues.indexOf(value) !== -1) {
-//         return true;
-//     }
-// }
-
-const validIpRegex =
-    RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
 const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
+const requestMethodChecker = (value) => {
+    let successValues = [
+        "GET",
+        "HEAD",
+        "POST",
+        "PUT",
+        "DELETE",
+        "CONNECT",
+        "OPTIONS",
+        "TRACE"
+    ]
+    if (successValues.indexOf(value) !== -1) {
+        return true;
+    }
+    return false;
+}
 
+const requestProtocolChecker = (value) => {
+    let successValues = [
+        "HTTP/1.0",
+        "HTTP/1.1",
+        "HTTP/2.0"
+    ]
+    if (successValues.indexOf(value) !== -1) {
+        return true;
+    }
+    return false;
+}
 
+const checkForPresence = (value) => {
+    if (value.trim().length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 export default function validateInput(name, value, formErrors) {
@@ -41,67 +48,67 @@ export default function validateInput(name, value, formErrors) {
             formErrors.ip_address =
                 validIpRegex.test(value)
                     ? ''
-                    : 'Entered ip_address is not valid!';
+                    : 'Entered IP Address is not valid';
             break;
         case 'password':
             formErrors.password =
-                value.length < 1
-                    ? 'Entered password is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered Password is not valid';
             break;
         case 'user_id':
             formErrors.user_id =
-                value.length < 1
-                    ? 'Entered user_id is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered User ID is not valid';
             break;
         case 'timestamp':
             formErrors.timestamp =
-                value.length < 1
-                    ? 'Entered timestamp is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered Timestamp is not valid';
             break;
         case 'request_method':
             formErrors.request_method =
                 requestMethodChecker(value)
                     ? ''
-                    : 'Entered request_method is not valid!';
+                    : 'Entered Request Method is not valid';
             break;
         case 'request_path':
             formErrors.request_path =
-                value.length < 1
-                    ? 'Entered request_path is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered Request Path is not valid';
             break;
         case 'request_protocol':
             formErrors.request_protocol =
                 requestProtocolChecker(value)
                     ? ''
-                    : 'Entered request_protocol is not valid!';
+                    : 'Entered Request Protocol is not valid';
             break;
         case 'response_code':
             formErrors.response_code =
                 validResponseCodeRegex.test(value)
                     ? ''
-                    : 'Entered response_code is not valid!';
+                    : 'Entered Response Code is not valid';
             break;
         case 'response_size':
             formErrors.response_size =
                 validResponseSizeRegex.test(value)
                     ? ''
-                    : 'Entered response_size is not valid!';
+                    : 'Entered Response Size is not valid';
             break;
         case 'referrer':
             formErrors.referrer =
-                value.length < 1
-                    ? 'Entered referrer is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered Referrer is not valid';
             break;
         case 'browser':
             formErrors.browser =
-                value.length < 1
-                    ? 'Entered browser is not valid!'
-                    : '';
+                checkForPresence(value)
+                    ? ''
+                    : 'Entered Browser is not valid';
             break;
         default:
             break;
@@ -110,4 +117,3 @@ export default function validateInput(name, value, formErrors) {
 
     return formErrors;
 }
-

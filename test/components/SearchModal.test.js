@@ -10,20 +10,6 @@ import { Button, InputGroupButtonDropdown, ModalHeader } from 'reactstrap';
 configure({ adapter: new Adapter() });
 axios.defaults.adapter = require("axios/lib/adapters/http");
 
-  // const filters = [
-  //   {
-  //     searchQuery: 'test-password',
-  //     dropdownVal: 'password'
-  //   },
-  //   {
-  //     searchQuery: 'test-userId',
-  //     dropdownVal: 'user_id'
-  //   },
-  //   {
-  //     searchQuery: '83.149.9.216',
-  //     dropdownVal: 'ip_address'
-  //   }
-  // ]
 
 
 describe("SearchModal Component User Interaction", () => {

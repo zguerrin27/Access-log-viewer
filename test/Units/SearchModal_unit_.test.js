@@ -52,7 +52,6 @@ describe("SearchModal Unit Tests", () => {
   )
 
   test("checks for presence of atleast 1 character. Each data typechecked", () => {
-
     expect(checkForPresence("string")).toEqual(true)
     expect(checkForPresence()).toEqual(false)
     expect(checkForPresence(101)).toEqual(true)

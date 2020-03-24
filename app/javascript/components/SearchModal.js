@@ -9,24 +9,16 @@ import {
   ModalHeader,
   ModalBody,
   Form,
-  FormGroup,
-  Jumbotron,
-  Container
+  FormGroup
 } from 'reactstrap';
 
-
-const validateForm = (formErrors) => {         // if all of the strings in formErros are empty, returns true 
+const validateForm = (formErrors) => {         // if all of the strings in formErrors are empty, returns true 
   let valid = true;
   Object.values(formErrors).forEach(
     (val) => val.length > 0 && (valid = false)
   );
   return valid;
 }
-
-const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
-const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5]$)/);
-const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
-
 
 class SearchModal extends Component {
   constructor(props) {
@@ -104,7 +96,7 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-  chooseRequestControlledDropdown = (e, row) => { // req protocol and req method 
+  chooseRequestControlledDropdown = (e, row) => {   // req protocol and req method 
     e.preventDefault();
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
@@ -136,7 +128,7 @@ class SearchModal extends Component {
     this.updateModalState(updatedFilters)
   }
 
-  dateTimeOnChange = (dateString, filterRow) => {   // ant design datetime picker 
+  dateTimeOnChange = (dateString, filterRow) => {    // ant design datetime picker 
     const filters = this.state.filters;
     const updatedFilters = filters.map(f => {
       if (filterRow.key === f.key) {
@@ -210,119 +202,12 @@ class SearchModal extends Component {
     return options[dropdownVal]
   }
 
-  requestMethodChecker = (value) => {
-    let successValues = [
-      "GET",
-      "HEAD",
-      "POST",
-      "PUT",
-      "DELETE",
-      "CONNECT",
-      "OPTIONS",
-      "TRACE"
-    ]
-    if (successValues.indexOf(value) !== -1) {
-      return true;
-    }
-    return false;
-  }
-
-  requestProtocolChecker = (value) => {
-    let successValues = [
-      "HTTP/1.0",
-      "HTTP/1.1",
-      "HTTP/2.0"
-    ]
-    if (successValues.indexOf(value) !== -1) {
-      return true;
-    }
-    return false;
-  }
-
-  checkForPresence = (value) => {
-    if(value.trim().length > 0){
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   handleErrors = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    let formErrors = this.state.formErrors;
-
-    switch (name) {
-      case 'ip_address':                          
-        formErrors.ip_address =
-          validIpRegex.test(value)  
-            ? ''
-            : 'Entered IP Address is not valid';
-        break;
-      case 'password':                                
-        formErrors.password =
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered Password is not valid';
-        break;
-      case 'user_id':                           
-        formErrors.user_id =
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered User ID is not valid';
-        break;
-      case 'timestamp':                            
-        formErrors.timestamp =
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered Timestamp is not valid';
-        break;
-      case 'request_method':                      
-        formErrors.request_method =
-          this.requestMethodChecker(value)
-            ? ''
-            : 'Entered Request Method is not valid';
-        break;
-      case 'request_path':                         
-        formErrors.request_path =
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered Request Path is not valid';
-        break;
-      case 'request_protocol':                     
-        formErrors.request_protocol =
-          this.requestProtocolChecker(value)
-            ? ''
-            : 'Entered Request Protocol is not valid';
-        break;
-      case 'response_code':                        
-        formErrors.response_code =
-          validResponseCodeRegex.test(value)
-            ? ''
-            : 'Entered Response Code is not valid';
-        break;
-      case 'response_size':                      
-        formErrors.response_size =
-          validResponseSizeRegex.test(value)
-            ? ''
-            : 'Entered Response Size is not valid';
-        break;
-      case 'referrer':                            
-        formErrors.referrer =
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered Referrer is not valid';
-        break;
-      case 'browser':
-        formErrors.browser =                     
-          this.checkForPresence(value)
-            ? ''
-            : 'Entered Browser is not valid';
-        break;
-      default:
-        break;
-    }
-    this.setState({ formErrors, [name]: value })
+    const formErrors = this.state.formErrors;
+    const validatedFormErrors = validateInput(name, value, formErrors)      // sends values to validate.js file 
+    this.setState({ formErrors: validatedFormErrors })                      // sets state with validated formErrors object
   }
 
   clearFiltersInJumbotron = (e) => {
