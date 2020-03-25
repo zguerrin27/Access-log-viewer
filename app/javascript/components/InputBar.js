@@ -10,7 +10,6 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-
 class InputBar extends Component {
   constructor(props) {
     super(props)
@@ -48,7 +47,24 @@ class InputBar extends Component {
     })
   }
 
-  loopOverDropdownOptions = () => {
+  greyedOut = (options, flag) => {
+    return options.map(option => {
+      let grayedOut = false
+      this.props.filtersState.map(f => {
+        if (f.modifier === option.value) {
+          grayedOut = true                        
+        }
+      })
+      if (flag === 1){
+        return <DropdownItem onClick={this.props.chooseRequestControlledDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+      }
+      if (flag === 2) {
+        return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
+      }
+    })
+  }
+
+  loopOverDropdownOptions = () => {               
     const options = [
       { value: 'ip_address', text: 'IP Address' },
       { value: 'password', text: 'Password' },
@@ -63,7 +79,7 @@ class InputBar extends Component {
       { value: 'browser', text: 'Browser' }
     ]
     return options.map(option => {
-      var grayedOut = false
+      let grayedOut = false
       this.props.filtersState.map(f => {
         if (f.dropdownVal === option.value) {
           grayedOut = true
@@ -73,25 +89,18 @@ class InputBar extends Component {
     })
   }
 
-  reqProtocolOptions = () => {    
+  reqProtocolOptions = () => {
+    let flag = 1;
     const options = [
       { value: 'HTTP/1.0' },
       { value: 'HTTP/1.1' },
       { value: 'HTTP/2.0' }
     ]
-    return options.map(option => {
-      var grayedOut = false
-      this.props.filtersState.map(f => {
-        if (f.searchQuery === option.value) {
-          grayedOut = true                        
-        }
-      })
-      return <DropdownItem onClick={this.props.chooseRequestControlledDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
-    })
+    return this.greyedOut(options, flag)
   }
 
-
-  reqMethOptions = () => {    
+  reqMethOptions = () => {
+    let flag = 1;    
     const options = [
       { value: 'GET' },
       { value: 'POST' },
@@ -102,67 +111,37 @@ class InputBar extends Component {
       { value: 'OPTIONS' },
       { value: 'TRACE' }
     ]
-    return options.map(option => {
-      var grayedOut = false
-      this.props.filtersState.map(f => {
-        if (f.searchQuery === option.value) {
-          grayedOut = true
-        }
-      })
-      return <DropdownItem onClick={this.props.chooseRequestControlledDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
-    })
+    return this.greyedOut(options, flag)
   }
 
-
   resSizeModifierOptions = () => {
+    let flag = 2;
     const options = [
       { value: 'Less Than' },
       { value: 'Exactly' },
       { value: 'Larger Than' }
     ]
-    return options.map(option => {
-      var grayedOut = false
-      this.props.filtersState.map(f => {
-        if (f.searchQuery === option.value) {
-          grayedOut = true
-        }
-      })
-      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
-    })
+    return this.greyedOut(options, flag)
   }
 
   urlModifierOptions = () => {
+    let flag = 2;
     const options = [
       { value: 'Starts With' },
       { value: 'Contains' },
       { value: 'Ends With' }
     ]
-    return options.map(option => {
-      var grayedOut = false
-      this.props.filtersState.map(f => {
-        if (f.searchQuery === option.value) {
-          grayedOut = true
-        }
-      })
-      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
-    })
+    return this.greyedOut(options, flag)
   }
 
   timestampModifierOptions = () => {
+    let flag = 2;
     const options = [
       { value: 'Before Time' },
       { value: 'At Time' },
       { value: 'After Time' }
     ]
-    return options.map(option => {
-      var grayedOut = false
-      this.props.filtersState.map(f => {
-        if (f.searchQuery === option.value) {
-          grayedOut = true
-        }
-      })
-      return <DropdownItem onClick={this.props.chooseModifierDropdown} key={option.value} disabled={grayedOut} value={option.value} > {option.value} </DropdownItem>
-    })
+    return this.greyedOut(options, flag)
   }
 
   render() {

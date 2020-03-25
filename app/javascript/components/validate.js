@@ -1,6 +1,6 @@
 
 const validIpRegex = RegExp(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
-const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])/);
+const validResponseCodeRegex = RegExp(/^([1-5][0-9][0-5])$/);
 const validResponseSizeRegex = RegExp(/^([0-9]*)$/);
 
 export const requestMethodChecker = (value) => {

@@ -14,8 +14,12 @@ describe("App Component", ()=> {
 
   it("checks to see if NavBar Component Renders", () => {
     const wrapper = shallow(<App />)
-    console.log(wrapper.debug())
+    expect(wrapper.find('NavigationBar'))
   })
 
+  it("checks to see if SearchContainer Component Renders", () => {
+    const wrapper = shallow(<App />)
+    expect(wrapper.find('SearchContainer'))
+  })
 
 })
