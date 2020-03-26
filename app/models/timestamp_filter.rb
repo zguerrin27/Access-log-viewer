@@ -1,13 +1,13 @@
 class TimestampFilter
 
-  def initialize(params)
-    @params = params
-  end
+  # def initialize(params)
+  #   @params = params
+  # end
 
 
-  def build_query(scope)
+  # def build_query(scope)
 
-  end
+  # end
 
 end
 

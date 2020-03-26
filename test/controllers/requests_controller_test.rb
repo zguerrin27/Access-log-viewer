@@ -12,21 +12,21 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "load should return a list of logs to the main page" do 
-  #   get "/search"
-  #   assert_match "requests", @response.body
-  #   body = JSON.parse(@response.body)
-  #   browser = "Safari"
-  #   url = "http://apple.com/secretHelicopter"
-  #   ip = "83.149.9.216"
-  #   currentPage = 1
-  #   totalPages = 1
-  #   assert_equal browser, body['requests'][0]['browser']
-  #   assert_equal ip, body['requests'][0]['ip']
-  #   assert_equal url, body['requests'][0]['referrer']
-  #   assert_equal currentPage, body['page']
-  #   assert_equal totalPages, body['pages']
-  # end
+  test "initial render should return a list of logs to the main page" do 
+    get "/search/"
+    # assert_match "requests", @response.body
+    # body = JSON.parse(@response.body)
+    # browser = "Safari"
+    # url = "http://apple.com/secretHelicopter"
+    # ip = "83.149.9.216"
+    # currentPage = 1
+    # totalPages = 1
+    # assert_equal browser, body['requests'][0]['browser']
+    # assert_equal ip, body['requests'][0]['ip']
+    # assert_equal url, body['requests'][0]['referrer']
+    # assert_equal currentPage, body['page']
+    # assert_equal totalPages, body['pages']
+  end
 
   # test "should return logs from the db that match the provided ip address" do 
   #   get "/search/", params: {'search' => "83.149.9.216"}
@@ -36,6 +36,3 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   # end
 
 end
-
-
-
