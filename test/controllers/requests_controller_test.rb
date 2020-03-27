@@ -132,7 +132,6 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
     assert_equal request2, body['requests'][1]
   end
 
-
   test "should return logs that match the given Request Method. " do
     get "/search/", params: {"search"=>["{\"searchQuery\":\"GET\",\"dropdownVal\":\"request_method\",\"modifier\":\"\"}"]}
     assert_equal @response.status, 200
@@ -272,4 +271,3 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
 end
-

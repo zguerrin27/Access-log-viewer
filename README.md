@@ -26,25 +26,29 @@ Coverage report generated for Minitest to Access-Log-Viewer/coverage. 317 / 317 
 zacharyguerrin@Zacharys-MacBook-Pro Access-Log-Viewer %  
 
 Front End Tests:  
-PASS  test/Components/Validate.test.js  
-PASS  test/Components/InputBar.test.js  
-PASS  test/Components/SearchModal.test.js  
-PASS  test/Components/App.test.js  
-PASS  test/Components/SearchContainer.test.js (10.929s)  
+PASS  test/Components/Validate.test.js
+PASS  test/Components/InputBar.test.js
+PASS  test/Components/SearchModal.test.js
+PASS  test/Components/App.test.js
+PASS  test/Components/SearchContainer.test.js (5.129s)
 
-Test Suites: 5 passed, 5 total  
-Tests:       26 passed, 26 total  
-Snapshots:   0 total  
-Time:        11.988s, estimated 12s  
+Test Suites: 5 passed, 5 total
+Tests:       25 passed, 25 total
+Snapshots:   0 total
+Time:        5.906s
+Ran all test suites.
+✨  Done in 8.08s.
+
 
 
 Technologies Used:  
-Webpack
-Babel    
+
 React  
 Ruby on Rails  
 PostgresQL  
 Jest & Enzyme  
+Webpack  
+Babel  
 Nock  
 MiniTest  
 Axios  

@@ -4,18 +4,12 @@ import SearchContainer from "../../app/javascript/components/SearchContainer";
 
 import { shallow, mount } from "enzyme";
 import { configure } from "enzyme";
-
 import Adapter from "enzyme-adapter-react-16";
 import SearchModal from "../../app/javascript/components/SearchModal";
 configure({ adapter: new Adapter() });
-
 axios.defaults.adapter = require("axios/lib/adapters/http");
 
 const nock = require("nock");
-
-const FILTERS = {
-  ip_address: "83.149.9.216"
-}
 
 const REQUEST1 = {
   ip: "83.149.9.216",
@@ -33,12 +27,11 @@ const REQUEST1 = {
   fullBrowserInfo: "Mozilla (Macintosh; Intel Mac OS X 10_9_1)"
 };
 
-
 describe("SearchContainer Component", () => {
 
   beforeEach(() => {
     nock("http://localhost:3000")
-      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22,%22modifier%22:%22%22%7D")               // ?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22%7D 
+      .get("/search/?search[]=%7B%22searchQuery%22:%22%22,%22dropdownVal%22:%22%22,%22modifier%22:%22%22%7D")             
       .reply(200, {
         data: {
           requests: [
@@ -63,44 +56,30 @@ describe("SearchContainer Component", () => {
     }, 1000)
   });
 
-  it("checks if Modal Container renders", (done) => {                 //async?       
-    setTimeout(() => {
+  it("checks if Modal Container renders", (done) => {                        
       const wrapper = mount(<SearchContainer />);                            
       expect(wrapper.find('.main-modal-container').exists()).toEqual(true)
-      done();    
-      // wrapper.unmount()                                                      
-    }, 1000)
+      done();                                                       
   });
 
-  it("checks if Pagination renders", (done) => {                     //async?
-    setTimeout(() => {
+  it("checks if Pagination renders", (done) => {                     
       const wrapper = mount(<SearchContainer />);
       expect(wrapper.find('.pagination-container').exists()).toEqual(true)
-      // wrapper.unmount()
       done();
-    }, 1000)
   });
 
-  it("checks if Main Table renders", (done) => {                    //async?
-    setTimeout(() => {
+  it("checks if Main Table renders", (done) => {                    
       const wrapper = mount(<SearchContainer />);
       expect(wrapper.find('#table-div').exists()).toEqual(true)
-      // wrapper.unmount()
       done();
-    }, 1000)
   });
 
 
-  it("checks to see if SearchContainer component renders", (done) => {  //async?
-    setTimeout(() => {
+  it("checks to see if SearchContainer component renders", (done) => {  
       const wrapper = mount(<SearchContainer />);  
       expect(wrapper.find(".search-container").exists()).toEqual(true)  
-      // wrapper.unmount()
-      done();        
-    }, 1000)                                              
+      done();                                                      
   });
-
-
 
   it("checks to see if the update button make an AJAX call with given data, and update log state", (done) => {
     const wrapper = mount(<SearchContainer />)
@@ -134,14 +113,5 @@ describe("SearchContainer Component", () => {
       done()
     }, 1000)
   })
-
-
-
-
-  it("IDK why i need this", (done) => {   //async? everything fails without this timeout....
-    setTimeout(() => {
-      done();
-    }, 1000)
-  });
 
 });
