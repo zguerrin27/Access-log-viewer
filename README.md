@@ -4,13 +4,17 @@ This application allows a user to read and search through Apache Server Access-l
   
 It uses React.js for the front end, Ruby on Rails for the API and postgresQL for the DB. 
 
-The search feature allows a user to search by 11 parameters, ( each section of the Access-Log ), along with modifiers such as "starts with", "contains", "ends with" etc.  
+The search feature allows a user to search by 11 parameters, ( each column of the Access-Log ), along with modifiers such as "starts with", "contains", "ends with" etc.  
 
-All Technologies Used:  
+Important Information:  
+Instead of Create-React-App, I used webpacker to serve 
+
+
+Technologies Used:  
 React  
 Ruby on Rails  
 PostgresQL  
-Jest & Enzyme
+Jest & Enzyme  
 Nock  
 MiniTest  
 Axios  

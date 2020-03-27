@@ -28,8 +28,8 @@ class RequestsController < ApplicationController
                                             Request.where(search_by)                                                                    # else get just the results that match the params 
                                         end
         filtered_requests = unmodified_requests.merge(modified_requests)                                                                # merge both normal searches with modified searches 
-        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10)                                                 # return to user 
-        render json: {
+        @requests = filtered_requests.paginate(:page => params[:page], :per_page => 10) 
+        render json: {          # return to user 
             requests: @requests,
             page: @requests.current_page,
             pages: @requests.total_pages

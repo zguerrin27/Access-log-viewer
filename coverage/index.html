@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.11.0/application.js' type='text/javascript'></script>
     <link href='./assets/0.11.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.11.0/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.11.0/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.11.0/favicon.png" />
   </head>
 
@@ -14,7 +14,7 @@
       <img src="./assets/0.11.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-26T11:43:34-04:00">2020-03-26T11:43:34-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-27T10:32:56-04:00">2020-03-27T10:32:56-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -22,15 +22,15 @@
   <h2>
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
-      <span class="red">
-  30.61%
+      <span class="green">
+  100.0%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.31
+       <span class="green">
+         2.55
        </span>
     </span> hits/line
     )
@@ -39,15 +39,15 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>4</b> files in total.
+    <b>7</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>49</b> relevant lines,
-    <span class="green"><b>15</b> lines covered</span> and
-    <span class="red"><b>34</b> lines missed. </span>
-    (<span class="red">
-  30.61%
+    <b>317</b> relevant lines,
+    <span class="green"><b>317</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed. </span>
+    (<span class="green">
+  100.0%
 </span>
 )
   </div>
@@ -70,6 +70,39 @@
     <tbody>
       
         <tr class="t-file">
+          <td class="strong t-file__name"><a href="#8d430fa56436486d8ca7eb837605f959bd7c27d5" class="src_link" title="app/controllers/requests_controller.rb">app/controllers/requests_controller.rb</a></td>
+          <td class="green strong t-file__coverage">100.0 %</td>
+          <td>68</td>
+          <td>34</td>
+          <td>34</td>
+          <td>0</td>
+          <td>9.15</td>
+          
+        </tr>
+      
+        <tr class="t-file">
+          <td class="strong t-file__name"><a href="#eb3855a1e6d943f17513aa500e7d0d1365191bde" class="src_link" title="app/models/application_record.rb">app/models/application_record.rb</a></td>
+          <td class="green strong t-file__coverage">100.0 %</td>
+          <td>3</td>
+          <td>2</td>
+          <td>2</td>
+          <td>0</td>
+          <td>1.0</td>
+          
+        </tr>
+      
+        <tr class="t-file">
+          <td class="strong t-file__name"><a href="#5e343b32416e5ba60f3725303c9c7527e235fe67" class="src_link" title="app/models/request.rb">app/models/request.rb</a></td>
+          <td class="green strong t-file__coverage">100.0 %</td>
+          <td>21</td>
+          <td>14</td>
+          <td>14</td>
+          <td>0</td>
+          <td>1.86</td>
+          
+        </tr>
+      
+        <tr class="t-file">
           <td class="strong t-file__name"><a href="#8d3c9c4c69850720cd5d83c930b65d3c515b2d97" class="src_link" title="test/controllers/pages_controller_test.rb">test/controllers/pages_controller_test.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
           <td>10</td>
@@ -82,23 +115,23 @@
       
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#9c43ad9403fb3d37f551a7c3f905e593c9ac8a5c" class="src_link" title="test/controllers/requests_controller_test.rb">test/controllers/requests_controller_test.rb</a></td>
-          <td class="red strong t-file__coverage">50.0 %</td>
-          <td>38</td>
-          <td>10</td>
-          <td>5</td>
-          <td>5</td>
-          <td>0.5</td>
+          <td class="green strong t-file__coverage">100.0 %</td>
+          <td>275</td>
+          <td>228</td>
+          <td>228</td>
+          <td>0</td>
+          <td>1.83</td>
           
         </tr>
       
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#d6555c8ac10789f1cc7722b9e6d6b3e9371ad7e3" class="src_link" title="test/models/request_test.rb">test/models/request_test.rb</a></td>
-          <td class="red strong t-file__coverage">17.14 %</td>
+          <td class="green strong t-file__coverage">100.0 %</td>
           <td>59</td>
           <td>35</td>
-          <td>6</td>
-          <td>29</td>
-          <td>0.17</td>
+          <td>35</td>
+          <td>0</td>
+          <td>1.37</td>
           
         </tr>
       
@@ -128,6 +161,1111 @@
       </div>
 
       <div class="source_files">
+      
+        <div class="source_table" id="8d430fa56436486d8ca7eb837605f959bd7c27d5">
+  <div class="header">
+    <h3>app/controllers/requests_controller.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>34</b> relevant lines.
+      <span class="green"><b>34</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class RequestsController &lt; ApplicationController</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def index</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby">        </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def load</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def search </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="12">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        search_params = params[:search]                                                                                                 # grab params sent from front end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="13">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        search_by = {}                                                                                                                  # create empty hash for normal searches</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="14">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        modified_requests = {}                                                                                                          # create empty hash for searches that indclude modifiers..&quot;less than..etc&quot; I will call this modifed searches</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="15">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        search_params.each do |search_param|                                                                                            # loop through each line </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="16">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">            search_param = JSON.parse(search_param)                                                                                     # parse to JSON</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="17">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">            unless [search_param[&quot;dropdownVal&quot;], search_param[&quot;searchQuery&quot;]].any?(&amp;:blank?)                                            # if either dropdown or searchQ is empty or blank skip</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="18" data-linenumber="18">
+            <span class="hits">18</span>
+            
+
+            
+
+            <code class="ruby">                if search_param[&quot;modifier&quot;].empty?                                                                                      # if the line is not a modifed search..push values into  search_by hash</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="19">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">                    search_by[search_param[&quot;dropdownVal&quot;]] = search_param[&quot;searchQuery&quot;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="20">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">                elsif !search_param[&quot;modifier&quot;].empty?                                                                                  # if modifier is not empty...push results to the added_filter private method...save results in the modified requests hash</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="21">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">                    modified_requests = added_filter(search_param[&quot;dropdownVal&quot;], search_param[&quot;modifier&quot;], search_param[&quot;searchQuery&quot;])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
+            
+            
+
+            
+
+            <code class="ruby">                end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">            end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="25">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        unmodified_requests = if search_by.empty?                                                                                       # if search_by is empty get everything in db </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="13" data-linenumber="26">
+            <span class="hits">13</span>
+            
+
+            
+
+            <code class="ruby">                                            Request.all                                                                                 # when you do Request...it is referencing the model</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">                                        else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="28">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">                                            Request.where(search_by)                                                                    # else get just the results that match the params </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
+            <code class="ruby">                                        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="30">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        filtered_requests = unmodified_requests.merge(modified_requests)                                                                # merge both normal searches with modified searches </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="31">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        @requests = filtered_requests.paginate(:page =&gt; params[:page], :per_page =&gt; 10) </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="19" data-linenumber="32">
+            <span class="hits">19</span>
+            
+
+            
+
+            <code class="ruby">        render json: {          # return to user </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby">            requests: @requests,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">            page: @requests.current_page,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">            pages: @requests.total_pages</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby">        }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="37">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    private </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def added_filter(dropdownVal, modifier, value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="42">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">        @requests ||= Request                      # this is a placeholder work around so that the @requests the first time = Request (empty model) ||= means &quot;Or equals&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="43">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">        case modifier</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Less Than&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.less_than_size(value)   # changed this to @requests = @requests from @request = Request.scope because the Request.scope overrides itsself each time. The @requests = @requests.scope keeps adding to the @requests instance variable </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Exactly&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.exact_size(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Larger Than&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.larger_than_size(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Before Time&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.before_time(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;At Time&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="53">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.at_time(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;After Time&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                @requests = @requests.after_time(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Starts With&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="57">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">                dropdownVal == &quot;request_path&quot; ? @requests = @requests.request_path_starts_with(value) : @requests = @requests.referrer_starts_with(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Contains&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="59">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">                dropdownVal == &quot;request_path&quot; ? @requests = @requests.request_path_contains(value) : @requests = @requests.referrer_contains(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">            when &quot;Ends With&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="61">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">                dropdownVal == &quot;request_path&quot; ? @requests = @requests.request_path_ends_with(value) : @requests = @requests.referrer_ends_with(value)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">            end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="64">
+            <span class="hits">12</span>
+            
+
+            
+
+            <code class="ruby">        return @requests</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="eb3855a1e6d943f17513aa500e7d0d1365191bde">
+  <div class="header">
+    <h3>app/models/application_record.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>2</b> relevant lines.
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class ApplicationRecord &lt; ActiveRecord::Base</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  self.abstract_class = true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="5e343b32416e5ba60f3725303c9c7527e235fe67">
+  <div class="header">
+    <h3>app/models/request.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>14</b> relevant lines.
+      <span class="green"><b>14</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class Request &lt; ApplicationRecord </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    validates_presence_of :ip_address, :password, :user_id, :timestamp, :request_method, :request_path, :request_protocol, :response_code, :response_size, :referrer, :browser, :full_request, :full_browser_info</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="5">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :less_than_size, -&gt;(size) { where(&quot;response_size &lt; ?&quot;, size)}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="6">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :larger_than_size, -&gt;(size) { where(&quot;response_size &gt; ?&quot;, size)} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="7">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :exact_size, -&gt;(size) { where(&quot;response_size = ?&quot;, size)}  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="9">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :before_time, -&gt;(time) { where(&quot;timestamp &lt; ?&quot;, time)}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="10">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :at_time, -&gt;(time) { where(&quot;timestamp = ?&quot;, time)} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="11">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :after_time, -&gt;(time) { where(&quot;timestamp &gt; ?&quot;, time)}  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="13">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :request_path_starts_with, -&gt;(user_input) { where(&quot;request_path ILIKE :prefix&quot;, prefix: &quot;#{user_input}%&quot;)}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="14">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :request_path_contains, -&gt;(user_input) { where(&quot;request_path ILIKE ?&quot;, &quot;%#{user_input}%&quot;)} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="15">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :request_path_ends_with, -&gt;(user_input) { where(&quot;request_path ILIKE :suffix&quot;, suffix: &quot;%#{user_input}&quot;)}  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="17">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :referrer_starts_with, -&gt;(user_input) { where(&quot;referrer ILIKE :prefix&quot;, prefix: &quot;#{user_input}%&quot;)}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="18">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :referrer_contains, -&gt;(user_input) { where(&quot;referrer ILIKE ?&quot;, &quot;%#{user_input}%&quot;)} </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="19">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    scope :referrer_ends_with, -&gt;(user_input) { where(&quot;referrer ILIKE :suffix&quot;, suffix: &quot;%#{user_input}&quot;)}  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby">end </code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
       
         <div class="source_table" id="8d3c9c4c69850720cd5d83c930b65d3c515b2d97">
   <div class="header">
@@ -274,8 +1412,8 @@
   <div class="header">
     <h3>test/controllers/requests_controller_test.rb</h3>
     <h4>
-      <span class="red">
-  50.0%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -284,9 +1422,9 @@
     
 
     <div class="t-line-summary">
-      <b>10</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <b>228</b> relevant lines.
+      <span class="green"><b>228</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -352,19 +1490,19 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="6">
-            
-            
-
+          <li class="covered" data-hits="20" data-linenumber="6">
+            <span class="hits">20</span>
             
 
-            <code class="ruby">    request = {ip_address: &quot;83.149.9.216&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;12/12/12&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/endpoint&quot;, request_protocol: &quot;HTTP/1.1&quot;, response_code: &quot;200&quot;, response_size: &quot;23456&quot;, referrer: &quot;http://apple.com/secretHelicopter&quot;, browser: &quot;Safari&quot;, full_request: &quot;GET /path/to/endpoint HTTP/1.1&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+            
+
+            <code class="ruby">    request = {id: 1, ip_address: &quot;83.149.9.216&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;2017-03-26T13:46:04.000Z&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/endpoint&quot;, request_protocol: &quot;HTTP/1.1&quot;, response_code: &quot;200&quot;, response_size: &quot;23456&quot;, referrer: &quot;http://apple.com/secretHelicopter&quot;, browser: &quot;Safari&quot;, full_request: &quot;GET /path/to/endpoint HTTP/1.1&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="7">
-            
+          <li class="covered" data-hits="20" data-linenumber="7">
+            <span class="hits">20</span>
             
 
             
@@ -374,101 +1512,101 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="covered" data-hits="20" data-linenumber="8">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    request = {id: 2, ip_address: &quot;50.500.5.500&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;2019-03-26T13:46:04.000Z&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/endpoint2&quot;, request_protocol: &quot;HTTP/1.2&quot;, response_code: &quot;200&quot;, response_size: &quot;500000&quot;, referrer: &quot;http://apple.com/secretJetPack&quot;, browser: &quot;Chrome&quot;, full_request: &quot;GET /path/to/endpoint2 HTTP/1.2&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="9">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    Request.create!(request)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="10">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    request = {id: 3, ip_address: &quot;80.800.8.800&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;2016-03-26T13:46:04.000Z&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/another/endpoint3&quot;, request_protocol: &quot;HTTP/1.2&quot;, response_code: &quot;200&quot;, response_size: &quot;88888&quot;, referrer: &quot;http://apple.com/secretStarDestroyer&quot;, browser: &quot;IE&quot;, full_request: &quot;GET /path/to/endpoint3 HTTP/1.2&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="11">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    Request.create!(request)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="12">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    request = {id: 4, ip_address: &quot;22.222.2.222&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;2014-03-26T13:46:04.000Z&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/endpoint4&quot;, request_protocol: &quot;HTTP/1.1&quot;, response_code: &quot;200&quot;, response_size: &quot;500&quot;, referrer: &quot;http://apple.com/secretStarDestroyer&quot;, browser: &quot;Safari&quot;, full_request: &quot;GET /path/to/endpoint4 HTTP/1.2&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="13">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    Request.create!(request)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="14">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    request = {id: 5, ip_address: &quot;45.455.4.455&quot;, password: &quot;-&quot;, user_id: &quot;-&quot;, timestamp: &quot;2010-03-26T13:46:04.000Z&quot;, request_method: &quot;GET&quot;, request_path: &quot;/path/to/endpoint5&quot;, request_protocol: &quot;HTTP/2.0&quot;, response_code: &quot;200&quot;, response_size: &quot;200000&quot;, referrer: &quot;http://apple.com/secretStarDestroyer&quot;, browser: &quot;Safari&quot;, full_request: &quot;GET /path/to/endpoint5 HTTP/2.0&quot;, full_browser_info: &quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="20" data-linenumber="15">
+            <span class="hits">20</span>
+            
+
+            
+
+            <code class="ruby">    Request.create!(request)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
             
 
             <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  test &quot;should get requests index page&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="11">
-            
-            
-
-            
-
-            <code class="ruby">    get &quot;/&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="12">
-            
-            
-
-            
-
-            <code class="ruby">    assert_response :success</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="13">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  test &quot;initial render should return a list of logs to the main page&quot; do </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="16">
-            
-            
-
-            
-
-            <code class="ruby">    get &quot;/search/&quot;</code>
           </li>
         </div>
       
@@ -479,40 +1617,40 @@
 
             
 
-            <code class="ruby">    # assert_match &quot;requests&quot;, @response.body</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # body = JSON.parse(@response.body)</code>
+            
+
+            <code class="ruby">  test &quot;should get requests index page&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # browser = &quot;Safari&quot;</code>
+            
+
+            <code class="ruby">    get &quot;/&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # url = &quot;http://apple.com/secretHelicopter&quot;</code>
+            
+
+            <code class="ruby">    assert_response :success</code>
           </li>
         </div>
       
@@ -523,7 +1661,7 @@
 
             
 
-            <code class="ruby">    # ip = &quot;83.149.9.216&quot;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -534,78 +1672,210 @@
 
             
 
-            <code class="ruby">    # currentPage = 1</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="23">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # totalPages = 1</code>
+            
+
+            <code class="ruby">  test &quot;initial render should return a list of logs to the main page. With pagination&quot; do </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # assert_equal browser, body[&#39;requests&#39;][0][&#39;browser&#39;]</code>
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;\&quot;,\&quot;dropdownVal\&quot;:\&quot;\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # assert_equal ip, body[&#39;requests&#39;][0][&#39;ip&#39;]</code>
+            
+
+            <code class="ruby">    assert_match &quot;requests&quot;, @response.body</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # assert_equal url, body[&#39;requests&#39;][0][&#39;referrer&#39;]</code>
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # assert_equal currentPage, body[&#39;page&#39;]</code>
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="28">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # assert_equal totalPages, body[&#39;pages&#39;]</code>
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="30">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    currentPage = 1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    totalPages = 1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="35">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="36">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal currentPage, body[&#39;page&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal totalPages, body[&#39;pages&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -616,7 +1886,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -627,73 +1897,227 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="43">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # test &quot;should return logs from the db that match the provided ip address&quot; do </code>
+            
+
+            <code class="ruby">  test &quot;should return log from the db that match the provided ip address&quot; do </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #   get &quot;/search/&quot;, params: {&#39;search&#39; =&gt; &quot;83.149.9.216&quot;}</code>
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;50.500.5.500\&quot;,\&quot;dropdownVal\&quot;:\&quot;ip_address\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #   assert_equal @response.status, 200</code>
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #   body = JSON.parse(@response.body)</code>
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #   assert_equal &#39;83.149.9.216&#39;, body[&#39;requests&#39;][0][&#39;ip_address&#39;]</code>
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # end</code>
+            
+
+            <code class="ruby">    assert_equal 2, body[&#39;requests&#39;][0][&#39;id&#39;]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;50.500.5.500&#39;, body[&#39;requests&#39;][0][&#39;ip_address&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;-&#39;, body[&#39;requests&#39;][0][&#39;password&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;-&#39;, body[&#39;requests&#39;][0][&#39;user_id&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;2019-03-26T13:46:04.000Z&#39;, body[&#39;requests&#39;][0][&#39;timestamp&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="53">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;GET&#39;, body[&#39;requests&#39;][0][&#39;request_method&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="54">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;/path/to/endpoint2&#39;, body[&#39;requests&#39;][0][&#39;request_path&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;HTTP/1.2&#39;, body[&#39;requests&#39;][0][&#39;request_protocol&#39;] </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 200, body[&#39;requests&#39;][0][&#39;response_code&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 500000, body[&#39;requests&#39;][0][&#39;response_size&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;http://apple.com/secretJetPack&#39;, body[&#39;requests&#39;][0][&#39;referrer&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="59">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;Chrome&#39;, body[&#39;requests&#39;][0][&#39;browser&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;GET /path/to/endpoint2 HTTP/1.2&#39;, body[&#39;requests&#39;][0][&#39;full_request&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="61">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal &#39;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&#39;, body[&#39;requests&#39;][0][&#39;full_browser_info&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -704,13 +2128,2334 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="64">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs matching given password&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;-\&quot;,\&quot;dropdownVal\&quot;:\&quot;password\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="71">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="73">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="75">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs matching given user id&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;-\&quot;,\&quot;dropdownVal\&quot;:\&quot;user_id\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="84">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="88">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="89">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="90">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="91">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="92">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="94">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="95">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that have dates before the provided date. This tests the modifier &#39;Before Time&#39; in timestamp&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="99">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;2020-03-26 13:46:04\&quot;,\&quot;dropdownVal\&quot;:\&quot;timestamp\&quot;,\&quot;modifier\&quot;:\&quot;Before Time\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="100">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="101">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="102">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="103">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="104">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="105">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="106">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="107">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="108">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="110">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="111">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="113">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that occur at a given time. This tests the modifier &#39;At Time&#39; in timestamp&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="116">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;2016-03-26 13:46:04\&quot;,\&quot;dropdownVal\&quot;:\&quot;timestamp\&quot;,\&quot;modifier\&quot;:\&quot;At Time\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="117">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="118">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="119">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="120">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="124">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that occur after a given time. This tests the modifier &#39;After Time&#39; in timestamp&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="125">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;2016-03-26 13:46:04\&quot;,\&quot;dropdownVal\&quot;:\&quot;timestamp\&quot;,\&quot;modifier\&quot;:\&quot;After Time\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="126">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="127">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="128">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 2, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="129">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="131">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="132">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="134">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="135">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="136">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that match the given Request Method. &quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="137">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;GET\&quot;,\&quot;dropdownVal\&quot;:\&quot;request_method\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="138">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="139">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="140">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="141">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="142">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="144">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="145">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="146">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="147">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="148">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="149">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="150">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="151">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="152">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="153">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that start with /path in the request_path. This tests the modifier &#39;Starts With&#39; &quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="154">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;/path\&quot;,\&quot;dropdownVal\&quot;:\&quot;request_path\&quot;,\&quot;modifier\&quot;:\&quot;Starts With\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="157">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="158">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="159">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="160">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="161">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="162">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="163">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="164">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="165">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="166">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="167">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="168">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="169">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="170">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that contains &#39;another&#39; in the path. This tests the modifier &#39;Contains&#39; in request_path&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="171">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;another\&quot;,\&quot;dropdownVal\&quot;:\&quot;request_path\&quot;,\&quot;modifier\&quot;:\&quot;Contains\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="172">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="173">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="174">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="175">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="176">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="177">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="178">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="179">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that end with &#39;endpoint5&#39; in the request_path. This tests the modifier &#39;Ends With&#39; and request_path&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="180">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;endpoint5\&quot;,\&quot;dropdownVal\&quot;:\&quot;request_path\&quot;,\&quot;modifier\&quot;:\&quot;Ends With\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="181">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="182">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="183">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="184">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="185">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="186">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="188">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs matching given request protocol type&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="189">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;HTTP/1.1\&quot;,\&quot;dropdownVal\&quot;:\&quot;request_protocol\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="190">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="191">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="192">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 2, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="193">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="194">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="195">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="196">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="197">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="198">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="199">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that are less than the searched amount. This tests the modifier &#39;Less Than&#39; and the response_size scope&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="200">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;30000\&quot;,\&quot;dropdownVal\&quot;:\&quot;response_size\&quot;,\&quot;modifier\&quot;:\&quot;Less Than\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="201">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="202">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="203">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 2, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="204">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="205">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="206">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="207">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="208">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="209">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="210">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that exactly match searched amount. This tests the modifier &#39;Exactly&#39; &quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="211">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;500000\&quot;,\&quot;dropdownVal\&quot;:\&quot;response_size\&quot;,\&quot;modifier\&quot;:\&quot;Exactly\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="212">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="213">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="214">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="215">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="216">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="217">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="218">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="219">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that are more than the searched amount. This tests the modifier More Than&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="220">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;100000\&quot;,\&quot;dropdownVal\&quot;:\&quot;response_size\&quot;,\&quot;modifier\&quot;:\&quot;Larger Than\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="221">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="222">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="223">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 2, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="224">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="225">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="226">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="227">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="228">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="229">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="230">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that start with &#39;htt&#39;. This tests the modifier &#39;Starts With&#39; in referrer&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="231">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;htt\&quot;,\&quot;dropdownVal\&quot;:\&quot;referrer\&quot;,\&quot;modifier\&quot;:\&quot;Starts With\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="232">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="233">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="234">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 5, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="235">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="236">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="237">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request3 = {&quot;id&quot;=&gt;3, &quot;ip_address&quot;=&gt;&quot;80.800.8.800&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2016-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/another/endpoint3&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;88888, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;IE&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint3 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="238">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request4 = {&quot;id&quot;=&gt;4, &quot;ip_address&quot;=&gt;&quot;22.222.2.222&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2014-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint4&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint4 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="239">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request5 = {&quot;id&quot;=&gt;5, &quot;ip_address&quot;=&gt;&quot;45.455.4.455&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2010-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint5&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/2.0&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;200000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretStarDestroyer&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint5 HTTP/2.0&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="240">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="241">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="242">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request3, body[&#39;requests&#39;][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="243">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request4, body[&#39;requests&#39;][3]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="244">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request5, body[&#39;requests&#39;][4]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="245">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="246">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="247">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that contains &#39;Jet&#39; in the referrer. This tests the modifier &#39;Contains&#39; in referrer&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="248">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;Jet\&quot;,\&quot;dropdownVal\&quot;:\&quot;referrer\&quot;,\&quot;modifier\&quot;:\&quot;Contains\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="249">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="250">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="251">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="252">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="253">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="254">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="255">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="256">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that ends with &#39;Helicopter&#39; in the referrer. This tests the modifier &#39;Ends With&#39; in referrer&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="257">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;Helicopter\&quot;,\&quot;dropdownVal\&quot;:\&quot;referrer\&quot;,\&quot;modifier\&quot;:\&quot;Ends With\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="258">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="259">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="260">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="261">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request1 = {&quot;id&quot;=&gt;1, &quot;ip_address&quot;=&gt;&quot;83.149.9.216&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2017-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;23456, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretHelicopter&quot;, &quot;browser&quot;=&gt;&quot;Safari&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint HTTP/1.1&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="262">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request1, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="263">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="264">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="265">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  test &quot;should return logs that match the given browser. This tests the Browser search feature&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="266">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/search/&quot;, params: {&quot;search&quot;=&gt;[&quot;{\&quot;searchQuery\&quot;:\&quot;Chrome\&quot;,\&quot;dropdownVal\&quot;:\&quot;browser\&quot;,\&quot;modifier\&quot;:\&quot;\&quot;}&quot;]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="267">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal @response.status, 200</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="268">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    body = JSON.parse(@response.body)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="269">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal 1, body[&#39;requests&#39;].length</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="270">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    request2 = {&quot;id&quot;=&gt;2, &quot;ip_address&quot;=&gt;&quot;50.500.5.500&quot;, &quot;password&quot;=&gt;&quot;-&quot;, &quot;user_id&quot;=&gt;&quot;-&quot;, &quot;timestamp&quot;=&gt;&quot;2019-03-26T13:46:04.000Z&quot;, &quot;request_method&quot;=&gt;&quot;GET&quot;, &quot;request_path&quot;=&gt;&quot;/path/to/endpoint2&quot;, &quot;request_protocol&quot;=&gt;&quot;HTTP/1.2&quot;, &quot;response_code&quot;=&gt;200, &quot;response_size&quot;=&gt;500000, &quot;referrer&quot;=&gt;&quot;http://apple.com/secretJetPack&quot;, &quot;browser&quot;=&gt;&quot;Chrome&quot;, &quot;full_request&quot;=&gt;&quot;GET /path/to/endpoint2 HTTP/1.2&quot;, &quot;full_browser_info&quot;=&gt;&quot;Mozilla (Macintosh; Intel Mac OS X 10_9_1)&quot;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="271">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    assert_equal request2, body[&#39;requests&#39;][0]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="272">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="273">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="274">
             
             
 
             
 
             <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="275">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -723,8 +4468,8 @@
   <div class="header">
     <h3>test/models/request_test.rb</h3>
     <h4>
-      <span class="red">
-  17.14%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -734,8 +4479,8 @@
 
     <div class="t-line-summary">
       <b>35</b> relevant lines.
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>29</b> lines missed.</span>
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -801,8 +4546,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="6">
-            
+          <li class="covered" data-hits="2" data-linenumber="6">
+            <span class="hits">2</span>
             
 
             
@@ -845,8 +4590,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="10">
-            
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
             
 
             
@@ -889,8 +4634,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="14">
-            
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
             
 
             
@@ -900,8 +4645,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="15">
-            
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
             
 
             
@@ -922,8 +4667,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="17">
-            
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
             
 
             
@@ -933,8 +4678,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="18">
-            
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
             
 
             
@@ -955,8 +4700,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="20">
-            
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
             
@@ -966,8 +4711,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="21">
-            
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
             
@@ -988,8 +4733,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="23">
-            
+          <li class="covered" data-hits="1" data-linenumber="23">
+            <span class="hits">1</span>
             
 
             
@@ -999,8 +4744,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="24">
-            
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
             
 
             
@@ -1021,8 +4766,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="26">
-            
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
             
@@ -1032,8 +4777,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="27">
-            
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
             
 
             
@@ -1054,8 +4799,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
-            
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
             
 
             
@@ -1065,8 +4810,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="30">
-            
+          <li class="covered" data-hits="1" data-linenumber="30">
+            <span class="hits">1</span>
             
 
             
@@ -1087,8 +4832,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="32">
-            
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
             
 
             
@@ -1098,8 +4843,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="33">
-            
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
             
 
             
@@ -1120,8 +4865,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="35">
-            
+          <li class="covered" data-hits="1" data-linenumber="35">
+            <span class="hits">1</span>
             
 
             
@@ -1131,8 +4876,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="36">
-            
+          <li class="covered" data-hits="1" data-linenumber="36">
+            <span class="hits">1</span>
             
 
             
@@ -1153,8 +4898,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="38">
-            
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
             
 
             
@@ -1164,8 +4909,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="39">
-            
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
             
 
             
@@ -1186,8 +4931,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="41">
-            
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
             
 
             
@@ -1197,8 +4942,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="42">
-            
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
             
 
             
@@ -1219,8 +4964,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="44">
-            
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
             
 
             
@@ -1230,8 +4975,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
             
 
             
@@ -1252,8 +4997,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="47">
-            
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
             
 
             
@@ -1263,8 +5008,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="48">
-            
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
             
 
             
@@ -1285,8 +5030,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
-            
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
             
 
             
@@ -1296,8 +5041,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="51">
-            
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
             
 
             
@@ -1351,8 +5096,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="56">
-            
+          <li class="covered" data-hits="13" data-linenumber="56">
+            <span class="hits">13</span>
             
 
             
