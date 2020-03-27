@@ -1,4 +1,7 @@
-# README
+# README  
+  
+TO USE:  
+  
 
 This application allows a user to read and search through Apache Server Access-logs.  
   
@@ -8,7 +11,7 @@ The search feature allows a user to search by 11 parameters, ( each column of th
 
 Important Information:  
 
-Instead of Create-React-App, I use Webpack to compile Javascript, CSS, and React components. In app/views/requests/index.html.erb you will see <%= javascript_pack_tag 'index' %> which injects the react code into my rails app.  
+In app/views/requests/index.html.erb you will see <%= javascript_pack_tag 'index' %> which injects the react code into my rails app.  
     
 In app/javascript/components you will find the components I created.  
 In app/controllers/requests_controller.rb you will find my API.  
@@ -23,7 +26,7 @@ Back End Tests:
 Finished in 2.631386s, 8.3606 runs/s, 45.2233 assertions/s.  
 22 runs, 119 assertions, 0 failures, 0 errors, 0 skips  
 Coverage report generated for Minitest to Access-Log-Viewer/coverage. 317 / 317 LOC (100.0%) covered.  
-zacharyguerrin@Zacharys-MacBook-Pro Access-Log-Viewer %  
+  
 
 Front End Tests:  
 PASS  test/Components/Validate.test.js  
@@ -36,17 +39,14 @@ Test Suites: 5 passed, 5 total
 Tests:       25 passed, 25 total  
 Snapshots:   0 total  
 Time:        5.906s  
-Ran all test suites.  
-✨  Done in 8.08s.  
+   
+    
   
-
-
-
-WORK IN PROGRESS:  
-I need to complete the Share feature.   ******            
-  
+********** WORK IN PROGRESS **********    
+I need to complete the Share feature.               
    
   
+            
 Technologies Used:  
 
 React  

@@ -282,13 +282,12 @@ class SearchModal extends Component {
            null
          }
 
-        <Button
+        {/* <Button
           color="none"
           size="lg"
           className="share-button btn btn-outline-dark">
           Share
-        </Button>
-       
+        </Button> */}
 
         <Modal isOpen={this.state.modal}>
           {
@@ -301,79 +300,39 @@ class SearchModal extends Component {
             </div>
           }
              
-          <ModalBody>
-            <Form >
-              <FormGroup>
+        <ModalBody>
+          <Form >
+            <FormGroup>
 
-                {filters.map((filterRow, index) => {
-                  const placeholder = this.placeholderPicker(filterRow.dropdownVal)
-                  return (
-                    <InputBar
-                      chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
-                      onChange={(e) => { this.combineOnChanges(e, filterRow) }}
-                      dateTimeOnChange={(e) => this.dateTimeOnChange(e, filterRow)}
-                      removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
-                      filtersState={this.state.filters}
-                      searchQuery={filterRow.searchQuery}
-                      modifier={filterRow.modifier}
-                      key={filterRow.key}
-                      filtersLength={this.state.filters.length - 1}
-                      deleteButton={this.state.filters.length - 1 === 0}
-                      index={index}
-                      dropdownTitle={filterRow.dropdownVal}
-                      dropdownLabel={filterRow.dropdownLabel}
-                      placeholder={placeholder}
-                      formErrors={this.state.formErrors}
-                      chooseRequestControlledDropdown={(e) => this.chooseRequestControlledDropdown(e, filterRow)}
-                      chooseModifierDropdown={(e) => this.chooseModifierDropdown(e, filterRow)}
-                    />
-                  )
-                })}
+              {filters.map((filterRow, index) => {
+                const placeholder = this.placeholderPicker(filterRow.dropdownVal)
+                return (
+                  <InputBar
+                    chooseValueFromDropdown={(e) => this.chooseValueFromDropdown(e, filterRow)}
+                    onChange={(e) => { this.combineOnChanges(e, filterRow) }}
+                    dateTimeOnChange={(e) => this.dateTimeOnChange(e, filterRow)}
+                    removeFilterRow={(e) => this.removeFilterRow(e, filterRow)}
+                    filtersState={this.state.filters}
+                    searchQuery={filterRow.searchQuery}
+                    modifier={filterRow.modifier}
+                    key={filterRow.key}
+                    filtersLength={this.state.filters.length - 1}
+                    deleteButton={this.state.filters.length - 1 === 0}
+                    index={index}
+                    dropdownTitle={filterRow.dropdownVal}
+                    dropdownLabel={filterRow.dropdownLabel}
+                    placeholder={placeholder}
+                    formErrors={this.state.formErrors}
+                    chooseRequestControlledDropdown={(e) => this.chooseRequestControlledDropdown(e, filterRow)}
+                    chooseModifierDropdown={(e) => this.chooseModifierDropdown(e, filterRow)}
+                  />
+                )
+              })}
 
-                {
-                  filtersLength <= 10    // dont allow add button if length of filters === 11 or more
-                    ?
-                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true  // actual witchcraft... if any of these 3 fields are empty...disable the add and update button
-                      ?
-                      <div>
-                        <p className="text-above-add-btn">All fields must have value entered</p>
-                        <Button
-                          disabled
-                          color="none"
-                          block
-                          className="add-button"
-                          onClick={(e) => this.addNewFilterRow(e)} >
-                          Add Another Filter
-                        </Button>
-                        <Button
-                          disabled
-                          color="none"
-                          block
-                          onClick={(e) => this.search(e)}
-                          className="search-button">
-                          Update Results
-                        </Button>
-                      </div>
-                      :                                                                   // else...provide a wokring add and update button
-                      <div>
-                        <p className="error-message">{errorToBeDisplayed}</p>
-                        <Button
-                          color="none"
-                          block
-                          className="add-button"
-                          onClick={(e) => this.addNewFilterRow(e)} >
-                          Add Another Filter
-                        </Button>
-                        <Button
-                          color="none"
-                          block
-                          onClick={(e) => this.search(e)}
-                          className="search-button">
-                          Update Results
-                        </Button>
-                      </div>
-                    :
-                    filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true && filtersLength === 11
+              {
+                filtersLength <= 10    // dont allow add button if length of filters === 11 or more
+                  ?
+                  filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true  // actual witchcraft... if any of these 3 fields are empty...disable the add and update button
                     ?
                     <div>
                       <p className="text-above-add-btn">All fields must have value entered</p>
@@ -381,14 +340,29 @@ class SearchModal extends Component {
                         disabled
                         color="none"
                         block
+                        className="add-button"
+                        onClick={(e) => this.addNewFilterRow(e)} >
+                        Add Another Filter
+                      </Button>
+                      <Button
+                        disabled
+                        color="none"
+                        block
                         onClick={(e) => this.search(e)}
-                        className="search-button-max-filters">
+                        className="search-button">
                         Update Results
                       </Button>
                     </div>
-                    :
+                    :                                                                   // else...provide a wokring add and update button
                     <div>
                       <p className="error-message">{errorToBeDisplayed}</p>
+                      <Button
+                        color="none"
+                        block
+                        className="add-button"
+                        onClick={(e) => this.addNewFilterRow(e)} >
+                        Add Another Filter
+                      </Button>
                       <Button
                         color="none"
                         block
@@ -397,15 +371,39 @@ class SearchModal extends Component {
                         Update Results
                       </Button>
                     </div>
-                }
+                  :
+                  filters.some(dropdownsEmpty) === true || filters.some(searchQuerysEmpty) === true || filters.some(modifiersEmpty) === true && filtersLength === 11
+                  ?
+                  <div>
+                    <p className="text-above-add-btn">All fields must have value entered</p>
+                    <Button
+                      disabled
+                      color="none"
+                      block
+                      onClick={(e) => this.search(e)}
+                      className="search-button-max-filters">
+                      Update Results
+                    </Button>
+                  </div>
+                  :
+                  <div>
+                    <p className="error-message">{errorToBeDisplayed}</p>
+                    <Button
+                      color="none"
+                      block
+                      onClick={(e) => this.search(e)}
+                      className="search-button">
+                      Update Results
+                    </Button>
+                  </div>
+              }
 
-              </FormGroup>
-            </Form>
-          </ModalBody>
-        </Modal>
+            </FormGroup>
+          </Form>
+        </ModalBody>
+      </Modal>
 
-
-      </div>
+    </div>
     )
   }
 
