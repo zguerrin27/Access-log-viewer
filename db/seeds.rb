@@ -8,9 +8,9 @@ require 'date'
 require 'time'
 
 # file_path = params[:file_path]
-# "../apache_logs2"
+# "../apache_logs2" if 1 level outside project folder
 
-File.open("../apache_logs2", "r") do |file|
+File.open("./apache_logs2", "r") do |file|
     
     access_logs = []
 

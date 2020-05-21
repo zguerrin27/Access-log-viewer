@@ -2,6 +2,15 @@
   
 TO USE:  
   
+Clone  
+gem install bundler  
+bundler install  
+yarn install  
+rake db:migrate  
+**Configure seeds file 'apache_logs2' in seeds.rb...line 13  
+I have included the file in this project folder  
+Run seeds  
+Rails S to start app  
 
 This application allows a user to read and search through Apache Server Access-logs.  
   
@@ -22,8 +31,7 @@ In app/test/Components you can see all of my tests for my React components/valid
 In app/test/controllers/requests_controller_test.rb you can see all of my tests for my API.  
 In app/test/models/request_test.rb you can see my model tests.  
   
-Back End Tests:    
-Finished in 2.631386s, 8.3606 runs/s, 45.2233 assertions/s.  
+Back End Tests:      
 22 runs, 119 assertions, 0 failures, 0 errors, 0 skips  
 Coverage report generated for Minitest to Access-Log-Viewer/coverage. 317 / 317 LOC (100.0%) covered.  
   
