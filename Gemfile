@@ -20,7 +20,7 @@ gem 'useragent'
 gem 'bootstrap', '~> 4.0'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
-gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'json', '~> 2.3'
 gem 'rails-controller-testing'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
